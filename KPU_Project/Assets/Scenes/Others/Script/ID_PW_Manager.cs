@@ -17,7 +17,7 @@ namespace Manager
 
         [SerializeField] private GameObject Input_ID;
         [SerializeField] private GameObject Input_PW;
-
+        [SerializeField] private GameObject inform_Text;
         #region 프로퍼티
         public string ID
         {
@@ -32,7 +32,8 @@ namespace Manager
         private void Start()
         {
             Input_ID = GameObject.Find("InputID").gameObject;
-            Input_PW = GameObject.Find("InputPW").gameObject; 
+            Input_PW = GameObject.Find("InputPW").gameObject;
+            inform_Text.GetComponent<Text>().text = "";
         }
 
         public void check_login()
@@ -42,11 +43,23 @@ namespace Manager
                 ID = Input_ID.transform.GetChild(2).gameObject.GetComponent<Text>().text;
                 PW = Input_PW.GetComponent<InputField>().text;
 
-                Debug.Log(ID + "\n" + PW);
+                if (ID.Length == 0 || PW.Length == 0)
+                    throw new NullReferenceException();
+
+
+                MainScene_Manager.mainscene_manager.check_userinformation<string>(ID, PW);
+                
             }
             catch (NullReferenceException)
             {
-                Debug.Log("입력이 없음.");
+                if(ID.Length == 0)
+                {
+                    inform_Text.GetComponent<Text>().text = "아이디를 입력해 주세요.";
+                }
+                else if(PW.Length == 0)
+                {
+                    inform_Text.GetComponent<Text>().text = "비밀번호를 입력해 주세요.";
+                }
             }
         }
     }
