@@ -116,7 +116,7 @@ MonoBehaviour:
   m_MinSize: {x: 917, y: 448}
   m_MaxSize: {x: 22012, y: 10024}
   vertical: 0
-  controlID: 69
+  controlID: 49
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_MinSize: {x: 204, y: 448}
   m_MaxSize: {x: 4004, y: 8048}
   vertical: 1
-  controlID: 51
+  controlID: 14
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -386,9 +386,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: 3a110000
       m_LastClickedID: 0
-      m_ExpandedIDs: 72e8fdff9eeafdff6cfbfdff2efcfdfffe060100
+      m_ExpandedIDs: defbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -645,7 +645,8 @@ MonoBehaviour:
     m_SceneHandles: 
     m_ShowAllHits: 0
     m_SearchArea: 1
-    m_Folders: []
+    m_Folders:
+    - Assets/VR/VR_Scripts/VR_Scripts_Scenario1
   m_ViewMode: 0
   m_StartGridSize: 64
   m_LastFolders: []
@@ -657,7 +658,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: c22f0000
     m_LastClickedID: 12226
-    m_ExpandedIDs: 00000000aefd000008fe00003cff0000faff0000f200010024030100340301006c030100a8060100aa060100ac060100ae060100b0060100b2060100b4060100b6060100b8060100ba060100
+    m_ExpandedIDs: 00000000f80c0000820d00002a1400009c1500000217000006170000ce1d0000381e0000081f0000621f00001e2500003a4800003c4800003e48000040480000424800004448000046480000484800004a4800004c480000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -685,21 +686,21 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff00000000aefd000008fe0000faff00007e000100ee000100f200010024030100340301006c0301009403010008050100a8060100aa060100ac060100ae060100b0060100b2060100b4060100b6060100b8060100ba060100
+    m_ExpandedIDs: ffffffff00000000f80c0000820d00002a1400009c1500000217000006170000ce1d0000381e0000081f0000621f00001e2500003a4800003c4800003e48000040480000424800004448000046480000484800004a4800004c480000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: TrafficLight
-      m_OriginalName: TrafficLight
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 69010
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 10}
     m_SearchString: 
