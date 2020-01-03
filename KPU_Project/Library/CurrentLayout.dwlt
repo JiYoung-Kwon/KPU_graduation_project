@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PixelRect:
     serializedVersion: 2
-    x: 0
-    y: 43.2
+    x: 2106
+    y: 126
     width: 1536
     height: 781
   m_ShowMode: 4
@@ -116,7 +116,7 @@ MonoBehaviour:
   m_MinSize: {x: 917, y: 448}
   m_MaxSize: {x: 22012, y: 10024}
   vertical: 0
-  controlID: 137
+  controlID: 70
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -298,8 +298,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 204
-    y: 480
+    x: 2310
+    y: 563
     width: 808
     height: 304
   m_PersistentViewDataDictionary: {fileID: 0}
@@ -313,17 +313,17 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -768
-    m_HBaseRangeMax: 768
-    m_VBaseRangeMin: -432
-    m_VBaseRangeMax: 432
+    m_HBaseRangeMin: -960
+    m_HBaseRangeMax: 960
+    m_VBaseRangeMin: -540
+    m_VBaseRangeMax: 540
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
     m_VAllowExceedBaseRangeMax: 1
     m_ScaleWithWindow: 0
     m_HSlider: 0
-    m_VSlider: 1
+    m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
     m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
@@ -336,23 +336,23 @@ MonoBehaviour:
       y: 17
       width: 808
       height: 287
-    m_Scale: {x: 0.33217594, y: 0.33217594}
-    m_Translation: {x: 404, y: 143.49998}
+    m_Scale: {x: 0.26574075, y: 0.26574075}
+    m_Translation: {x: 404, y: 143.5}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -1216.2229
-      y: -431.99994
-      width: 2432.4458
-      height: 863.99994
+      x: -1520.2787
+      y: -540
+      width: 3040.5574
+      height: 1080
     m_MinimalGUI: 1
-  m_defaultScale: 0.33217594
+  m_defaultScale: 0.26574075
   m_TargetTexture: {fileID: 0}
   m_CurrentColorSpace: 0
-  m_LastWindowPixelSize: {x: 1010, y: 380}
+  m_LastWindowPixelSize: {x: 808, y: 304}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000100000100
@@ -379,9 +379,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 73.6
+    y: 22
     width: 202
-    height: 711
+    height: 707
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
@@ -433,8 +433,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 204
-    y: 73.6
+    x: 2310
+    y: 156
     width: 808
     height: 387
   m_PersistentViewDataDictionary: {fileID: 0}
@@ -629,10 +629,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1016
-    y: 73.6
+    x: 1018
+    y: 22
     width: 230
-    height: 711
+    height: 707
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SearchFilter:
     m_NameFilter: 
@@ -645,13 +645,12 @@ MonoBehaviour:
     m_SceneHandles: 
     m_ShowAllHits: 0
     m_SearchArea: 1
-    m_Folders:
-    - Assets/VR/VR_Scripts/VR_Scripts_Scenario1
+    m_Folders: []
   m_ViewMode: 0
   m_StartGridSize: 64
   m_LastFolders: []
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: "C:\\Users\\\uBC15\uC900\uD615\\Documents\\GitHub\\KPU_graduation_project\\KPU_Project"
+  m_LastProjectPath: "C:\\Users\\JIYOUNG.DESKTOP-KDUS7M3\\Desktop\\\uC878\uC791\\example\\KPU_graduation_project\\KPU_Project"
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
@@ -762,10 +761,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1250.4
-    y: 73.6
+    x: 1252
+    y: 22
     width: 284
-    height: 711
+    height: 707
   m_PersistentViewDataDictionary: {fileID: 0}
   m_ObjectsLockedBeforeSerialization: []
   m_InstanceIDsLockedBeforeSerialization: 
