@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Tobii/Tobii_Scene/Tobii_Practice.unity
+- path: Assets/Scenes/Others/Main_Scene.unity
   isLoaded: 1
   isActive: 1
