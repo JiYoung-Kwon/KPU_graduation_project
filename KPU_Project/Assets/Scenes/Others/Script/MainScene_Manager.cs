@@ -111,17 +111,14 @@ namespace Manager
         }
         
        /// <summary>
-       /// ID 와 PW 를 DB와 연동해서 체크해준다
+       /// 메뉴 열어주는 함수
        /// </summary>
-       /// <typeparam name="T"></typeparam>
-       /// <param name="ID"> 넘겨받은 ID </param>
-       /// <param name="PW"> 넘겨받은 PW </param>
-        public void check_userinformation<T>(T ID, T PW) where T : class
+        public void Show_Menu()
         {
             Show_Loading_Canvas();
-            StartCoroutine(Check_Database());
+            StartCoroutine(Cor_Show_Menu());
         }
-        IEnumerator Check_Database()
+        IEnumerator Cor_Show_Menu()
         {
             yield return new WaitForSeconds(1f);
             Show_Menu_Canvas();
