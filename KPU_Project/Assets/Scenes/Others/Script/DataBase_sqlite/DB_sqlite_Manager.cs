@@ -126,29 +126,30 @@ namespace Manager
             dbConnection.Close();
             dbConnection = null;
 
-            DB_Read("Select * From Account");
+            // DB_Read("Select * From Account");
         }
         #endregion
 
         public string Check_have_ID(string ID, string PW)
         {
             DB_Read("Select * From Account");
-
+            int i = 0;
             foreach (string str in Check_ID)
             {
-                if (ID != str)
+                if (ID == str)
                 {
-                    return "아이디가 존재하지 않습니다.";
+                    if( Check_PW[i] == PW)
+                    {
+                        return string.Empty;
+                    }
+                    else
+                    {
+                        return "비밀번호가 잘못되었습니다.";
+                    }
                 }
+                i += 1;
             }
-            foreach (string str in Check_PW)
-            {
-                if (PW != str)
-                {
-                    return "비밀번호가 잘못되었습니다.";
-                }
-            }
-            return string.Empty;
+            return "아이디가 존재하지 않습니다.";
         }
 
         public bool Check_Muti_ID(string ID)

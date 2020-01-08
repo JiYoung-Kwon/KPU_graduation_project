@@ -72,10 +72,5 @@ namespace Manager
                 }
             }
         }
-
-        public void Create_Account()
-        {
-
-        }
     }
 }
