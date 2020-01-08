@@ -9,13 +9,13 @@ using UnityEngine.Networking;
 
 namespace Manager
 {
-    public class DB_Manager : MonoBehaviour
+    public class DB_sqlite_Manager : MonoBehaviour
     {
 
-        private static DB_Manager db_Manager;
-        public static DB_Manager DB_MANAGER
+        private static DB_sqlite_Manager dB_Sqlite_Manager;
+        public static DB_sqlite_Manager DB_SQLITE_MANAGER
         {
-            get { return db_Manager; }
+            get { return dB_Sqlite_Manager; }
         }
 
         private List<string> Check_ID = new List<string>();
@@ -23,7 +23,7 @@ namespace Manager
 
         private void Awake()
         {
-            db_Manager = GetComponent<DB_Manager>();
+            dB_Sqlite_Manager = GetComponent<DB_sqlite_Manager>();
             DBCreate();
         }
         private void Start()
@@ -63,7 +63,7 @@ namespace Manager
                 IDbConnection dbConnection = new SqliteConnection(GetDBFilePath());
                 dbConnection.Open(); // DB 열기
 
-                if(dbConnection.State == ConnectionState.Open) // 디비가 열려있다면
+                if (dbConnection.State == ConnectionState.Open) // 디비가 열려있다면
                 {
                     Debug.Log("DB연결 성공");
                 }
@@ -71,7 +71,8 @@ namespace Manager
                 {
                     Debug.Log("DB연결 실패");
                 }
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
                 Debug.Log(e);
             }
@@ -110,21 +111,7 @@ namespace Manager
             dbConnection.Close(); //DB에는 1개의 쓰레드만이 접근할수있고 동시에 접근시 에러 발생
             dbConnection = null;
         }
-        
-        public bool Check_Muti_ID(string ID)
-        {
-            DB_Read("Select * From Account");
-
-            foreach (string str in Check_ID)
-            {
-                if (ID == str)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-        public void DB_Insert(string query)
+        public void DB_Query(string query)
         {
             IDbConnection dbConnection = new SqliteConnection(GetDBFilePath());
             dbConnection.Open(); // db 열기
@@ -162,6 +149,20 @@ namespace Manager
                 }
             }
             return string.Empty;
+        }
+
+        public bool Check_Muti_ID(string ID)
+        {
+            DB_Read("Select * From Account");
+
+            foreach (string str in Check_ID)
+            {
+                if (ID == str)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

@@ -35,7 +35,7 @@ namespace Manager
 
            Input_ID.GetComponent<InputField>().placeholder.GetComponent<Text>().text = "ID 입력 ( 12글자 이내 )";
             Input_PW.GetComponent<InputField>().placeholder.GetComponent<Text>().text = "비밀번호 입력 ( 12글자 이내 )";
-            Input_Name.GetComponent<InputField>().placeholder.GetComponent<Text>().text = "영어 이름 입력 ( 12글자 이내 )";
+            Input_Name.GetComponent<InputField>().placeholder.GetComponent<Text>().text = "영어 이름 입력";
 
             inform_Text.GetComponent<Text>().text = string.Empty;
 
@@ -57,7 +57,7 @@ namespace Manager
                 if (account.ID.Length == 0 || account.PW.Length == 0 || account.Name.Length == 0)
                     throw new NullReferenceException();
 
-                if (Manager.DB_Manager.DB_MANAGER.Check_Muti_ID(account.ID))
+                if (Manager.DB_sqlite_Manager.DB_SQLITE_MANAGER.Check_Muti_ID(account.ID))
                 {
                     inform_Text.GetComponent<Text>().text = "아이디가 중복됩니다.";
                     return;
@@ -67,7 +67,7 @@ namespace Manager
                 query += string.Format("VALUES (\"{0}\", \"{1}\", \"{2}\")", account.ID, account.PW, account.Name);
                 Debug.Log(query);
 
-                Manager.DB_Manager.DB_MANAGER.DB_Insert(query);
+                Manager.DB_sqlite_Manager.DB_SQLITE_MANAGER.DB_Query(query);
 
                 ID_PW_Canvas.SetActive(true);
                 Create_Account_Canvas.SetActive(false);

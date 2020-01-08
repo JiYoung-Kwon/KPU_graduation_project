@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -31,8 +32,8 @@ namespace Manager
 
         private void Start()
         {
-            Input_ID = GameObject.Find("InputID").gameObject;
-            Input_PW = GameObject.Find("InputPW").gameObject;
+            Input_ID.GetComponent<InputField>().text = string.Empty;
+            Input_PW.GetComponent<InputField>().text = string.Empty;
             inform_Text.GetComponent<Text>().text = string.Empty;
         }
 
@@ -47,13 +48,13 @@ namespace Manager
                     throw new NullReferenceException();
 
 
-                if (Manager.DB_Manager.DB_MANAGER.Check_have_ID(ID,PW) == string.Empty)
+                if (Manager.DB_sqlite_Manager.DB_SQLITE_MANAGER.Check_have_ID(ID,PW) == string.Empty)
                 {
                     MainScene_Manager.mainscene_manager.Show_Menu();
                 }
                 else
                 {
-                    inform_Text.GetComponent<Text>().text = Manager.DB_Manager.DB_MANAGER.Check_have_ID(ID, PW);
+                    inform_Text.GetComponent<Text>().text = Manager.DB_sqlite_Manager.DB_SQLITE_MANAGER.Check_have_ID(ID, PW);
                     return;
                 }
                 
