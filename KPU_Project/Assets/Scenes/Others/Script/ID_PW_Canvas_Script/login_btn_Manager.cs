@@ -48,7 +48,7 @@ namespace Manager
                     throw new NullReferenceException();
 
 
-                if (Manager.DB_sqlite_Manager.DB_SQLITE_MANAGER.Check_have_ID(ID,PW) == string.Empty)
+                if (Manager.DB_sqlite_Manager.DB_SQLITE_MANAGER.Check_have_ID(ID, PW) == string.Empty)
                 {
                     MainScene_Manager.mainscene_manager.Show_Menu();
                 }
@@ -57,16 +57,16 @@ namespace Manager
                     inform_Text.GetComponent<Text>().text = Manager.DB_sqlite_Manager.DB_SQLITE_MANAGER.Check_have_ID(ID, PW);
                     return;
                 }
-                
-                
+
+
             }
             catch (NullReferenceException)
             {
-                if(ID.Length == 0)
+                if (ID.Length == 0)
                 {
                     inform_Text.GetComponent<Text>().text = "아이디를 입력해 주세요.";
                 }
-                else if(PW.Length == 0)
+                else if (PW.Length == 0)
                 {
                     inform_Text.GetComponent<Text>().text = "비밀번호를 입력해 주세요.";
                 }
