@@ -12,7 +12,7 @@ public class Navation : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        
+
         //자동차 도착지점에서 브레이크 효과
         //agent.autoBraking = true;
 
@@ -40,7 +40,7 @@ public class Navation : MonoBehaviour
     {
         if (agent.velocity.sqrMagnitude >= 0.2f * 0.2f && agent.remainingDistance <= 0.5f)
         {
-            Nextidx = ++Nextidx % WayPoint.Count;
+            Nextidx =  ++Nextidx % WayPoint.Count;
             MoveWayPoint();
         }
     }
