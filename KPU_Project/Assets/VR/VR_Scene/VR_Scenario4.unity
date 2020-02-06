@@ -13533,20 +13533,18 @@ MonoBehaviour:
   Back_Right_Tr: {fileID: 134649272}
   Back_Left_Tr: {fileID: 835252962}
   Handle: {fileID: 1857855636}
-  Rpm_Pointer: {fileID: 2118730231}
-  Speed_Pointer: {fileID: 1354264820}
+  Velocity_text: {fileID: 0}
+  RPM_text: {fileID: 0}
+  Gear_text: {fileID: 0}
   Gear: 
   MaxSteerAngle: 30
   motorForce: 0
   breakForce: 5000
   motor_torque: 5
   times: 0
-  Break_CheckTime: 0
   Rpm_Power: 0
   Break_Power: 0
   addForce_speed: 0
-  Now_speed: 0
-  BreakCheck: 1
 --- !u!114 &1846551530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13660,7 +13658,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1846551528}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -48, y: 0, z: 46.5}
+  m_LocalPosition: {x: -48.2, y: 0, z: 46.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 277794370}

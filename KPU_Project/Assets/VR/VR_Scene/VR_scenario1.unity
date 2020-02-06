@@ -901,20 +901,18 @@ MonoBehaviour:
   Back_Right_Tr: {fileID: 4581095807082712}
   Back_Left_Tr: {fileID: 4745571030863186}
   Handle: {fileID: 4206879963141264}
-  Rpm_Pointer: {fileID: 4454786733015986}
-  Speed_Pointer: {fileID: 4446724987067086}
+  Velocity_text: {fileID: 0}
+  RPM_text: {fileID: 0}
+  Gear_text: {fileID: 0}
   Gear: 
   MaxSteerAngle: 30
   motorForce: 0
   breakForce: 5000
   motor_torque: 5
   times: 0
-  Break_CheckTime: 0
   Rpm_Power: 0
   Break_Power: 0
   addForce_speed: 0
-  Now_speed: 0
-  BreakCheck: 1
 --- !u!114 &922370526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2185,7 +2183,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4294132190035154}
   - component: {fileID: 54261237135913428}
+  - component: {fileID: 114171893409743690}
   - component: {fileID: 922370526}
+  - component: {fileID: 114518566181895948}
+  - component: {fileID: 114969574865985608}
   - component: {fileID: 922370525}
   m_Layer: 8
   m_Name: =====MyCar=====
@@ -11179,7 +11180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fffafd711dc1dbc478a49705cfe1ce3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 0}
+  car: {fileID: 114171893409743690}
 --- !u!114 &114152482048371568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11207,6 +11208,47 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SkidTrailPrefab: {fileID: 400000, guid: 4b6aa99de5d21424eab6ae279f31475b, type: 3}
   skidParticles: {fileID: 0}
+--- !u!114 &114171893409743690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1015439959806856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea65b38d485c374caa584a03f1de571, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CarDriveType: 2
+  m_WheelColliders:
+  - {fileID: 146850220442880934}
+  - {fileID: 146998880689344846}
+  - {fileID: 146962953165481366}
+  - {fileID: 146996479012281938}
+  m_WheelMeshes:
+  - {fileID: 1820458834373854}
+  - {fileID: 1777092412092910}
+  - {fileID: 1161216940946654}
+  - {fileID: 1817822956191808}
+  m_WheelEffects:
+  - {fileID: 114927340827376604}
+  - {fileID: 114167717348005034}
+  - {fileID: 114417586048211590}
+  - {fileID: 114373278946707814}
+  m_CentreOfMassOffset: {x: 0, y: 0, z: 0}
+  m_MaximumSteerAngle: 35
+  m_SteerHelper: 0.1
+  m_TractionControl: 0.8
+  m_FullTorqueOverAllWheels: 3200
+  m_ReverseTorque: 850
+  m_MaxHandbrakeTorque: 100000000
+  m_Downforce: 190
+  m_SpeedType: 0
+  m_Topspeed: 160
+  m_RevRangeBoundary: 0.8
+  m_SlipLimit: 0.25
+  m_BrakeTorque: 20000
 --- !u!114 &114373278946707814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11235,6 +11277,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SkidTrailPrefab: {fileID: 400000, guid: 4b6aa99de5d21424eab6ae279f31475b, type: 3}
   skidParticles: {fileID: 0}
+--- !u!114 &114518566181895948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1015439959806856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96468c245ae8e0d4f8f1c7a7b8b0542e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114600628518150474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11260,7 +11314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459cec5b068041e44a60a6e3b6abb0eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carController: {fileID: 0}
+  carController: {fileID: 114171893409743690}
 --- !u!114 &114917134073096566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11273,7 +11327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459cec5b068041e44a60a6e3b6abb0eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carController: {fileID: 0}
+  carController: {fileID: 114171893409743690}
 --- !u!114 &114927340827376604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11288,6 +11342,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SkidTrailPrefab: {fileID: 400000, guid: 4b6aa99de5d21424eab6ae279f31475b, type: 3}
   skidParticles: {fileID: 0}
+--- !u!114 &114969574865985608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1015439959806856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20fa55eb64c5cea4aa3c71ae19c434bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  engineSoundStyle: 1
+  lowAccelClip: {fileID: 8300000, guid: c4d8928c75c21af43998193f0f038429, type: 3}
+  lowDecelClip: {fileID: 8300000, guid: c4d8928c75c21af43998193f0f038429, type: 3}
+  highAccelClip: {fileID: 8300000, guid: 03e3bd08a6e70684dbe299a3e185fdd2, type: 3}
+  highDecelClip: {fileID: 8300000, guid: 03bf91d88fce91c41995d27de63cc967, type: 3}
+  pitchMultiplier: 1
+  lowPitchMin: 1
+  lowPitchMax: 5
+  highPitchMultiplier: 0.25
+  maxRolloffDistance: 500
+  dopplerLevel: 1
+  useDoppler: 1
 --- !u!146 &146850220442880934
 WheelCollider:
   m_ObjectHideFlags: 0
