@@ -40,8 +40,16 @@ public class Navation : MonoBehaviour
     {
         if (agent.velocity.sqrMagnitude >= 0.2f * 0.2f && agent.remainingDistance <= 0.5f)
         {
-            Nextidx =  ++Nextidx % WayPoint.Count;
-            MoveWayPoint();
+            if(Nextidx < 3)
+            {
+                Nextidx = ++Nextidx % WayPoint.Count;
+                MoveWayPoint();
+            }
+            else
+            {
+                Nextidx = 4;
+                gameObject.GetComponent<NavMeshAgent>().isStopped = true;
+            }
         }
     }
 }
