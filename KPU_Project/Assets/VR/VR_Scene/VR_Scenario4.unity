@@ -13533,18 +13533,21 @@ MonoBehaviour:
   Back_Right_Tr: {fileID: 134649272}
   Back_Left_Tr: {fileID: 835252962}
   Handle: {fileID: 1857855636}
-  Velocity_text: {fileID: 0}
-  RPM_text: {fileID: 0}
-  Gear_text: {fileID: 0}
+  Rpm_Pointer: {fileID: 2118730231}
+  Speed_Pointer: {fileID: 1354264820}
   Gear: 
   MaxSteerAngle: 30
   motorForce: 0
   breakForce: 5000
   motor_torque: 5
   times: 0
+  Break_CheckTime: 0
   Rpm_Power: 0
   Break_Power: 0
   addForce_speed: 0
+  Now_speed: 0
+  BreakCheck: 1
+  GameStart: 0
 --- !u!114 &1846551530
 MonoBehaviour:
   m_ObjectHideFlags: 0
