@@ -120,7 +120,6 @@ public class CarController : MonoBehaviour
                 else
                     motor_torque = -0.00005f * drivingMode;
             }
-
             else
                 this.GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
