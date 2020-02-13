@@ -35,8 +35,26 @@ namespace Manager
             Input_ID.GetComponent<InputField>().text = string.Empty;
             Input_PW.GetComponent<InputField>().text = string.Empty;
             inform_Text.GetComponent<Text>().text = string.Empty;
+            StartCoroutine(tab_key());
+            StartCoroutine(enter_key());
         }
-
+        IEnumerator tab_key() {
+            while (true)
+            {
+                yield return new WaitUntil(() => Input_ID.GetComponent<InputField>().isFocused);
+                yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Tab));
+                Input_PW.GetComponent<InputField>().Select();
+                Input_PW.transform.GetChild(1).gameObject.GetComponent<Text>().text = "";
+            }
+        }
+        IEnumerator enter_key()
+        {
+            while (true)
+            {
+                yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Return));
+                check_login();
+            }
+        }
         public void check_login()
         {
             try
@@ -51,6 +69,7 @@ namespace Manager
                 if (Manager.DB_sqlite_Manager.DB_SQLITE_MANAGER.Check_have_ID(ID, PW) == string.Empty)
                 {
                     MainScene_Manager.mainscene_manager.Show_Menu();
+                    StopAllCoroutines();
                 }
                 else
                 {
