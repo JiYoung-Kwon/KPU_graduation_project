@@ -6,17 +6,30 @@ using UnityEngine;
 [System.Serializable]
 public class TOBII
 {
-    [SerializeField] private string stage_name;
-    [SerializeField] private float eyes_time;
-    [SerializeField] private float brake_time;
-    [SerializeField] private Is_Danger is_danger;
+    [SerializeField] private string stage_name = string.Empty;
+    [SerializeField] private float eyes_time = 0.0f;
+    [SerializeField] private float brake_time = 0.0f;
+
+    #region 프로퍼티
+    public string Stage_Name
+    {
+        get { return stage_name; }
+    }
+    public float Eyes_Time
+    {
+        get { return eyes_time; }
+    }
+    public float Brake_Time
+    {
+        get { return brake_time; }
+    }
+    #endregion
 
     public TOBII() { }
-    public TOBII(string _stage_name, float _eyes_time, float _brake_time, Is_Danger _is_danger)
+    public TOBII(string _stage_name, float _eyes_time, float _brake_time)
     {
         stage_name = _stage_name;
         eyes_time = _eyes_time;
         brake_time = _brake_time;
-        is_danger = _is_danger;
     }
 }
