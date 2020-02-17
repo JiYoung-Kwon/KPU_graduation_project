@@ -18,6 +18,18 @@ namespace Tobii
 
         public float times;
 
+        private static Tobii_TrafficLight tt;
+        public static Tobii_TrafficLight TT
+        {
+            get { return tt; }
+        }
+
+        private void Awake()
+        {
+            tt = GetComponent<Tobii_TrafficLight>();
+        }
+
+
         // Start is called before the first frame update
         void Start()
         {
