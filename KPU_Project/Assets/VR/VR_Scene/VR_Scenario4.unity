@@ -4974,8 +4974,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d97bdf7523578a4aadd9a90ef4b217c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  start: {fileID: 4598195115525672334}
-  end: {fileID: 974750232}
+  Target: {fileID: 974750232}
   Car: {fileID: 4598195115525672334}
   CarGo: 0
 --- !u!65 &69484084
