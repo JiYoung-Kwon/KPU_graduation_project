@@ -12,168 +12,188 @@ using Tobii.Gaming;
 [RequireComponent(typeof(SpriteRenderer))]
 public class GazePlotter : MonoBehaviour
 {
-	[Range(3.0f, 15.0f), Tooltip("Number of gaze points in point cloud.")]
-	public int PointCloudSize = 10;
-	[Tooltip("Sprite to use for gaze points in the point cloud.")]
-	public Sprite PointSprite;
-	[Range(0.0f, 1.0f), Tooltip("Scale to draw the point sprites in the point cloud.")]
-	public float PointScale = 0.1f;
-	[Tooltip("Distance from screen to visualization plane in the World.")]
-	public float VisualizationDistance = 10f;
-	[Range(0.1f, 1.0f), Tooltip("How heavy filtering to apply to gaze point bubble movements. 0.1f is most responsive, 1.0f is least responsive.")]
-	public float FilterSmoothingFactor = 0.15f;
+    [Range(3.0f, 15.0f), Tooltip("Number of gaze points in point cloud.")]
+    public int PointCloudSize = 10;
+    [Tooltip("Sprite to use for gaze points in the point cloud.")]
+    public Sprite PointSprite;
+    [Range(0.0f, 1.0f), Tooltip("Scale to draw the point sprites in the point cloud.")]
+    public float PointScale = 0.1f;
+    [Tooltip("Distance from screen to visualization plane in the World.")]
+    public float VisualizationDistance = 10f; //gaze distance
+    [Range(0.1f, 1.0f), Tooltip("How heavy filtering to apply to gaze point bubble movements. 0.1f is most responsive, 1.0f is least responsive.")]
+    public float FilterSmoothingFactor = 0.35f; //gaze smoothing (response time)
 
-	private GazePoint _lastGazePoint = GazePoint.Invalid;
+    private GazePoint _lastGazePoint = GazePoint.Invalid;
 
-	// Members used for the gaze point cloud:
-	private const float MaxVisibleDurationInSeconds = 0.5f;
-	private GazePoint[] _gazePoints;
-	private int _last;
-	private GameObject[] _gazePointCloudSprites;
+    // Members used for the gaze point cloud:
+    private const float MaxVisibleDurationInSeconds = 0.5f;
+    private GazePoint[] _gazePoints;
+    private int _last;
+    private GameObject[] _gazePointCloudSprites;
 
-	// Members used for gaze bubble (filtered gaze visualization):
-	private SpriteRenderer _gazeBubbleRenderer;      // the gaze bubble sprite is attached to the GazePlotter game object itself
-	private bool _useFilter = false;
-	private bool _hasHistoricPoint;
-	private Vector3 _historicPoint;
+    // Members used for gaze bubble (filtered gaze visualization):
+    private SpriteRenderer _gazeBubbleRenderer;      // the gaze bubble sprite is attached to the GazePlotter game object itself
+    private bool _useFilter = true;
+    private bool _hasHistoricPoint;
+    private Vector3 _historicPoint;
 
-	public bool UseFilter
-	{
-		get { return _useFilter; }
-		set { _useFilter = value; }
-	}
+    public GameObject car;
 
-	void Start()
-	{
-		InitializeGazePointBuffer();
-		InitializeGazePointCloudSprites();
+    public bool UseFilter
+    {
+        get { return _useFilter; }
+        set { _useFilter = value; }
+    }
 
-		_last = PointCloudSize - 1;
+    void Start()
+    {
+        InitializeGazePointBuffer();
+        InitializeGazePointCloudSprites();
 
-		_gazeBubbleRenderer = GetComponent<SpriteRenderer>();
-		UpdateGazeBubbleVisibility();
-	}
+        _last = PointCloudSize - 1;
 
-	void Update()
-	{
-		GazePoint gazePoint = TobiiAPI.GetGazePoint();
+        _gazeBubbleRenderer = GetComponent<SpriteRenderer>();
+        UpdateGazeBubbleVisibility();
+    }
 
-		if (gazePoint.IsRecent()
-			&& gazePoint.Timestamp > (_lastGazePoint.Timestamp + float.Epsilon))
-		{
-			if (UseFilter)
-			{
-				UpdateGazeBubblePosition(gazePoint);
-			}
-			else
-			{
-				UpdateGazePointCloud(gazePoint);
-			}
+    void Update()
+    {
+        GazePoint gazePoint = TobiiAPI.GetGazePoint();
 
-			_lastGazePoint = gazePoint;
-		}
+        if (gazePoint.IsRecent()
+            && gazePoint.Timestamp > (_lastGazePoint.Timestamp + float.Epsilon))
+        {
+            if (UseFilter)
+            {
+                UpdateGazeBubblePosition(gazePoint);
+            }
+            else
+            {
+                UpdateGazePointCloud(gazePoint);
+            }
 
-		UpdateGazePointCloudVisibility();
-		UpdateGazeBubbleVisibility();
-	}
+            _lastGazePoint = gazePoint;
+        }
 
-	private void InitializeGazePointBuffer()
-	{
-		_gazePoints = new GazePoint[PointCloudSize];
-		for (int i = 0; i < PointCloudSize; i++)
-		{
-			_gazePoints[i] = GazePoint.Invalid;
-		}
-	}
+        UpdateGazePointCloudVisibility();
+        UpdateGazeBubbleVisibility();
+    }
 
-	private void InitializeGazePointCloudSprites()
-	{
-		_gazePointCloudSprites = new GameObject[PointCloudSize];
-		for (int i = 0; i < PointCloudSize; i++)
-		{
-			var pointCloudSprite = new GameObject("PointCloudSprite" + i);
-			pointCloudSprite.layer = gameObject.layer;
+    private void InitializeGazePointBuffer()
+    {
+        _gazePoints = new GazePoint[PointCloudSize];
+        for (int i = 0; i < PointCloudSize; i++)
+        {
+            _gazePoints[i] = GazePoint.Invalid;
+        }
+    }
 
-			var spriteRenderer = pointCloudSprite.AddComponent<SpriteRenderer>();
-			spriteRenderer.sprite = PointSprite;
+    private void InitializeGazePointCloudSprites()
+    {
+        _gazePointCloudSprites = new GameObject[PointCloudSize];
+        for (int i = 0; i < PointCloudSize; i++)
+        {
+            var pointCloudSprite = new GameObject("PointCloudSprite" + i);
+            pointCloudSprite.layer = gameObject.layer;
 
-			var cloudPointVisualizer = pointCloudSprite.AddComponent<CloudPointVisualizer>();
-			cloudPointVisualizer.Scale = PointScale;
+            var spriteRenderer = pointCloudSprite.AddComponent<SpriteRenderer>();
+            spriteRenderer.sprite = PointSprite;
 
-			pointCloudSprite.SetActive(false);
-			_gazePointCloudSprites[i] = pointCloudSprite;
-		}
-	}
+            var cloudPointVisualizer = pointCloudSprite.AddComponent<CloudPointVisualizer>();
+            cloudPointVisualizer.Scale = PointScale;
 
-	private void UpdateGazePointCloudVisibility()
-	{
-		bool isPointCloudVisible = !UseFilter;
+            pointCloudSprite.SetActive(false);
+            _gazePointCloudSprites[i] = pointCloudSprite;
+        }
+    }
 
-		for (int i = 0; i < PointCloudSize; i++)
-		{
-			if (IsNotTooOld(_gazePoints[i]))
-			{
-				_gazePointCloudSprites[i].SetActive(isPointCloudVisible);
-			}
-			else
-			{
-				_gazePointCloudSprites[i].SetActive(false);
-			}
-		}
-	}
+    private void UpdateGazePointCloudVisibility()
+    {
+        bool isPointCloudVisible = !UseFilter;
 
-	private bool IsNotTooOld(GazePoint gazePoint)
-	{
-		return (Time.unscaledTime - gazePoint.Timestamp) < MaxVisibleDurationInSeconds;
-	}
+        for (int i = 0; i < PointCloudSize; i++)
+        {
+            if (IsNotTooOld(_gazePoints[i]))
+            {
+                _gazePointCloudSprites[i].SetActive(isPointCloudVisible);
+            }
+            else
+            {
+                _gazePointCloudSprites[i].SetActive(false);
+            }
+        }
+    }
 
-	private void UpdateGazeBubblePosition(GazePoint gazePoint)
-	{
-		Vector3 gazePointInWorld = ProjectToPlaneInWorld(gazePoint);
-		transform.position = Smoothify(gazePointInWorld);
-	}
+    private bool IsNotTooOld(GazePoint gazePoint)
+    {
+        return (Time.unscaledTime - gazePoint.Timestamp) < MaxVisibleDurationInSeconds;
+    }
 
-	private void UpdateGazePointCloud(GazePoint gazePoint)
-	{
-		_last = Next();
-		_gazePoints[_last] = gazePoint;
-		var cloudPointVisualizer = _gazePointCloudSprites[_last].GetComponent<CloudPointVisualizer>();
-		Vector3 gazePointInWorld = ProjectToPlaneInWorld(gazePoint);
-		cloudPointVisualizer.NewPosition(gazePoint.Timestamp, gazePointInWorld);
-	}
+    private void UpdateGazeBubblePosition(GazePoint gazePoint) //position, rotation
+    {
+        Vector3 gazePointInWorld = ProjectToPlaneInWorld(gazePoint);
+        transform.position = Smoothify(gazePointInWorld);
 
-	private void UpdateGazeBubbleVisibility()
-	{
-		_gazeBubbleRenderer.enabled = UseFilter;
-	}
+        //transform.position = new Vector3(Smoothify(gazePointInWorld).x, Smoothify(gazePointInWorld).y, transform.localPosition.z + 1.5f);
+        //transform.localPosition = new Vector3(Smoothify(gazePointInWorld).x, Smoothify(gazePointInWorld).y, Smoothify(gazePointInWorld).z/*8.559983f*/);
 
-	private int Next()
-	{
-		return ((_last + 1) % PointCloudSize);
-	}
+        //카메라 포지션 가져와서 gaze를 카메라보다 앞으로 조정 camera 포지션이 중요
+        //그냥 달릴때도 position이 조금 가까워지는 느낌
 
-	private Vector3 ProjectToPlaneInWorld(GazePoint gazePoint)
-	{
-		Vector3 gazeOnScreen = gazePoint.Screen;
-		gazeOnScreen += (transform.forward * VisualizationDistance);
-		return Camera.main.ScreenToWorldPoint(gazeOnScreen);
-	}
+        //if (car.transform.eulerAngles.y == 0f)
+        //    VisualizationDistance = 10f;
+        //else if (car.transform.eulerAngles.y > 0f && car.transform.eulerAngles.y <= 90f)
+        //    VisualizationDistance = car.transform.eulerAngles.y % 10f;
+        //else if (car.transform.eulerAngles.y > 90f && car.transform.eulerAngles.y <= 180f)
+        //    VisualizationDistance = car.transform.eulerAngles.y % -10;
 
-	private Vector3 Smoothify(Vector3 point)
-	{
-		if (!_hasHistoricPoint)
-		{
-			_historicPoint = point;
-			_hasHistoricPoint = true;
-		}
 
-		var smoothedPoint = new Vector3(
-			point.x * (1.0f - FilterSmoothingFactor) + _historicPoint.x * FilterSmoothingFactor,
-			point.y * (1.0f - FilterSmoothingFactor) + _historicPoint.y * FilterSmoothingFactor,
-			point.z * (1.0f - FilterSmoothingFactor) + _historicPoint.z * FilterSmoothingFactor);
+        transform.eulerAngles = car.transform.eulerAngles;
+    }
 
-		_historicPoint = smoothedPoint;
+    private void UpdateGazePointCloud(GazePoint gazePoint)
+    {
+        _last = Next();
+        _gazePoints[_last] = gazePoint;
+        var cloudPointVisualizer = _gazePointCloudSprites[_last].GetComponent<CloudPointVisualizer>();
+        Vector3 gazePointInWorld = ProjectToPlaneInWorld(gazePoint);
+        cloudPointVisualizer.NewPosition(gazePoint.Timestamp, gazePointInWorld);
+    }
 
-		return smoothedPoint;
-	}
+    private void UpdateGazeBubbleVisibility()
+    {
+        _gazeBubbleRenderer.enabled = UseFilter;
+    }
+
+    private int Next()
+    {
+        return ((_last + 1) % PointCloudSize);
+    }
+
+    private Vector3 ProjectToPlaneInWorld(GazePoint gazePoint)
+    {
+        Vector3 gazeOnScreen = gazePoint.Screen;
+        gazeOnScreen += (this.transform.InverseTransformDirection(transform.forward) /*transform.forward /*유동적인값*/ * VisualizationDistance /*고정값*/); //메인카메라부터 게이즈까지 거리 = 10f
+
+        return Camera.main.ScreenToWorldPoint(gazeOnScreen);
+        //transform.forward z 값 보정 필요
+    }
+
+    private Vector3 Smoothify(Vector3 point)
+    {
+        if (!_hasHistoricPoint)
+        {
+            _historicPoint = point;
+            _hasHistoricPoint = true;
+        }
+
+        var smoothedPoint = new Vector3(
+            point.x * (1.0f - FilterSmoothingFactor) + _historicPoint.x * FilterSmoothingFactor,
+            point.y * (1.0f - FilterSmoothingFactor) + _historicPoint.y * FilterSmoothingFactor, /*transform.loposition.z);*/
+            point.z * (1.0f - FilterSmoothingFactor) + _historicPoint.z * FilterSmoothingFactor); //여기서 보정?
+
+        _historicPoint = smoothedPoint;
+
+        return smoothedPoint;
+    }
 }
