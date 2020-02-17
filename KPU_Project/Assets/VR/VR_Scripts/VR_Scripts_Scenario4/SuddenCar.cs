@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class SuddenCar : MonoBehaviour
 {
-    public GameObject start;
-    public GameObject end;
-    private Animator anim;
-    public bool PersonRun = false;
+    public GameObject Target;
+    public GameObject Car;
+
+    //private Animator anim;
+    public bool CarGo = false;
     private static SuddenCar suddencar;
     public static SuddenCar SUDDENCAR
     {
@@ -23,23 +24,23 @@ public class SuddenCar : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            PersonRun = true;
+            CarGo = true;
             StartCoroutine(go());
         }
     }
     IEnumerator go()
     {
-        anim = start.GetComponent<Animator>();
-        anim.SetBool("Run", true);
-        while (start.transform.position != end.transform.position)
+        //anim = start.GetComponent<Animator>();
+        //anim.SetBool("Run", true);
+        while (Car.transform.position != Target.transform.position)
         {
-            if (anim.GetBool("Dead"))
-            {
-                break;
-            }
-            start.transform.position = Vector3.MoveTowards(start.transform.position, end.transform.position, 0.5f);
+            //if (anim.GetBool("Dead"))
+            //{
+            //    break;
+            //}
+            Car.transform.position = Vector3.MoveTowards(Car.transform.position, Target.transform.position, 0.5f);
             yield return new WaitForSeconds(0.01f);
         }
-        anim.SetBool("Run", false);
+        //anim.SetBool("Run", false);
     }
 }
