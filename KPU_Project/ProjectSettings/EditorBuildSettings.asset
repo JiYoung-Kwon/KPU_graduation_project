@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Tobii_JJIYOM/Tobii_Scene/Tobii_Scenario1.unity
     guid: e1c5048f8e8f0fd48b206a421a0ed490
+  - enabled: 1
+    path: Assets/Tobii_JJIYOM/Tobii_Scene/Tobii_Scenario2.unity
+    guid: bbbb2bcd30ae22542804c53a0fed9fe1
   m_configObjects: {}
