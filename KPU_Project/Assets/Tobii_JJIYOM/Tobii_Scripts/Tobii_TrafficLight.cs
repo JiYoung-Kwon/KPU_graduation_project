@@ -15,7 +15,6 @@ namespace Tobii
         public int Start_sig;
 
         public float times;
-        public bool IsEvent = false;
 
         private static Tobii_TrafficLight tt;
         public static Tobii_TrafficLight TT
@@ -50,7 +49,7 @@ namespace Tobii
                 times += Time.deltaTime;
                 if (times > green_t)
                 {
-                    IsEvent = true;
+                    GazeEvent.Instance.IsEvent = true;
                     Red.SetActive(true);
                     Green.SetActive(false);
                     times = 0;
@@ -61,7 +60,7 @@ namespace Tobii
                 times += Time.deltaTime;
                 if (times > Red_t)
                 {
-                    IsEvent = false;
+                    GazeEvent.Instance.IsEvent = false;
                     Green.SetActive(true);                    
                     Red.SetActive(false);
                     times = 0;
