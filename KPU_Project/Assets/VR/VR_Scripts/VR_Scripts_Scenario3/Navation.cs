@@ -10,7 +10,7 @@ public class Navation : MonoBehaviour
     {
         get { return navation; }
     }
-
+    
     private void Awake()
     {
         navation = GetComponent<Navation>();
@@ -43,14 +43,15 @@ public class Navation : MonoBehaviour
         if (agent.isPathStale)
             return;
 
-        agent.destination = WayPoint[Nextidx].position;
+        agent.SetDestination(WayPoint[Nextidx].position);
+        //agent.destination = WayPoint[Nextidx].position;
         agent.isStopped = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // 트리거를 지났을 경우 모든 차량이 멈추는 코드
+        // 트리거를 지났을 경우 앞차량이 멈추는 코드
         if (SuddenStopCar.SUDDENSTOPCAR.CarStop)
         {
             SuddenStopCar.SUDDENSTOPCAR.FrontCar.gameObject.GetComponent<NavMeshAgent>().velocity = Vector3.zero;
@@ -58,7 +59,7 @@ public class Navation : MonoBehaviour
 
         if (agent.velocity.sqrMagnitude >= 0.2f * 0.2f && agent.remainingDistance <= 0.5f)
         {
-            if(Nextidx < 3)
+            if (Nextidx < 3)
             {
                 Nextidx = ++Nextidx % WayPoint.Count;
                 MoveWayPoint();
@@ -66,9 +67,9 @@ public class Navation : MonoBehaviour
             else
             {
                 Nextidx = 4;
-                //gameObject.GetComponent<NavMeshAgent>().isStopped = true;
+                // gameObject.GetComponent<NavMeshAgent>().isStopped = true;
                 // gameObject.GetComponent<NavMeshAgent>().enabled = false;         // 목표지점 도착하면 사라짐(바닥으로 강제로 사라짐 ㅋㅋㅋ)
-                //gameObject.GetComponent<NavMeshAgent>().velocity = Vector3.zero;  // 목표지점 도착하면 정지(도착장소에서 부들거리는 단점 있음)
+                // gameObject.GetComponent<NavMeshAgent>().velocity = Vector3.zero;  // 목표지점 도착하면 정지(도착장소에서 부들거리는 단점 있음)
                 Destroy(this.gameObject);
             }
         }
