@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace Tobii {
+namespace Tobii
+{
     public class Tobii_Navation : MonoBehaviour
-    {
+    {      
         private static Tobii_Navation navation;
         public static Tobii_Navation NAVATION
         {
@@ -20,6 +21,7 @@ namespace Tobii {
         public List<Transform> WayPoint;
         public int Nextidx = 0;
         private NavMeshAgent agent;
+        public float times;
 
         // Start is called before the first frame update
         void Start()
@@ -44,17 +46,20 @@ namespace Tobii {
             if (agent.isPathStale)
                 return;
 
-            agent.destination = WayPoint[Nextidx].position;
+            agent.SetDestination(WayPoint[Nextidx].position);
+            //agent.destination = WayPoint[Nextidx].position;
             agent.isStopped = false;
         }
 
         // Update is called once per frame
         void Update()
         {
-            // 트리거를 지났을 경우 모든 차량이 멈추는 코드
+            // 트리거를 지났을 경우 앞차량이 멈추는 코드
             if (Tobii_SuddenStopCar.SUDDENSTOPCAR.CarStop)
             {
                 Tobii_SuddenStopCar.SUDDENSTOPCAR.FrontCar.gameObject.GetComponent<NavMeshAgent>().velocity = Vector3.zero;
+                times += Time.deltaTime;
+                GazeEvent.Instance.IsEvent = true;
             }
 
             if (agent.velocity.sqrMagnitude >= 0.2f * 0.2f && agent.remainingDistance <= 0.5f)
@@ -67,9 +72,9 @@ namespace Tobii {
                 else
                 {
                     Nextidx = 4;
-                    //gameObject.GetComponent<NavMeshAgent>().isStopped = true;
+                    // gameObject.GetComponent<NavMeshAgent>().isStopped = true;
                     // gameObject.GetComponent<NavMeshAgent>().enabled = false;         // 목표지점 도착하면 사라짐(바닥으로 강제로 사라짐 ㅋㅋㅋ)
-                    //gameObject.GetComponent<NavMeshAgent>().velocity = Vector3.zero;  // 목표지점 도착하면 정지(도착장소에서 부들거리는 단점 있음)
+                    // gameObject.GetComponent<NavMeshAgent>().velocity = Vector3.zero;  // 목표지점 도착하면 정지(도착장소에서 부들거리는 단점 있음)
                     Destroy(this.gameObject);
                 }
             }

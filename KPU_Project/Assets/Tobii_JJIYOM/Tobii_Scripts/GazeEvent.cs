@@ -61,6 +61,7 @@ namespace Tobii
 
         private void OnTriggerEnter(Collider other) //최초 시선 측정
         {
+            Debug.Log(other.name);
             //공이 나타나면 시선 측정하는데
             if (other.name == "Red_Light" && EyesTime == 0) //see_time자리에 Tobii_Manager Param
             {
@@ -68,9 +69,9 @@ namespace Tobii
                 IsSee = true;
                 Debug.Log("공맞음 " + EyesTime);
             }
-            if (other.name == "FrontCar" && EyesTime == 0)
+            if (other.name == "FColliders" && EyesTime == 0 && IsEvent)
             {
-                EyesTime = Tobii_SuddenStopCar.SUDDENSTOPCAR.times; //see_time자리에 Tobii_Manager Param
+                EyesTime = Tobii_Navation.NAVATION.times; //see_time자리에 Tobii_Manager Param
                 IsSee = true;
                 Debug.Log("공맞음 " + EyesTime);
             }
@@ -88,11 +89,8 @@ namespace Tobii
                 //시나리오4까지 미완성이므로 일단 값 넣어놓기
                 Manager.TOBII_Manager.Instance.Add_TOBII_Data("Tobii_Scenario1", EyesTime, BrakeTime);
                 Manager.TOBII_Manager.Instance.Add_TOBII_Data("Tobii_Scenario1", EyesTime, BrakeTime);
-                Manager.TOBII_Manager.Instance.Add_TOBII_Data("Tobii_Scenario1", EyesTime, BrakeTime);
 
-                UIManager.Instance.ViewResult();
-
-                Manager.TOBII_Manager.Instance.Is_Danger();
+                UIManager.Instance.ViewResult();               
             }
         }
 
@@ -100,7 +98,12 @@ namespace Tobii
         {
             if (Input.GetKeyDown("space") && BrakeTime == 0 && IsEvent && IsSee)
             {
+                BrakeTime = Tobii_Navation.NAVATION.times;
+                Debug.Log("브레이크 반응 시간 : " + Tobii_Navation.NAVATION.times);
 
+                Manager.TOBII_Manager.Instance.Add_TOBII_Data("Tobii_Scenario2", EyesTime, BrakeTime);
+                UIManager.Instance.ViewResult();
+                Manager.TOBII_Manager.Instance.Is_Danger();
             }
         }
 

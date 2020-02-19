@@ -6,8 +6,7 @@ namespace Tobii
 {
     public class Tobii_SuddenStopCar : MonoBehaviour
     {
-        public float times;
-
+    
         private static Tobii_SuddenStopCar suddenstopcar;
         public static Tobii_SuddenStopCar SUDDENSTOPCAR
         {
@@ -50,10 +49,7 @@ namespace Tobii
         // Update is called once per frame
         void Update()
         {
-            if (CarStop)
-            {
-                times = Time.deltaTime;
-            }
+         
         }
     }
 }
