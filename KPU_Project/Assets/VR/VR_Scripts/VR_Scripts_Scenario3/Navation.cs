@@ -67,9 +67,9 @@ public class Navation : MonoBehaviour
             else
             {
                 Nextidx = 4;
-                // gameObject.GetComponent<NavMeshAgent>().isStopped = true;
-                // gameObject.GetComponent<NavMeshAgent>().enabled = false;         // 목표지점 도착하면 사라짐(바닥으로 강제로 사라짐 ㅋㅋㅋ)
-                // gameObject.GetComponent<NavMeshAgent>().velocity = Vector3.zero;  // 목표지점 도착하면 정지(도착장소에서 부들거리는 단점 있음)
+                //gameObject.GetComponent<NavMeshAgent>().isStopped = true;
+                //gameObject.GetComponent<NavMeshAgent>().enabled = false;         // 목표지점 도착하면 사라짐(바닥으로 강제로 사라짐 ㅋㅋㅋ)
+                //gameObject.GetComponent<NavMeshAgent>().velocity = Vector3.zero;  // 목표지점 도착하면 정지(도착장소에서 부들거리는 단점 있음)
                 Destroy(this.gameObject);
             }
         }
