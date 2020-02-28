@@ -128,24 +128,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 108
   m_CollisionDetection: 0
---- !u!114 &33656761
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1369048464159611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac3c452c622d9f843ada7c090dfe5888, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WayPoint:
-  - {fileID: 784131486}
-  - {fileID: 77205906}
-  - {fileID: 1936346899}
-  - {fileID: 1448985099}
-  Nextidx: 0
 --- !u!195 &33656762
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3174,24 +3156,6 @@ NavMeshAgent:
   m_BaseOffset: -0.05
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &278393991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1632433688921730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac3c452c622d9f843ada7c090dfe5888, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WayPoint:
-  - {fileID: 897914297}
-  - {fileID: 2078831222}
-  - {fileID: 822744366}
-  - {fileID: 657985447}
-  Nextidx: 0
 --- !u!54 &287785255
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3230,24 +3194,6 @@ NavMeshAgent:
   m_BaseOffset: -0.05
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &287785258
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1117590380982067}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac3c452c622d9f843ada7c090dfe5888, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WayPoint:
-  - {fileID: 724734424}
-  - {fileID: 1728676140}
-  - {fileID: 1510258132}
-  - {fileID: 1367808174}
-  Nextidx: 0
 --- !u!1 &307449342
 GameObject:
   m_ObjectHideFlags: 0
@@ -3542,24 +3488,6 @@ NavMeshAgent:
   m_BaseOffset: -0.05
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &514626641
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1080911908040144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac3c452c622d9f843ada7c090dfe5888, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WayPoint:
-  - {fileID: 77205906}
-  - {fileID: 1936346899}
-  - {fileID: 1448985099}
-  - {fileID: 1448985099}
-  Nextidx: 0
 --- !u!205 &617945349
 LODGroup:
   m_ObjectHideFlags: 0
@@ -14110,24 +14038,6 @@ NavMeshAgent:
   m_BaseOffset: -0.05
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1693502917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1080910394143836}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac3c452c622d9f843ada7c090dfe5888, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WayPoint:
-  - {fileID: 2078831222}
-  - {fileID: 822744366}
-  - {fileID: 657985447}
-  - {fileID: 657985447}
-  Nextidx: 0
 --- !u!54 &1714463169
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14166,24 +14076,6 @@ NavMeshAgent:
   m_BaseOffset: -0.05
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1714463172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1369048393974487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac3c452c622d9f843ada7c090dfe5888, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WayPoint:
-  - {fileID: 1559117179}
-  - {fileID: 1427123384}
-  - {fileID: 657329486}
-  - {fileID: 1865766350}
-  Nextidx: 0
 --- !u!1 &1728676139
 GameObject:
   m_ObjectHideFlags: 0
@@ -18187,7 +18079,7 @@ GameObject:
   - component: {fileID: 4518547055490980}
   - component: {fileID: 1693502914}
   - component: {fileID: 1693502915}
-  - component: {fileID: 1693502917}
+  - component: {fileID: 1080910394143837}
   m_Layer: 0
   m_Name: OtherSide_Car_BlueTruck
   m_TagString: Untagged
@@ -18195,6 +18087,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1080910394143837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080910394143836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edfb61e729b8a0d4c9bc75506f356797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WayPoint:
+  - {fileID: 2078831222}
+  - {fileID: 822744366}
+  - {fileID: 657985447}
+  - {fileID: 657985447}
+  Nextidx: 0
 --- !u!1 &1080911908040144
 GameObject:
   m_ObjectHideFlags: 0
@@ -18206,7 +18116,7 @@ GameObject:
   - component: {fileID: 4518547228782120}
   - component: {fileID: 514626638}
   - component: {fileID: 514626639}
-  - component: {fileID: 514626641}
+  - component: {fileID: 1080911908040145}
   m_Layer: 0
   m_Name: Black_Truck
   m_TagString: Untagged
@@ -18214,6 +18124,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1080911908040145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080911908040144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edfb61e729b8a0d4c9bc75506f356797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WayPoint:
+  - {fileID: 77205906}
+  - {fileID: 1936346899}
+  - {fileID: 1448985099}
+  - {fileID: 1448985099}
+  Nextidx: 0
 --- !u!1 &1081372174425179
 GameObject:
   m_ObjectHideFlags: 0
@@ -18875,7 +18803,7 @@ GameObject:
   - component: {fileID: 4737038703173969}
   - component: {fileID: 287785255}
   - component: {fileID: 287785256}
-  - component: {fileID: 287785258}
+  - component: {fileID: 1117590380982068}
   m_Layer: 0
   m_Name: Blue_Car
   m_TagString: Untagged
@@ -18883,6 +18811,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
   m_IsActive: 1
+--- !u!114 &1117590380982068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117590380982067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edfb61e729b8a0d4c9bc75506f356797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WayPoint:
+  - {fileID: 724734424}
+  - {fileID: 1728676140}
+  - {fileID: 1510258132}
+  - {fileID: 1367808174}
+  Nextidx: 0
 --- !u!1 &1117943008567642
 GameObject:
   m_ObjectHideFlags: 0
@@ -22854,7 +22800,7 @@ GameObject:
   - component: {fileID: 4003190673685829}
   - component: {fileID: 1714463169}
   - component: {fileID: 1714463170}
-  - component: {fileID: 1714463172}
+  - component: {fileID: 1369048393974488}
   m_Layer: 0
   m_Name: OtherSide_Car_Speed_Black
   m_TagString: Untagged
@@ -22862,6 +22808,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1369048393974488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369048393974487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edfb61e729b8a0d4c9bc75506f356797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WayPoint:
+  - {fileID: 1559117179}
+  - {fileID: 1427123384}
+  - {fileID: 657329486}
+  - {fileID: 1865766350}
+  Nextidx: 0
 --- !u!1 &1369048464159611
 GameObject:
   m_ObjectHideFlags: 0
@@ -22872,7 +22836,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4003190609825001}
   - component: {fileID: 33656759}
-  - component: {fileID: 33656761}
+  - component: {fileID: 1369048464159612}
   - component: {fileID: 33656762}
   m_Layer: 0
   m_Name: FrontCar
@@ -22881,6 +22845,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1369048464159612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369048464159611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edfb61e729b8a0d4c9bc75506f356797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WayPoint:
+  - {fileID: 784131486}
+  - {fileID: 77205906}
+  - {fileID: 1936346899}
+  - {fileID: 1448985099}
+  Nextidx: 0
 --- !u!1 &1369829319894314
 GameObject:
   m_ObjectHideFlags: 0
@@ -26790,7 +26772,7 @@ GameObject:
   - component: {fileID: 4195064870316202}
   - component: {fileID: 278393988}
   - component: {fileID: 278393989}
-  - component: {fileID: 278393991}
+  - component: {fileID: 1632433688921731}
   m_Layer: 0
   m_Name: OtherSide_Car1_Purple
   m_TagString: Untagged
@@ -26798,6 +26780,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1632433688921731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632433688921730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edfb61e729b8a0d4c9bc75506f356797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WayPoint:
+  - {fileID: 897914297}
+  - {fileID: 2078831222}
+  - {fileID: 822744366}
+  - {fileID: 657985447}
+  Nextidx: 0
 --- !u!1 &1636750627041256
 GameObject:
   m_ObjectHideFlags: 0
@@ -89379,7 +89379,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7367512240678859519}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac3c452c622d9f843ada7c090dfe5888, type: 3}
+  m_Script: {fileID: 11500000, guid: edfb61e729b8a0d4c9bc75506f356797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   WayPoint:

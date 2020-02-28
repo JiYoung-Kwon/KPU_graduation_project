@@ -25,10 +25,10 @@ public class SuddenCar : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             CarGo = true;
-            StartCoroutine(go());
+            StartCoroutine(Go());
         }
     }
-    IEnumerator go()
+    IEnumerator Go()
     {
         //anim = start.GetComponent<Animator>();
         //anim.SetBool("Run", true);

@@ -33,6 +33,12 @@ public class TrafficLight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Change_Traffic_Light();
+    }
+
+    //신호등 설정 시간에 맞추어 색변환 시켜주기
+    public void Change_Traffic_Light()
+    {
         //신호등 설정 시간에 맞추어 색변환 시켜주기
         if (Green.active)
         {

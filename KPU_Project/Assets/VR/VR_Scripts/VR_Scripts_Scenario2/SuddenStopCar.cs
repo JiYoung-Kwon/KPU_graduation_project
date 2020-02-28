@@ -25,27 +25,19 @@ public class SuddenStopCar : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            CarStop = true;
-            Light.gameObject.SetActive(true);
-            Light1.gameObject.SetActive(true);
-            Light2.gameObject.SetActive(true);
-            Light3.gameObject.SetActive(true);
-
-            // 지정차량 부모자식 해제하여 차 멈추게 하기
-            // Make_Rigidbody.MAKE_RIGIDBODY.Rigidbody();
-            // FrontCar.transform.parent = FrontCar.transform.parent.parent;
+            Light_On();
         }
     }
-
-    // Start is called before the first frame update
-    void Start()
+    public void Light_On()
     {
-        
-    }
+        CarStop = true;
+        Light.gameObject.SetActive(true);
+        Light1.gameObject.SetActive(true);
+        Light2.gameObject.SetActive(true);
+        Light3.gameObject.SetActive(true);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // 지정차량 부모자식 해제하여 차 멈추게 하기
+        // Make_Rigidbody.MAKE_RIGIDBODY.Rigidbody();
+        // FrontCar.transform.parent = FrontCar.transform.parent.parent;
     }
 }
