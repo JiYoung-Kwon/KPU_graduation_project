@@ -247,8 +247,7 @@ public class CarController : MonoBehaviour
     // Logitech Steering Wheel 실시간 업데이트 및 변화에 따라 값 받아오기
     private void FixedUpdate()
     {
-        if (GameStart)
-        {
+        //if (GameStart)
             LogitechGSDK.LogiSteeringInitialize(true);
             if (LogitechGSDK.LogiUpdate() && LogitechGSDK.LogiIsConnected(1))
             {
@@ -263,6 +262,5 @@ public class CarController : MonoBehaviour
                 Break_Sensor();
                 RPM_Velocity();
             }
-        }
     }
 }

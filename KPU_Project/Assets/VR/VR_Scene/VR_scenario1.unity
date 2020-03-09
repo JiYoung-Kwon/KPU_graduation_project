@@ -54941,7 +54941,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1828897978}
   m_LocalRotation: {x: -0, y: 0.0000006258487, z: -0, w: 1}
-  m_LocalPosition: {x: -0.39, y: 1.12, z: -0.38}
+  m_LocalPosition: {x: -0.39, y: 2.14, z: 0.28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4294132190035154}
@@ -61429,7 +61429,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2045157711
 Transform:
   m_ObjectHideFlags: 0
@@ -64946,7 +64946,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4263360722417768}
-  - component: {fileID: 114891208063900910}
   - component: {fileID: 114152482048371568}
   m_Layer: 8
   m_Name: Car05_BrakeCaliper_Front_Left
@@ -65495,7 +65494,6 @@ GameObject:
   - component: {fileID: 4662301032734500}
   - component: {fileID: 33972953827684028}
   - component: {fileID: 23961193665472090}
-  - component: {fileID: 114115108866469172}
   m_Layer: 8
   m_Name: Car05_Lights_BrakeLight
   m_TagString: Untagged
@@ -66075,7 +66073,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4243020257486288}
-  - component: {fileID: 114917134073096566}
   - component: {fileID: 114032222734066108}
   m_Layer: 8
   m_Name: Car05_BrakeCaliper_Front_Right
@@ -73055,19 +73052,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wheel: {fileID: 1820458834373854}
---- !u!114 &114115108866469172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1674334612651756}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fffafd711dc1dbc478a49705cfe1ce3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  car: {fileID: 0}
 --- !u!114 &114152482048371568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73136,32 +73120,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wheel: {fileID: 1161216940946654}
---- !u!114 &114891208063900910
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1480506159774814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 459cec5b068041e44a60a6e3b6abb0eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  carController: {fileID: 0}
---- !u!114 &114917134073096566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1880237243847620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 459cec5b068041e44a60a6e3b6abb0eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  carController: {fileID: 0}
 --- !u!114 &114927340827376604
 MonoBehaviour:
   m_ObjectHideFlags: 0
