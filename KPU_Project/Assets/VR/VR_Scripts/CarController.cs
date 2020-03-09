@@ -55,12 +55,8 @@ public class CarController : MonoBehaviour
     public bool BreakCheck = true;
     public bool GameStart = false;
 
+
     Vector3 vec_pre;
-    private void Start()
-    {
-        vec_pre = Vector3.zero;
-        FoveManager.TareOrientation();
-    }
     void Update()
     {
         LogitechGSDK.DIJOYSTATE2ENGINES recs = LogitechGSDK.LogiGetStateUnity(1);
@@ -260,7 +256,6 @@ public class CarController : MonoBehaviour
                 UpdateWheel();
                 Rpm();
                 Break_Sensor();
-                RPM_Velocity();
             }
     }
 }
