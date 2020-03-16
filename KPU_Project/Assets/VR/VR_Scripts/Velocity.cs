@@ -19,7 +19,7 @@ public class Velocity : MonoBehaviour
         var Velocity = distance / Time.deltaTime;
         oldPosition = currentPosition;
 
-        Debug.Log(this.GetComponent<Rigidbody>().velocity.magnitude);
+        Debug.Log(this.GetComponent<Rigidbody>().velocity.magnitude * 3.5f + "Km/h");
         //Debug.Log(Velocity);
     }
 }
