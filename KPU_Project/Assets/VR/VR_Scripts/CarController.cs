@@ -135,7 +135,7 @@ public class CarController : MonoBehaviour
         }
         else
         {
-            this.GetComponent<Rigidbody>().mass = 10000f;
+            this.GetComponent<Rigidbody>().mass = 1000f;
         }
 
         if (drivingMode == -1 && Rpm_Power > 0 && this.GetComponent<Rigidbody>().velocity.magnitude < 20f)
