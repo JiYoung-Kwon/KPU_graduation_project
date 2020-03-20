@@ -33,16 +33,17 @@ namespace UnityStandardAssets.Vehicles.Car
         private void FixedUpdate()
         {
             // pass the input to the car!
-            //float h = CrossPlatformInputManager.GetAxis("Horizontal");
-            //float v = CrossPlatformInputManager.GetAxis("Vertical");
-            GetInput();
-            Steer();
+            float h = CrossPlatformInputManager.GetAxis("Horizontal");
+            float v = CrossPlatformInputManager.GetAxis("Vertical");
+            //GetInput(); //logitech 값 받아오기
+            //Steer(); //핸들 회전
 
-            float h = handle_Input;
-            float v = accel_Input - break_Input;
+            //float h = handle_Input;
+            //float v = accel_Input - break_Input; //브레이크 계속 누르면 후진하는 문제 전진-후진 구분
+
 #if !MOBILE_INPUT
             float handbrake = CrossPlatformInputManager.GetAxis("Jump");           
-            m_Car.Move(h, v, v, handbrake);
+            m_Car.Move(h, v, v, handbrake);  //Move(float steering, float accel, float footbrake, float handbrake)
 #else
             m_Car.Move(h, v, v, 0f);
 #endif
