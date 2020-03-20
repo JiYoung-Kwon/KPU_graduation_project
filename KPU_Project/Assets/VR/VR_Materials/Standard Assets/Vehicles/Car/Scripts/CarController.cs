@@ -21,20 +21,9 @@ namespace UnityStandardAssets.Vehicles.Car
 
     public class CarController : MonoBehaviour
     {
-        private static CarController cc;
-        public static CarController Carcontroller
-        {
-            get { return cc; }
-        }
-
-        private void Awake()
-        {
-            cc = GetComponent<CarController>();
-        }
-
         LogitechGSDK.LogiControllerPropertiesData properties;
         [SerializeField] private CarDriveType m_CarDriveType = CarDriveType.FourWheelDrive;
-        [SerializeField] public WheelCollider[] m_WheelColliders = new WheelCollider[4];
+        [SerializeField] private WheelCollider[] m_WheelColliders = new WheelCollider[4];
         [SerializeField] private GameObject[] m_WheelMeshes = new GameObject[4];
         [SerializeField] private WheelEffects[] m_WheelEffects = new WheelEffects[4];
         [SerializeField] private Vector3 m_CentreOfMassOffset;
@@ -59,7 +48,7 @@ namespace UnityStandardAssets.Vehicles.Car
         private float m_GearFactor;
         private float m_OldRotation;
         private float m_CurrentTorque;
-        public Rigidbody m_Rigidbody;
+        private Rigidbody m_Rigidbody;
         private const float k_ReversingThreshold = 0.01f;
 
         public bool Skidding { get; private set; }
@@ -69,7 +58,6 @@ namespace UnityStandardAssets.Vehicles.Car
         public float MaxSpeed { get { return m_Topspeed; } }
         public float Revs { get; private set; }
         public float AccelInput { get; private set; }
-        public float thrustTorque;
 
         // Use this for initialization
         private void Start()
@@ -85,7 +73,6 @@ namespace UnityStandardAssets.Vehicles.Car
 
             m_Rigidbody = GetComponent<Rigidbody>();
             m_CurrentTorque = m_FullTorqueOverAllWheels - (m_TractionControl * m_FullTorqueOverAllWheels);
-            
         }
 
 
@@ -209,14 +196,14 @@ namespace UnityStandardAssets.Vehicles.Car
                         m_Rigidbody.velocity = (m_Topspeed / 3.6f) * m_Rigidbody.velocity.normalized;
                     break;
             }
-            //Debug.Log(speed);
+            Debug.Log(speed);
         }
 
 
         private void ApplyDrive(float accel, float footbrake)
         {
 
-            
+            float thrustTorque;
             switch (m_CarDriveType)
             {
                 case CarDriveType.FourWheelDrive:
@@ -250,7 +237,7 @@ namespace UnityStandardAssets.Vehicles.Car
                     m_WheelColliders[i].brakeTorque = 0f;
                     m_WheelColliders[i].motorTorque = -m_ReverseTorque * footbrake;
                 }
-            }          
+            }
         }
 
 
