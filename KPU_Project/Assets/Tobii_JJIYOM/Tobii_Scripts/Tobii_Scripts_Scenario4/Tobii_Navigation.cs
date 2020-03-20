@@ -61,6 +61,7 @@ namespace Tobii
         // Update is called once per frame
         void Update()
         {
+            Debug.Log(NextCar.gameObject.GetComponent<NavMeshAgent>().speed);
             // 트리거를 지났을 경우
             if (Tobii_StopCar.STOPCAR.CarStop)
             {
