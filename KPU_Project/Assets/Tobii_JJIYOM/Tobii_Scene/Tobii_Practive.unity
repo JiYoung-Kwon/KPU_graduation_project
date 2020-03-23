@@ -57079,8 +57079,9 @@ MonoBehaviour:
   MaxSteerAngle: 0
   motorForce: 0
   breakForce: 0
-  motor_torque: 0
   Handle: {fileID: 371089348}
+  Rpm_Pointer: {fileID: 1375878725}
+  Speed_Pointer: {fileID: 148806825}
 --- !u!114 &1366996174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57122,6 +57123,8 @@ MonoBehaviour:
   m_RevRangeBoundary: 0.8
   m_SlipLimit: 0.25
   m_BrakeTorque: 20000
+  m_Rigidbody: {fileID: 0}
+  thrustTorque: 0
 --- !u!54 &1366996175
 Rigidbody:
   m_ObjectHideFlags: 0

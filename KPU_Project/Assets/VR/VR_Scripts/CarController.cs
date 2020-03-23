@@ -55,7 +55,6 @@ public class CarController : MonoBehaviour
     public bool BreakCheck = true;
     public bool GameStart = false;
 
-
     Vector3 vec_pre;
     void Update()
     {
