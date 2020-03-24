@@ -150,7 +150,7 @@ namespace UnityStandardAssets.Vehicles.Car
         void CarSpeed()
         {
             float speed = 0f;
-            Debug.Log(CarController.Carcontroller.CurrentSpeed);
+            Debug.Log(CarController.Carcontroller.CurrentSpeed * 1.609344);
             speed = CarController.Carcontroller.CurrentSpeed;
 
             if (speed < 0)
