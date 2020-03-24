@@ -77,7 +77,7 @@ namespace Tobii
                     NextCar.gameObject.GetComponent<NavMeshAgent>().SetDestination(WayPoint2.position);
                 }
 
-                if (NextCar.gameObject.GetComponent<NavMeshAgent>().velocity.sqrMagnitude >= 0.2f * 0.2f && NextCar.gameObject.GetComponent<NavMeshAgent>().remainingDistance < 0.5f)
+                if (NextCar.gameObject.GetComponent<NavMeshAgent>().velocity.sqrMagnitude >= 0.2f * 0.2f && NextCar.gameObject.GetComponent<NavMeshAgent>().remainingDistance < 5f)
                     IsArrive = true;
             }
             //Debug.Log(NextCar.gameObject.GetComponent<NavMeshAgent>().remainingDistance);
