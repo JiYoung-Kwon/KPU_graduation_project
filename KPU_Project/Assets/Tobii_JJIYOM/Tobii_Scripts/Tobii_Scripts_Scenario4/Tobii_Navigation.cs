@@ -76,6 +76,7 @@ namespace Tobii
                 }
                 else
                 {
+                    NextCar.gameObject.GetComponent<NavMeshAgent>().speed = 19.5f; //도착후 감속
                     NextCar.gameObject.GetComponent<NavMeshAgent>().SetDestination(WayPoint2.position);
                 }
 
