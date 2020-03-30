@@ -23,7 +23,8 @@ namespace Manager
 
         private void Awake()
         {
-            dB_Sqlite_Manager = GetComponent<DB_sqlite_Manager>();
+            if (dB_Sqlite_Manager == null)
+                dB_Sqlite_Manager = this;
             DBCreate();
         }
         private void Start()
@@ -99,7 +100,9 @@ namespace Manager
             IDataReader dataReader = dbCommand.ExecuteReader(); // 쿼리 실행
             while (dataReader.Read())
             {
-                Debug.Log(dataReader.GetString(0) + "," + dataReader.GetString(1) + "," + dataReader.GetString(2));
+                Debug.Log(dataReader.GetString(0) + "," + dataReader.GetString(1) + "," + dataReader.GetString(2) + "," + dataReader.GetString(3)
+                     + "," + dataReader.GetString(4) + "," + dataReader.GetString(5) + "," + dataReader.GetString(6) + "," + dataReader.GetString(7));
+
                 Check_ID.Add(dataReader.GetString(0));
                 Check_PW.Add(dataReader.GetString(1));
             }
@@ -111,6 +114,13 @@ namespace Manager
             dbConnection.Close(); //DB에는 1개의 쓰레드만이 접근할수있고 동시에 접근시 에러 발생
             dbConnection = null;
         }
+
+        /// <summary>
+        /// 
+        /// DB 쿼리문 작성 하는 것
+        /// 
+        /// </summary>
+        /// <param name="query"> 쿼리문 작성 </param>
         public void DB_Query(string query)
         {
             IDbConnection dbConnection = new SqliteConnection(GetDBFilePath());
