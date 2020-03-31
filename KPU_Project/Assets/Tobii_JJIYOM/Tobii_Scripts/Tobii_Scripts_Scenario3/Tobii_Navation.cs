@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 namespace Tobii
 {
+    //급정거 script
     public class Tobii_Navation : MonoBehaviour
     {      
         private static Tobii_Navation navation;

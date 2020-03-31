@@ -68,7 +68,7 @@ namespace Tobii
             if (Tobii_StopCar.STOPCAR.CarStop)
             {
                 times += Time.deltaTime;
-
+                GazeEvent.Instance.IsEvent = true;
                 if (IsArrive)
                 {
                     NextCar.gameObject.GetComponent<NavMeshAgent>().SetDestination(WayPoint3.position); //끝으로 쭉쭉 직진
@@ -76,7 +76,7 @@ namespace Tobii
                 }
                 else
                 {
-                    NextCar.gameObject.GetComponent<NavMeshAgent>().speed = 19.5f; //도착후 감속
+                    NextCar.gameObject.GetComponent<NavMeshAgent>().speed = 19.5f; //도착후 가속
                     NextCar.gameObject.GetComponent<NavMeshAgent>().SetDestination(WayPoint2.position);
                 }
 
