@@ -57075,6 +57075,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96468c245ae8e0d4f8f1c7a7b8b0542e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  break_Input: 0
+  MaxSteerAngle: 0
+  motorForce: 0
+  breakForce: 0
+  Handle: {fileID: 0}
+  Rpm_Pointer: {fileID: 0}
+  Speed_Pointer: {fileID: 0}
 --- !u!114 &1366996174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57116,6 +57123,8 @@ MonoBehaviour:
   m_RevRangeBoundary: 0.8
   m_SlipLimit: 0.25
   m_BrakeTorque: 20000
+  m_Rigidbody: {fileID: 0}
+  thrustTorque: 0
 --- !u!54 &1366996175
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -58383,6 +58392,7 @@ GameObject:
   - component: {fileID: 1392419740}
   - component: {fileID: 1392419742}
   - component: {fileID: 1392419741}
+  - component: {fileID: 1392419743}
   m_Layer: 0
   m_Name: EnemyCarStartTrigger
   m_TagString: Untagged
@@ -58398,7 +58408,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1392419739}
   m_LocalRotation: {x: 0, y: -0.16891952, z: 0, w: 0.98562986}
-  m_LocalPosition: {x: -2.37, y: 0, z: 36.51}
+  m_LocalPosition: {x: -11.6, y: 0, z: 43.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 519326339}
@@ -58432,6 +58442,27 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 35.338013, y: 7.4748, z: 1}
   m_Center: {x: -2.057045, y: 2.8144226, z: 0}
+--- !u!114 &1392419743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1392419739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b05f2e8b0956f445af902af83e524f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Trigger: {fileID: 1392419739}
+  NewX: 0
+  NewY: 0
+  NewZ: 0
+  Max: 45
+  Min: 25
+  ChangeX: 0
+  ChangeY: 0
+  ChangeZ: 1
 --- !u!1 &1395808473
 GameObject:
   m_ObjectHideFlags: 0

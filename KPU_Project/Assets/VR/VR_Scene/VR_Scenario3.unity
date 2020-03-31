@@ -3300,7 +3300,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1015439945403632}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3047a8618a80261439a21993d26653a8, type: 3}
   m_Name: 
@@ -3312,7 +3312,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1015439945403632}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b66a86f214653e45996f6ba8ec3db82, type: 3}
   m_Name: 
@@ -16758,6 +16758,7 @@ GameObject:
   - component: {fileID: 4294132141581226}
   - component: {fileID: 54261237188128428}
   - component: {fileID: 114171893394791474}
+  - component: {fileID: 1015439945403634}
   - component: {fileID: 114518566196322420}
   - component: {fileID: 114969574884622128}
   - component: {fileID: 449862032}
@@ -16783,6 +16784,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.7092744, y: 1.3580666, z: 4.963128}
   m_Center: {x: -0.058618635, y: 0.8654127, z: -0.12273884}
+--- !u!114 &1015439945403634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1015439945403632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c006b12c6d0f3c4985eca4167634b0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1016120969427260
 GameObject:
   m_ObjectHideFlags: 0
@@ -33627,7 +33640,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1015439945403632}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -3.54}
+  m_LocalPosition: {x: 11.53, y: 0, z: -4.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4710894272212424}
@@ -70532,6 +70545,8 @@ MonoBehaviour:
   m_RevRangeBoundary: 0.8
   m_SlipLimit: 0.25
   m_BrakeTorque: 20000
+  m_Rigidbody: {fileID: 0}
+  thrustTorque: 0
 --- !u!114 &114373278894560798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70567,11 +70582,18 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1015439945403632}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 96468c245ae8e0d4f8f1c7a7b8b0542e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  break_Input: 0
+  MaxSteerAngle: 0
+  motorForce: 0
+  breakForce: 0
+  Handle: {fileID: 0}
+  Rpm_Pointer: {fileID: 0}
+  Speed_Pointer: {fileID: 0}
 --- !u!114 &114564189645240402
 MonoBehaviour:
   m_ObjectHideFlags: 0

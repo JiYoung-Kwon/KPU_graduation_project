@@ -5,11 +5,9 @@ using UnityEngine;
 public class TrafficLight : MonoBehaviour
 {
     public GameObject Red;
-    public GameObject Yellow;
     public GameObject Green;
 
     public int green_t;
-    public float Yellow_t;
     public int Red_t;
 
     public int Start_sig;
@@ -22,12 +20,10 @@ public class TrafficLight : MonoBehaviour
     {
         // 색 시간 설정
         green_t = 8;
-        Yellow_t = 1;
         Red_t = 4;
 
-        // 처음 시작 후 Red, Yellow 꺼짐
+        // 처음 시작 후 Red꺼짐
         Red.SetActive(false);
-        Yellow.SetActive(false);
     }
 
     // Update is called once per frame
@@ -45,18 +41,8 @@ public class TrafficLight : MonoBehaviour
             times += Time.deltaTime;
             if (times > green_t)
             {
-                Yellow.SetActive(true);
-                Green.SetActive(false);
-                times = 0;
-            }
-        }
-        if (Yellow.active)
-        {
-            times += Time.deltaTime;
-            if (times > Yellow_t)
-            {
                 Red.SetActive(true);
-                Yellow.SetActive(false);
+                Green.SetActive(false);
                 times = 0;
             }
         }

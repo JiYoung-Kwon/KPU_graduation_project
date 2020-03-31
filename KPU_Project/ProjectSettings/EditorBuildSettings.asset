@@ -20,4 +20,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Tobii_JJIYOM/Tobii_Scene/Tobii_Scenario3.unity
     guid: 1154fe0daa5859745bb0068d2ae4f1d9
+  - enabled: 1
+    path: Assets/VR/VR_Scene/VR_Scenario1.unity
+    guid: 7d743c12755fd064fafa370a953fde42
+  - enabled: 1
+    path: Assets/VR/VR_Scene/VR_Scenario2.unity
+    guid: 72e061a8bcbe1664fa01857e6a187b06
+  - enabled: 1
+    path: Assets/VR/VR_Scene/VR_Scenario3.unity
+    guid: 77ca8afff019d4746b6539555e63921a
+  - enabled: 1
+    path: Assets/VR/VR_Scene/VR_Scenario4.unity
+    guid: 7331bd2b0c38c3545a348267a695e55d
   m_configObjects: {}
