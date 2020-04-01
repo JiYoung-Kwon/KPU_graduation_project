@@ -6,7 +6,8 @@ namespace Tobii
 {
     public class Tobii_SuddenStopCar : MonoBehaviour
     {
-    
+
+        #region Singleton
         private static Tobii_SuddenStopCar suddenstopcar;
         public static Tobii_SuddenStopCar SUDDENSTOPCAR
         {
@@ -17,6 +18,7 @@ namespace Tobii
         {
             suddenstopcar = GetComponent<Tobii_SuddenStopCar>();
         }
+        #endregion
 
         public GameObject FrontCar;
         public GameObject Light;

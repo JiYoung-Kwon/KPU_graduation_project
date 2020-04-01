@@ -33230,7 +33230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   red_Signal: {fileID: 28902343}
-  traffic: {fileID: 0}
+  StopCar_Red: {fileID: 0}
   IsEvent: 0
   IsSee: 0
   Times: 0

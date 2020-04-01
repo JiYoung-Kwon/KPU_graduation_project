@@ -82,9 +82,16 @@ namespace Tobii
             {
                 EyesTime = Tobii_Navigation.NAVI.times;
                 IsSee = true;
-                Debug.Log("끼차봤어" + EyesTime);
+                Debug.Log("끼-차봤어" + EyesTime);
             }
- }
+            //시나리오 4
+            if (other.name == "EnemyCar" && EyesTime == 0 && IsEvent)
+            {
+                EyesTime = Tobii_Navigation.NAVI.times;
+                IsSee = true;
+                Debug.Log("교-차봤어" + EyesTime);
+            }
+        }
 
         public void Check_Scenario1()
         {
@@ -123,8 +130,7 @@ namespace Tobii
                 Debug.Log("브레이크 반응 시간 : " + Tobii_Navigation.NAVI.times);
 
                 Manager.TOBII_Manager.Instance.Add_TOBII_Data("Tobii_Scenario3", EyesTime, BrakeTime);
-                UIManager.Instance.ViewResult();
-                Manager.TOBII_Manager.Instance.Is_Danger();
+                UIManager.Instance.ViewResult();               
             }
         }
 

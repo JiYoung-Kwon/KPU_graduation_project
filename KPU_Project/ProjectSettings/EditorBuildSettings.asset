@@ -21,7 +21,10 @@ EditorBuildSettings:
     path: Assets/Tobii_JJIYOM/Tobii_Scene/Tobii_Scenario3.unity
     guid: 1154fe0daa5859745bb0068d2ae4f1d9
   - enabled: 1
-    path: Assets/VR/VR_Scene/VR_Scenario1.unity
+    path: Assets/Tobii_JJIYOM/Tobii_Scene/Tobii_Scenario4.unity
+    guid: 6a09ca8f0fccb0e4db65db299341d269
+  - enabled: 1
+    path: Assets/VR/VR_Scene/VR_scenario1.unity
     guid: 7d743c12755fd064fafa370a953fde42
   - enabled: 1
     path: Assets/VR/VR_Scene/VR_Scenario2.unity
