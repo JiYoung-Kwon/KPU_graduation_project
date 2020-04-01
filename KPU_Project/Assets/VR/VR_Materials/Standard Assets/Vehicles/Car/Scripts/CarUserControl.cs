@@ -28,24 +28,8 @@ namespace UnityStandardAssets.Vehicles.Car
 
         int drivingMode = 0;
 
-        #region singleton
-        private static CarUserControl instance = null;
-        public static CarUserControl Instance
-        {
-            get { return instance; }
-        }       
-        #endregion
-
         private void Awake()
         {
-            if (instance == null)
-            {
-                instance = this;
-            }
-            else
-            {
-                return;
-            }
             // get the car controller
             m_Car = GetComponent<CarController>();
         }
@@ -166,7 +150,7 @@ namespace UnityStandardAssets.Vehicles.Car
         void CarSpeed()
         {
             float speed = 0f;
-            //Debug.Log(CarController.Carcontroller.CurrentSpeed * 1.609344);
+            Debug.Log(CarController.Carcontroller.CurrentSpeed * 1.609344);
             speed = CarController.Carcontroller.CurrentSpeed;
 
             if (speed < 0)

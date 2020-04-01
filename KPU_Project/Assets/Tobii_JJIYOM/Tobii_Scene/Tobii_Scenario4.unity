@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028377, g: 0.22571409, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2498,13 +2498,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 69484081}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9f40d817ed512e41930df75172570df, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d97bdf7523578a4aadd9a90ef4b217c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 974750232}
   Car: {fileID: 4598195115525672334}
   CarGo: 0
-  times: 0
 --- !u!65 &69484084
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28291,7 +28290,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &660911955
 RectTransform:
   m_ObjectHideFlags: 0
@@ -60994,7 +60993,7 @@ MonoBehaviour:
   PointScale: 0.1
   VisualizationDistance: 10
   FilterSmoothingFactor: 0.35
-  car: {fileID: 1976415133}
+  car: {fileID: 0}
 --- !u!4 &1594958156
 Transform:
   m_ObjectHideFlags: 0
@@ -73274,9 +73273,9 @@ MonoBehaviour:
   MaxSteerAngle: 0
   motorForce: 0
   breakForce: 0
-  Handle: {fileID: 389304138}
-  Rpm_Pointer: {fileID: 1143803917}
-  Speed_Pointer: {fileID: 978491781}
+  Handle: {fileID: 0}
+  Rpm_Pointer: {fileID: 0}
+  Speed_Pointer: {fileID: 0}
 --- !u!114 &1976415139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86503,7 +86502,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4594736588414455414}
-  - component: {fileID: 4598195115525672335}
   m_Layer: 0
   m_Name: Enemy_Car
   m_TagString: Untagged
@@ -86511,22 +86509,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
   m_IsActive: 1
---- !u!54 &4598195115525672335
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4598195115525672334}
-  serializedVersion: 2
-  m_Mass: 500
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 108
-  m_CollisionDetection: 0
 --- !u!1 &4598206117090258126
 GameObject:
   m_ObjectHideFlags: 0
@@ -86538,7 +86520,7 @@ GameObject:
   - component: {fileID: 4594500517625004596}
   - component: {fileID: 4553332973065059660}
   m_Layer: 0
-  m_Name: EnemyCar
+  m_Name: Car04_Body_CollisionMesh03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87261,7 +87243,7 @@ GameObject:
   - component: {fileID: 4594444763242393310}
   - component: {fileID: 4554645712209820228}
   m_Layer: 0
-  m_Name: EnemyCar
+  m_Name: Car04_Body_CollisionMesh01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87788,7 +87770,7 @@ GameObject:
   - component: {fileID: 4594531845829127260}
   - component: {fileID: 4553226502079200592}
   m_Layer: 0
-  m_Name: EnemyCar
+  m_Name: Car04_Body_CollisionMesh06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -88152,7 +88134,7 @@ GameObject:
   - component: {fileID: 4594439058554924876}
   - component: {fileID: 4554562728875889834}
   m_Layer: 0
-  m_Name: EnemyCar
+  m_Name: Car04_Body_CollisionMesh05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -88556,7 +88538,7 @@ GameObject:
   - component: {fileID: 4601757501728034206}
   - component: {fileID: 4554853729113984326}
   m_Layer: 0
-  m_Name: EnemyCar
+  m_Name: Car04_Body_CollisionMesh02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -88609,7 +88591,7 @@ GameObject:
   - component: {fileID: 4601558947153681780}
   - component: {fileID: 4554971266515064658}
   m_Layer: 0
-  m_Name: EnemyCar
+  m_Name: Car04_Body_CollisionMesh04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
