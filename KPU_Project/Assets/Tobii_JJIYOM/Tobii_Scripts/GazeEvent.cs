@@ -10,10 +10,11 @@ namespace Tobii
     {
         public float EyesTime = 0f;
         public float BrakeTime = 0f;
-
+        
         public bool IsSee = false;
-        public bool IsEvent = false;
+        public bool IsEvent = false;       
 
+        float breakInput = 0f;
         #region singleton
         private static GazeEvent instance = null;
         public static GazeEvent Instance
@@ -42,6 +43,9 @@ namespace Tobii
         // Update is called once per frame
         void Update()
         {
+            breakInput = UnityStandardAssets.Vehicles.Car.CarUserControl.Instance.break_Input;
+            if (breakInput > 0.02)
+                Debug.Log("브레이크");
             switch (SceneManager.GetActiveScene().name)
             {
                 case "Tobii_Scenario1":
@@ -59,7 +63,7 @@ namespace Tobii
             }
         }
 
-        private void OnTriggerEnter(Collider other) //최초 시선 측정
+    private void OnTriggerEnter(Collider other) //최초 시선 측정
         {
             Debug.Log(other.name);
             //공이 나타나면 시선 측정하는데
@@ -87,7 +91,7 @@ namespace Tobii
             //시나리오 4
             if (other.name == "EnemyCar" && EyesTime == 0 && IsEvent)
             {
-                EyesTime = Tobii_Navigation.NAVI.times;
+                EyesTime = Tobii_SuddenCar.Instance.times;
                 IsSee = true;
                 Debug.Log("교-차봤어" + EyesTime);
             }
@@ -96,23 +100,20 @@ namespace Tobii
         public void Check_Scenario1()
         {
             //스페이스 키 누르면 //이벤트 발생이후 //눈으로 본 후 //한번만 발생하게
-            if (Input.GetKeyDown("space") && BrakeTime == 0 && IsEvent && IsSee)
+            if (breakInput > 0.02 && BrakeTime == 0 && IsEvent && IsSee)
             {
                 BrakeTime = Tobii_TrafficLight.TT.times;
                 Debug.Log("브레이크 반응 시간 : " + Tobii_TrafficLight.TT.times);
 
                 Manager.TOBII_Manager.Instance.Add_TOBII_Data("Tobii_Scenario1", EyesTime, BrakeTime);
-                
-                //시나리오4까지 미완성이므로 일단 값 넣어놓기              
-                Manager.TOBII_Manager.Instance.Add_TOBII_Data("Tobii_Scenario1", EyesTime, BrakeTime);
-
+                              
                 UIManager.Instance.ViewResult();               
             }
         }
 
         public void Check_Scenario2()
         {
-            if (Input.GetKeyDown("space") && BrakeTime == 0 && IsEvent && IsSee)
+            if (breakInput > 0.02 && BrakeTime == 0 && IsEvent && IsSee)
             {
                 BrakeTime = Tobii_Navation.NAVATION.times;
                 Debug.Log("브레이크 반응 시간 : " + Tobii_Navation.NAVATION.times);
@@ -124,7 +125,7 @@ namespace Tobii
 
         public void Check_Scenario3()
         {
-            if (Input.GetKeyDown("space") && BrakeTime == 0 && IsEvent && IsSee)
+            if (breakInput > 0.02 && BrakeTime == 0 && IsEvent && IsSee)
             {
                 BrakeTime = Tobii_Navigation.NAVI.times;
                 Debug.Log("브레이크 반응 시간 : " + Tobii_Navigation.NAVI.times);
@@ -136,7 +137,7 @@ namespace Tobii
 
         public void Check_Scenario4()
         {
-            if (Input.GetKeyDown("space") && BrakeTime == 0 && IsEvent && IsSee)
+            if (breakInput > 0.02 && BrakeTime == 0 && IsEvent && IsSee)
             {
                 BrakeTime = Tobii_Navigation.NAVI.times;
                 Debug.Log("브레이크 반응 시간 : " + Tobii_Navigation.NAVI.times);
