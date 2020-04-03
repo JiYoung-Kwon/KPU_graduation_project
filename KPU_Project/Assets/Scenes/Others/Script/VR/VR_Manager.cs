@@ -31,11 +31,11 @@ namespace Manager
         /// <param name="_stage_name"> 스테이지 이름 </param>
         /// <param name="_eyes_time"> 시각 관련 초</param>
         /// <param name="_brake_time"> 브레이크 관련 초 </param>
-        public void Add_VR_Data(string _stage_name, float _eyes_time, float _brake_time)
+        public void Add_VR_Data(string _stage_name, float _eyes_time, float _brake_time) //데이터 스크립트에 저장
         {
             L_VR.Add(new VR(_stage_name, _eyes_time, _brake_time));
         }
-        public void Is_Danger()
+        public void Is_Danger() //위험군 여부 확인
         {
             if (check_Danger())
             {

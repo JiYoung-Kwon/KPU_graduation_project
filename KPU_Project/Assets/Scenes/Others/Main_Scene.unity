@@ -2645,7 +2645,7 @@ MonoBehaviour:
   Loading_canvas: {fileID: 1951053390}
   ID_PW_canvas: {fileID: 592335468}
   Menu_canvas: {fileID: 1806687236}
-  VR_Scene_Name: Sample_Lee
+  VR_Scene_Name: VR_Scenario1
   TOBII_Scene_Name: Tobii_Scenario1
   Recrod_Scene_Name: 
   num_progress:

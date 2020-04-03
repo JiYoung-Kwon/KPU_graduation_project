@@ -84,6 +84,11 @@ public class FOVE : MonoBehaviour
             {
                 BrakeTime = Times;
                 Debug.Log(BrakeTime);
+                Manager.VR_Manager.Instance.Add_VR_Data("VR_Scenario1", EyesTime, BrakeTime);
+                Manager.VR_Manager.Instance.Add_VR_Data("VR_Scenario1", EyesTime, BrakeTime);
+                Manager.VR_Manager.Instance.Add_VR_Data("VR_Scenario1", EyesTime, BrakeTime);
+                Manager.VR_Manager.Instance.Add_VR_Data("VR_Scenario1", EyesTime, BrakeTime);
+                UI_Manager.Instance.ViewResult();
             }
         }
     }
@@ -106,6 +111,8 @@ public class FOVE : MonoBehaviour
             {
                 BrakeTime = Times;
                 Debug.Log(BrakeTime);
+                Manager.VR_Manager.Instance.Add_VR_Data("VR_Scenario2", EyesTime, BrakeTime);
+                UI_Manager.Instance.ViewResult();
             }
         }
     }
@@ -114,6 +121,14 @@ public class FOVE : MonoBehaviour
         var rays = FoveInterface.GetGazeRays();
         Ray r = instanceEye == EYE_enum.Left_EYE ? rays.left : rays.right;
         RaycastHit hit;
+        Times += Time.deltaTime;
+        if (Input.GetKeyDown("space"))
+        {
+            BrakeTime = Times;
+            Debug.Log(BrakeTime);
+            Manager.VR_Manager.Instance.Add_VR_Data("VR_Scenario3", EyesTime, BrakeTime);
+            UI_Manager.Instance.ViewResult();
+        }
     }
     void Check_Scenario4()
     {
@@ -133,6 +148,8 @@ public class FOVE : MonoBehaviour
             {
                 BrakeTime = Times;
                 Debug.Log(BrakeTime);
+                Manager.VR_Manager.Instance.Add_VR_Data("VR_Scenario4", EyesTime, BrakeTime);
+                UI_Manager.Instance.ViewResult();
             }
         }
     }
