@@ -3,22 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+
 public class Navation : MonoBehaviour
 {
-    private static Navation navation;
-    public static Navation NAVATION
-    {
-        get { return navation; }
-    }
-    
-    private void Awake()
-    {
-        navation = GetComponent<Navation>();
-    }
-
     public List<Transform> WayPoint;
+    public Transform WayPoint2; //끼어들기차량
+    public Transform WayPoint3; //끼어들기차량
+
     public int Nextidx = 0;
     private NavMeshAgent agent;
+    public float times;
+    public bool IsArrive = false;
+
+    public GameObject NextCar;
 
     // Start is called before the first frame update
     void Start()
@@ -44,18 +41,35 @@ public class Navation : MonoBehaviour
             return;
 
         agent.SetDestination(WayPoint[Nextidx].position);
-        //agent.destination = WayPoint[Nextidx].position;
         agent.isStopped = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // 트리거를 지났을 경우 앞차량이 멈추는 코드
-        if (SuddenStopCar.SUDDENSTOPCAR.CarStop)
+        //Debug.Log(NextCar.gameObject.GetComponent<NavMeshAgent>().speed);
+        //60km/h 기준으로
+        //70~75km/h, 약 6.6초로 달리기, 약 139m
+        // 트리거를 지났을 경우
+        if (VR_CarStop.INTERRUPTIONCAR.CarStop)
         {
-            SuddenStopCar.SUDDENSTOPCAR.FrontCar.gameObject.GetComponent<NavMeshAgent>().velocity = Vector3.zero;
+            times += Time.deltaTime;
+            if (IsArrive)
+            {
+                NextCar.gameObject.GetComponent<NavMeshAgent>().SetDestination(WayPoint3.position); //끝으로 쭉쭉 직진
+                NextCar.gameObject.GetComponent<NavMeshAgent>().speed = 4f; //도착후 감속
+            }
+            else
+            {
+                NextCar.gameObject.GetComponent<NavMeshAgent>().speed = 19.5f; //도착후 가속
+                NextCar.gameObject.GetComponent<NavMeshAgent>().SetDestination(WayPoint2.position);
+            }
+
+            if (NextCar.gameObject.GetComponent<NavMeshAgent>().velocity.sqrMagnitude >= 0.2f * 0.2f && NextCar.gameObject.GetComponent<NavMeshAgent>().remainingDistance < 5f) //5 거리 안에 들어오면 도착으로 침
+                IsArrive = true;
         }
+        //Debug.Log(NextCar.gameObject.GetComponent<NavMeshAgent>().remainingDistance);
+
 
         if (agent.velocity.sqrMagnitude >= 0.2f * 0.2f && agent.remainingDistance <= 0.5f)
         {
@@ -67,11 +81,9 @@ public class Navation : MonoBehaviour
             else
             {
                 Nextidx = 4;
-                //gameObject.GetComponent<NavMeshAgent>().isStopped = true;
-                //gameObject.GetComponent<NavMeshAgent>().enabled = false;         // 목표지점 도착하면 사라짐(바닥으로 강제로 사라짐 ㅋㅋㅋ)
-                //gameObject.GetComponent<NavMeshAgent>().velocity = Vector3.zero;  // 목표지점 도착하면 정지(도착장소에서 부들거리는 단점 있음)
-                Destroy(this.gameObject);
+
             }
         }
+
     }
 }

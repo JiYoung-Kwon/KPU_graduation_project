@@ -121,14 +121,25 @@ public class FOVE : MonoBehaviour
         var rays = FoveInterface.GetGazeRays();
         Ray r = instanceEye == EYE_enum.Left_EYE ? rays.left : rays.right;
         RaycastHit hit;
-        Times += Time.deltaTime;
-        if (Input.GetKeyDown("space"))
+        
+        if (VR_CarStop.INTERRUPTIONCAR.CarStop)
         {
-            BrakeTime = Times;
-            Debug.Log(BrakeTime);
-            Manager.VR_Manager.Instance.Add_VR_Data("VR_Scenario3", EyesTime, BrakeTime);
-            UI_Manager.Instance.ViewResult();
+            Times += Time.deltaTime;
+            if (EyesTime == 0 && IsSee && Physics.Raycast(r, out hit, Mathf.Infinity, 1 << 10))
+            {
+                EyesTime = Times;
+                IsSee = false;
+            }
+
+            if (Input.GetKeyDown("space"))
+            {
+                BrakeTime = Times;
+                Debug.Log(BrakeTime);
+                Manager.VR_Manager.Instance.Add_VR_Data("VR_Scenario3", EyesTime, BrakeTime);
+                UI_Manager.Instance.ViewResult();
+            }
         }
+        
     }
     void Check_Scenario4()
     {

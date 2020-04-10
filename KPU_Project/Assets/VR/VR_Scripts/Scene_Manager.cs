@@ -6,6 +6,7 @@ using Fove.Unity;
 
 public class Scene_Manager : MonoBehaviour
 {
+    public float Times = 0f;
     private static Scene_Manager instance = null;
     public static Scene_Manager Instance
     {
@@ -44,7 +45,7 @@ public class Scene_Manager : MonoBehaviour
 
     void Start()
     {
-
+        Times = 0f;
     }
 
     // Update is called once per frame
@@ -55,8 +56,22 @@ public class Scene_Manager : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(r, out hit, Mathf.Infinity, 1 << 13))
         {
-            NextScenario();
+            Times += Time.deltaTime;
+            if (Times > 1)
+            {
+                NextScenario();
+            }
+            
         }
+        if (Physics.Raycast(r, out hit, Mathf.Infinity, 1 << 14))
+        {
+            Times += Time.deltaTime;
+            if (Times > 1)
+            {
+                SceneManager.LoadScene("Main_Scene");
+            }
+        }
+        Times = 0f;
     }
 
     public void NextScenario() //다음 시나리오 (OK)
@@ -66,10 +81,5 @@ public class Scene_Manager : MonoBehaviour
         int nextScene = curScene + 1;
         SceneManager.LoadScene(nextScene);
         Time.timeScale = 1f;
-    }
-
-    public void ReturnMenu() //메뉴로 돌아가기 (현재 로그인 화면으로 돌아감)
-    {
-        SceneManager.LoadScene("Main_Scene");
     }
 }
