@@ -85,9 +85,6 @@ public class FOVE : MonoBehaviour
                 BrakeTime = Times;
                 Debug.Log(BrakeTime);
                 Manager.VR_Manager.Instance.Add_VR_Data("VR_Scenario1", EyesTime, BrakeTime);
-                Manager.VR_Manager.Instance.Add_VR_Data("VR_Scenario1", EyesTime, BrakeTime);
-                Manager.VR_Manager.Instance.Add_VR_Data("VR_Scenario1", EyesTime, BrakeTime);
-                Manager.VR_Manager.Instance.Add_VR_Data("VR_Scenario1", EyesTime, BrakeTime);
                 UI_Manager.Instance.ViewResult();
             }
         }
@@ -125,7 +122,7 @@ public class FOVE : MonoBehaviour
         if (VR_CarStop.INTERRUPTIONCAR.CarStop)
         {
             Times += Time.deltaTime;
-            if (EyesTime == 0 && IsSee && Physics.Raycast(r, out hit, Mathf.Infinity, 1 << 10))
+            if (EyesTime == 0 && IsSee && Physics.Raycast(r, out hit, Mathf.Infinity, 1 << 11))
             {
                 EyesTime = Times;
                 IsSee = false;

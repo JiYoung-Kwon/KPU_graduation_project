@@ -71,7 +71,7 @@ public class Scene_Manager : MonoBehaviour
                 SceneManager.LoadScene("Main_Scene");
             }
         }
-        Times = 0f;
+        //Times = 0f;
     }
 
     public void NextScenario() //다음 시나리오 (OK)

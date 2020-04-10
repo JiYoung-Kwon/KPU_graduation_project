@@ -54237,6 +54237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01182a390c8293042a19738b1ee9a16b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Times: 0
   instanceEye: 0
 --- !u!114 &2070656092
 MonoBehaviour:
@@ -64632,7 +64633,7 @@ MonoBehaviour:
   red_Signal: {fileID: 1749516910746266469}
   StopCar_Red: {fileID: 0}
   IsEvent: 0
-  IsSee: 0
+  IsSee: 1
   Times: 0
   EyesTime: 0
   BrakeTime: 0
