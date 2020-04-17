@@ -23,6 +23,9 @@ namespace Manager
         [Tooltip("Menu canvas")]
         [SerializeField] private GameObject Menu_canvas;
 
+        [Tooltip("Record canvas")]
+        [SerializeField] private GameObject Record_canvas;
+
         #endregion
 
         #region Scene
@@ -172,13 +175,23 @@ namespace Manager
             }
             else
             {
-                async = SceneManager.LoadSceneAsync(Recrod_Scene_Name);
+                return;
             }
 
             StartCoroutine(loading_SceneChanged(async));
             
         }
+        /// <summary>
+        /// 레코드 캔버스 보여주기.
+        /// </summary>
+        public void Show_Record()
+        {
+            Loading_canvas.SetActive(false);
 
+            Record_canvas.SetActive(true);
+
+            Menu_canvas.SetActive(false);
+        }
         IEnumerator loading_SceneChanged(AsyncOperation async)
         {
             Show_Loading_Canvas();
