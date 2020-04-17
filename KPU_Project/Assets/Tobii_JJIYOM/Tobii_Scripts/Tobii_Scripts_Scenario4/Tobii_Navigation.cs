@@ -65,24 +65,7 @@ namespace Tobii
             //60km/h 기준으로
             //70~75km/h, 약 6.6초로 달리기, 약 139m
             // 트리거를 지났을 경우
-            if (Tobii_StopCar.STOPCAR.CarStop)
-            {
-                times += Time.deltaTime;
-                GazeEvent.Instance.IsEvent = true;
-                if (IsArrive)
-                {
-                    NextCar.gameObject.GetComponent<NavMeshAgent>().SetDestination(WayPoint3.position); //끝으로 쭉쭉 직진
-                    NextCar.gameObject.GetComponent<NavMeshAgent>().speed = 4f; //도착후 감속
-                }
-                else
-                {
-                    NextCar.gameObject.GetComponent<NavMeshAgent>().speed = 19.5f; //도착후 가속
-                    NextCar.gameObject.GetComponent<NavMeshAgent>().SetDestination(WayPoint2.position);
-                }
-
-                if (NextCar.gameObject.GetComponent<NavMeshAgent>().velocity.sqrMagnitude >= 0.2f * 0.2f && NextCar.gameObject.GetComponent<NavMeshAgent>().remainingDistance < 5f) //5 거리 안에 들어오면 도착으로 침
-                    IsArrive = true;
-            }
+            TriggerPass();
             //Debug.Log(NextCar.gameObject.GetComponent<NavMeshAgent>().remainingDistance);
 
 
@@ -101,5 +84,29 @@ namespace Tobii
             }
 
         }
+
+        void TriggerPass()
+        {
+            if (Tobii_StopCar.STOPCAR.CarStop)
+            {
+                times += Time.deltaTime;
+                GazeEvent.Instance.IsEvent = true;
+                if (IsArrive) //끼어들고나서 감속
+                {
+                    NextCar.gameObject.GetComponent<NavMeshAgent>().SetDestination(WayPoint3.position); //끝으로 쭉쭉 직진
+                    NextCar.gameObject.GetComponent<NavMeshAgent>().speed = 4f; //도착후 감속
+                }
+                else //끼어드는거
+                {
+                    NextCar.gameObject.GetComponent<NavMeshAgent>().speed = 19.5f;
+                    NextCar.gameObject.GetComponent<NavMeshAgent>().SetDestination(WayPoint2.position);
+                }
+
+                if (NextCar.gameObject.GetComponent<NavMeshAgent>().velocity.sqrMagnitude >= 0.2f * 0.2f && NextCar.gameObject.GetComponent<NavMeshAgent>().remainingDistance < 5f) //5 거리 안에 들어오면 도착으로 침
+                    IsArrive = true;
+            }         
+        }
     }
+
+    
 }

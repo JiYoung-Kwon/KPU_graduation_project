@@ -11,6 +11,10 @@ public class LogitechSteeringWheel : MonoBehaviour
     void Start()
     {
         //Debug.Log("SteeringInit:" + LogitechGSDK.LogiSteeringInitialize(false));
+        LogitechGSDK.LogiPlaySpringForce(0, 0, 0, -100);
+        //LogitechGSDK.LogiPlaySpringForce(1, 0, 0, -100);
+        //LogitechGSDK.LogiPlayConstantForce(0, -100);
+        //LogitechGSDK.LogiPlayConstantForce(1, -100);
     }
 
 
@@ -18,10 +22,13 @@ public class LogitechSteeringWheel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(LogitechGSDK.LogiPlaySpringForce(0, 0, 0, -100) + "  " + LogitechGSDK.LogiPlaySpringForce(1,0,0,-100) + "   " + LogitechGSDK.LogiPlayConstantForce(0, -100)+"   "+ LogitechGSDK.LogiPlayConstantForce(1, -100));
+       
         //All the test functions are called on the first device plugged in(index = 0)
         if (LogitechGSDK.LogiUpdate() && LogitechGSDK.LogiIsConnected(1))
         {
             LogitechGSDK.DIJOYSTATE2ENGINES recs = LogitechGSDK.LogiGetStateUnity(1);
+
             
            //Debug.Log("핸들 :" + recs.lX);
            //Debug.Log("액셀 :" + recs.lY);
@@ -37,8 +44,6 @@ public class LogitechSteeringWheel : MonoBehaviour
             //else if (recs.rgbButtons[15] == 128) Debug.Log("중하 변속기 가동");
             //else if (recs.rgbButtons[16] == 128) Debug.Log("우상 변속기 가동");
             //else if (recs.rgbButtons[17] == 128) Debug.Log("우하 변속기 가동");
-
-
 
         }
     }
