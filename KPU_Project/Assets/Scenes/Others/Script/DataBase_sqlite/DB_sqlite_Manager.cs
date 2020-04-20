@@ -11,22 +11,27 @@ namespace Manager
 {
     public class DB_sqlite_Manager : MonoBehaviour
     {
+       
 
-        private static DB_sqlite_Manager dB_Sqlite_Manager;
-        public static DB_sqlite_Manager DB_SQLITE_MANAGER
+        [SerializeField]private List<user_data> Users = new List<user_data>();
+        public List<user_data> Get_Users_data
         {
-            get { return dB_Sqlite_Manager; }
+            get { return Users; }
         }
 
-        private List<string> Check_ID = new List<string>();
-        private List<string> Check_PW = new List<string>();
-
+        #region singleton
+        private static DB_sqlite_Manager instance;
+        public static DB_sqlite_Manager Instance
+        {
+            get { return instance; }
+        }
         private void Awake()
         {
-            if (dB_Sqlite_Manager == null)
-                dB_Sqlite_Manager = this;
+            if (instance == null)
+                instance = this;
             DBCreate();
         }
+        #endregion
         private void Start()
         {
             DBConnectionCheck();
@@ -88,10 +93,9 @@ namespace Manager
         /// DB 읽기
         /// </summary>
         /// <param name="query">인자로 쿼리문을 받는다</param>
-        private void DB_Read(string query)
+        public void DB_Read(string query)
         {
-            Check_ID.Clear();
-            Check_PW.Clear();
+            Users.Clear();
 
             IDbConnection dbConnection = new SqliteConnection(GetDBFilePath());
             dbConnection.Open(); // db 열기
@@ -103,8 +107,9 @@ namespace Manager
                 Debug.Log(dataReader.GetString(0) + "," + dataReader.GetString(1) + "," + dataReader.GetString(2) + "," + dataReader.GetString(3)
                      + "," + dataReader.GetString(4) + "," + dataReader.GetString(5) + "," + dataReader.GetString(6) + "," + dataReader.GetString(7));
 
-                Check_ID.Add(dataReader.GetString(0));
-                Check_PW.Add(dataReader.GetString(1));
+                Users.Add(new user_data(dataReader.GetString(0), dataReader.GetString(1), dataReader.GetString(2), dataReader.GetInt32(3), dataReader.GetInt32(4),
+                    dataReader.GetInt32(5), dataReader.GetInt32(6), dataReader.GetInt32(7)));
+
             }
 
             dataReader.Dispose(); //생성 순서와 반대로 닫아주기
@@ -143,21 +148,16 @@ namespace Manager
         public string Check_have_ID(string ID, string PW)
         {
             DB_Read("Select * From Account");
-            int i = 0;
-            foreach (string str in Check_ID)
+            for(int i = 0; i < Users.Count; ++i)
             {
-                if (ID == str)
+                if (ID.Equals(Users[i].Get_ID))
                 {
-                    if( Check_PW[i] == PW)
-                    {
+                    if (PW.Equals(Users[i].Get_PW))
                         return string.Empty;
-                    }
                     else
-                    {
                         return "비밀번호가 잘못되었습니다.";
-                    }
                 }
-                i += 1;
+                
             }
             return "아이디가 존재하지 않습니다.";
         }
@@ -166,12 +166,10 @@ namespace Manager
         {
             DB_Read("Select * From Account");
 
-            foreach (string str in Check_ID)
+            for(int i = 0; i < Users.Count; ++i)
             {
-                if (ID == str)
-                {
+                if (ID.Equals(Users[i].Get_ID))
                     return true;
-                }
             }
             return false;
         }

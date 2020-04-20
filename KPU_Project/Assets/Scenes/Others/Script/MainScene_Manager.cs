@@ -190,6 +190,8 @@ namespace Manager
 
             Record_canvas.SetActive(true);
 
+            Manager.Record_btn_Manager.Instance.Show_result();
+
             Menu_canvas.SetActive(false);
         }
         IEnumerator loading_SceneChanged(AsyncOperation async)

@@ -57,7 +57,7 @@ namespace Manager
                 if (account.ID.Length == 0 || account.PW.Length == 0 || account.Name.Length == 0)
                     throw new NullReferenceException();
 
-                if (Manager.DB_sqlite_Manager.DB_SQLITE_MANAGER.Check_Muti_ID(account.ID))
+                if (Manager.DB_sqlite_Manager.Instance.Check_Muti_ID(account.ID))
                 {
                     inform_Text.GetComponent<Text>().text = "아이디가 중복됩니다.";
                     return;
@@ -67,7 +67,7 @@ namespace Manager
                 query += string.Format("VALUES (\"{0}\", \"{1}\", \"{2}\")", account.ID, account.PW, account.Name);
                 Debug.Log(query);
 
-                Manager.DB_sqlite_Manager.DB_SQLITE_MANAGER.DB_Query(query);
+                Manager.DB_sqlite_Manager.Instance.DB_Query(query);
 
                 ID_PW_Canvas.SetActive(true);
                 Create_Account_Canvas.SetActive(false);

@@ -66,14 +66,15 @@ namespace Manager
                     throw new NullReferenceException();
 
 
-                if (Manager.DB_sqlite_Manager.DB_SQLITE_MANAGER.Check_have_ID(ID, PW) == string.Empty)
+                if (Manager.DB_sqlite_Manager.Instance.Check_have_ID(ID, PW) == string.Empty)
                 {
+                    save_user_data.Instance.Save_ID = ID;
                     MainScene_Manager.mainscene_manager.Show_Menu();
                     StopAllCoroutines();
                 }
                 else
                 {
-                    inform_Text.GetComponent<Text>().text = Manager.DB_sqlite_Manager.DB_SQLITE_MANAGER.Check_have_ID(ID, PW);
+                    inform_Text.GetComponent<Text>().text = Manager.DB_sqlite_Manager.Instance.Check_have_ID(ID, PW);
                     return;
                 }
 
