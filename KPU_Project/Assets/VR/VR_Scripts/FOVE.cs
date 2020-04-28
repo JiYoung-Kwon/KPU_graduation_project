@@ -14,15 +14,15 @@ public class FOVE : MonoBehaviour
     [SerializeField] public float Times = 0f;
     [SerializeField] public float EyesTime = 0f;
     [SerializeField] public float BrakeTime = 0f;
-   
+
 
     public enum EYE_enum
     {
         Left_EYE, Right_EYE
     }
-    public EYE_enum instanceEye;   
+    public EYE_enum instanceEye;
     private static FoveInterface foveInterfaces;
-    
+
     public static FoveInterface FoveInterface
     {
         get
@@ -74,13 +74,13 @@ public class FOVE : MonoBehaviour
         if (red_Signal.active)
         {
             Times += Time.deltaTime;
-            if (EyesTime ==0 && IsSee && Physics.Raycast(r, out hit, Mathf.Infinity, 1 << 9))
+            if (EyesTime == 0 && IsSee && Physics.Raycast(r, out hit, Mathf.Infinity, 1 << 9))
             {
                 EyesTime = Times;
                 IsSee = false;
             }
 
-            if (BrakeTime == 0 && Input.GetKeyDown("space")&& IsSee == false)
+            if (BrakeTime == 0 && Input.GetKeyDown("space") && IsSee == false)
             {
                 BrakeTime = Times;
                 Debug.Log(BrakeTime);
@@ -118,7 +118,7 @@ public class FOVE : MonoBehaviour
         var rays = FoveInterface.GetGazeRays();
         Ray r = instanceEye == EYE_enum.Left_EYE ? rays.left : rays.right;
         RaycastHit hit;
-        
+
         if (VR_CarStop.INTERRUPTIONCAR.CarStop)
         {
             Times += Time.deltaTime;
@@ -136,7 +136,7 @@ public class FOVE : MonoBehaviour
                 UI_Manager.Instance.ViewResult();
             }
         }
-        
+
     }
     void Check_Scenario4()
     {

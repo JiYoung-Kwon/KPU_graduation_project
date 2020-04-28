@@ -8,6 +8,12 @@ namespace Manager
     {
         [SerializeField] private List<VR> L_VR = new List<VR>();
 
+        bool scenario1Danger = false;   // true : 통과, false : 위험군
+        bool scenario2Danger = false;   // true : 통과, false : 위험군
+        bool scenario3Danger = false;   // true : 통과, false : 위험군
+        bool scenario4Danger = false;   // true : 통과, false : 위험군
+        bool TotalDanger = false;
+
         #region singleton
         private static VR_Manager instance = null;
         public static VR_Manager Instance
@@ -23,8 +29,8 @@ namespace Manager
         }
         #endregion
 
-       
-       
+
+
         /// <summary>
         /// 스테이지 클리어 시, 넣어주면 됨.
         /// </summary>
@@ -35,14 +41,17 @@ namespace Manager
         {
             L_VR.Add(new VR(_stage_name, _eyes_time, _brake_time));
         }
+
         public void Is_Danger() //위험군 여부 확인
         {
-            if (check_Danger())
+            if (check_ToalDanger())
             {
+                Debug.Log("안전해");
                 // 위험하지 않음... 처리할꺼 넣어주면 됨.
             }
             else
             {
+                Debug.Log("위험해");
                 // 위험군...
             }
         }
@@ -55,13 +64,25 @@ namespace Manager
         /// true : 통과
         /// false : 위험군
         /// </returns>
-        private bool check_Danger()
+        public bool check_ToalDanger()
         {
-            if (scenario1(0))
+            if (scenario1Danger && scenario2Danger && scenario3Danger && scenario4Danger)
             {
                 return true;
             }
-            return false;
+            else
+            {
+                return false;
+            }
+        }
+
+        public void check_Danger()
+        {
+            scenario1Danger = scenario1(0);
+            scenario2Danger = scenario2(1);
+            scenario3Danger = scenario3(2);
+            scenario4Danger = scenario4(3);
+            TotalDanger = check_ToalDanger();
         }
 
         /// <summary>
@@ -77,9 +98,15 @@ namespace Manager
             if (L_VR[index].Eyes_Time < 2.1f)
             {
                 if (L_VR[index].Brake_Time < 2.1f)
-                    return scenario2(1);
+                {
+                    Manager.DB_sqlite_Manager.Instance.DB_Query("INSERT INTO Scenario1(1)");
+                    return true;
+                }
                 else
+                {
+                    Manager.DB_sqlite_Manager.Instance.DB_Query("INSERT INTO Scenario1(0)");
                     return false;
+                }
             }
             return false;
         }
@@ -98,9 +125,17 @@ namespace Manager
             if (L_VR[index].Eyes_Time < 2.0f)
             {
                 if (L_VR[index].Brake_Time < 2.0f)
-                    return scenario3(2);
+                {
+                    Manager.DB_sqlite_Manager.Instance.DB_Query("INSERT INTO Scenario2(1)");
+                    return true;
+                }
+                    
                 else
+                {
+                    Manager.DB_sqlite_Manager.Instance.DB_Query("INSERT INTO Scenario2(0)");
                     return false;
+                }
+                    
             }
             return false;
         }
@@ -118,9 +153,17 @@ namespace Manager
             if (L_VR[index].Eyes_Time < 1.9f)
             {
                 if (L_VR[index].Brake_Time < 1.9f)
-                    return scenario4(3);
+                {
+                    Manager.DB_sqlite_Manager.Instance.DB_Query("INSERT INTO Scenario3(1)");
+                    return true;
+                }
+                    
                 else
+                {
+                    Manager.DB_sqlite_Manager.Instance.DB_Query("INSERT INTO Scenario3(0)");
                     return false;
+                }
+                    
             }
             return false;
         }
@@ -138,9 +181,16 @@ namespace Manager
             if (L_VR[index].Eyes_Time < 1.6f)
             {
                 if (L_VR[index].Brake_Time < 1.6f)
+                {
+                    Manager.DB_sqlite_Manager.Instance.DB_Query("INSERT INTO Scenario4(1)");
                     return true;
+                }
+
                 else
+                {
+                    Manager.DB_sqlite_Manager.Instance.DB_Query("INSERT INTO Scenario4(0)");
                     return false;
+                }
             }
             return false;
         }
