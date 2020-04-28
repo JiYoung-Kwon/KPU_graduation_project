@@ -46,11 +46,13 @@ namespace Manager
         {
             if (check_ToalDanger())
             {
+                Manager.DB_sqlite_Manager.Instance.DB_Query("INSERT INTO Is_Danger(1)");
                 Debug.Log("안전해");
                 // 위험하지 않음... 처리할꺼 넣어주면 됨.
             }
             else
             {
+                Manager.DB_sqlite_Manager.Instance.DB_Query("INSERT INTO Is_Danger(0)");
                 Debug.Log("위험해");
                 // 위험군...
             }
