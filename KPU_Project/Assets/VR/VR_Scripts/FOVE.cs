@@ -157,7 +157,13 @@ public class FOVE : MonoBehaviour
                 BrakeTime = Times;
                 Debug.Log(BrakeTime);
                 Manager.VR_Manager.Instance.Add_VR_Data("VR_Scenario4", EyesTime, BrakeTime);
+                
                 UI_Manager.Instance.ViewResult();
+
+                Manager.VR_Manager.Instance.scenario1(0);
+                Manager.VR_Manager.Instance.scenario1(1);
+                Manager.VR_Manager.Instance.scenario1(2);
+                Manager.VR_Manager.Instance.scenario1(3);
             }
         }
     }

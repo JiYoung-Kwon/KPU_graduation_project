@@ -95,18 +95,20 @@ namespace Manager
         /// True -> 통과
         /// false -> 위험군
         /// </returns>
-        private bool scenario1(int index)
+        public bool scenario1(int index)
         {
             if (L_VR[index].Eyes_Time < 2.1f)
             {
                 if (L_VR[index].Brake_Time < 2.1f)
                 {
                     Manager.DB_sqlite_Manager.Instance.DB_Query("INSERT INTO Scenario1(1)");
+                    Debug.Log("시나리오1 통과");
                     return true;
                 }
                 else
                 {
                     Manager.DB_sqlite_Manager.Instance.DB_Query("INSERT INTO Scenario1(0)");
+                    Debug.Log("시나리오1 불통");
                     return false;
                 }
             }
@@ -122,19 +124,21 @@ namespace Manager
         /// True -> 통과
         /// false -> 위험군
         /// </returns>
-        private bool scenario2(int index)
+        public bool scenario2(int index)
         {
             if (L_VR[index].Eyes_Time < 2.0f)
             {
                 if (L_VR[index].Brake_Time < 2.0f)
                 {
                     Manager.DB_sqlite_Manager.Instance.DB_Query("INSERT INTO Scenario2(1)");
+                    Debug.Log("시나리오2 통과");
                     return true;
                 }
                     
                 else
                 {
                     Manager.DB_sqlite_Manager.Instance.DB_Query("INSERT INTO Scenario2(0)");
+                    Debug.Log("시나리오2 불통");
                     return false;
                 }
                     
@@ -150,19 +154,21 @@ namespace Manager
         /// True -> 통과
         /// false -> 위험군
         /// </returns>
-        private bool scenario3(int index)
+        public bool scenario3(int index)
         {
             if (L_VR[index].Eyes_Time < 1.9f)
             {
                 if (L_VR[index].Brake_Time < 1.9f)
                 {
                     Manager.DB_sqlite_Manager.Instance.DB_Query("INSERT INTO Scenario3(1)");
+                    Debug.Log("시나리오3 통과");
                     return true;
                 }
                     
                 else
                 {
                     Manager.DB_sqlite_Manager.Instance.DB_Query("INSERT INTO Scenario3(0)");
+                    Debug.Log("시나리오2 불통");
                     return false;
                 }
                     
@@ -178,19 +184,21 @@ namespace Manager
         /// True -> 통과
         /// false -> 위험군
         /// </returns>
-        private bool scenario4(int index)
+        public bool scenario4(int index)
         {
             if (L_VR[index].Eyes_Time < 1.6f)
             {
                 if (L_VR[index].Brake_Time < 1.6f)
                 {
                     Manager.DB_sqlite_Manager.Instance.DB_Query("INSERT INTO Scenario4(1)");
+                    Debug.Log("시나리오4 통과");
                     return true;
                 }
 
                 else
                 {
                     Manager.DB_sqlite_Manager.Instance.DB_Query("INSERT INTO Scenario4(0)");
+                    Debug.Log("시나리오4 불통");
                     return false;
                 }
             }
