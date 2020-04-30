@@ -12,7 +12,7 @@ public class LogitechSteeringWheel : MonoBehaviour
     {
         //Debug.Log("SteeringInit:" + LogitechGSDK.LogiSteeringInitialize(false));
         LogitechGSDK.LogiPlaySpringForce(0, 0, 0, -100);
-        //LogitechGSDK.LogiPlaySpringForce(1, 0, 0, -100);
+        LogitechGSDK.LogiPlaySpringForce(1, 0, 0, -100);
         //LogitechGSDK.LogiPlayConstantForce(0, -100);
         //LogitechGSDK.LogiPlayConstantForce(1, -100);
     }
@@ -29,11 +29,13 @@ public class LogitechSteeringWheel : MonoBehaviour
         {
             LogitechGSDK.DIJOYSTATE2ENGINES recs = LogitechGSDK.LogiGetStateUnity(1);
 
-            
-           //Debug.Log("핸들 :" + recs.lX);
-           //Debug.Log("액셀 :" + recs.lY);
-           //Debug.Log("브레이크 :" + recs.lRz);
-           //Debug.Log("패달 클러치 :" + recs.rglSlider[0]);
+            LogitechGSDK.LogiPlaySpringForce(0, 0, 0, -100);
+            LogitechGSDK.LogiPlaySpringForce(1, 0, 0, -100);
+
+            //Debug.Log("핸들 :" + recs.lX);
+            //Debug.Log("액셀 :" + recs.lY);
+            //Debug.Log("브레이크 :" + recs.lRz);
+            //Debug.Log("패달 클러치 :" + recs.rglSlider[0]);
 
 
             //if (recs.rgbButtons[4] == 128) Debug.Log("우측 핸들 변속기 가동");

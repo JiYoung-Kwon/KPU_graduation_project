@@ -58,13 +58,13 @@ namespace Tobii
             if (Red.activeSelf)
             {
                 times += Time.deltaTime;
-                if (times > Red_t)
-                {
-                    GazeEvent.Instance.IsEvent = false;
-                    Green.SetActive(true);                    
-                    Red.SetActive(false);
-                    times = 0;
-                }
+                //if (times > Red_t)
+                //{
+                //    GazeEvent.Instance.IsEvent = false;
+                //    Green.SetActive(true);                    
+                //    Red.SetActive(false);
+                //    times = 0;
+                //}
             }
         }
     }
