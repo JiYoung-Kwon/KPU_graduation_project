@@ -8,11 +8,11 @@ namespace Manager
     {
         [SerializeField] private List<VR> L_VR = new List<VR>();
 
-        bool scenario1Danger = false;   // true : 통과, false : 위험군
-        bool scenario2Danger = false;   // true : 통과, false : 위험군
-        bool scenario3Danger = false;   // true : 통과, false : 위험군
-        bool scenario4Danger = false;   // true : 통과, false : 위험군
-        bool TotalDanger = false;
+        //bool scenario1Danger = false;   // true : 통과, false : 위험군
+        //bool scenario2Danger = false;   // true : 통과, false : 위험군
+        //bool scenario3Danger = false;   // true : 통과, false : 위험군
+        //bool scenario4Danger = false;   // true : 통과, false : 위험군
+        //bool TotalDanger = false;
 
         #region singleton
         private static VR_Manager instance = null;
@@ -66,25 +66,14 @@ namespace Manager
         /// true : 통과
         /// false : 위험군
         /// </returns>
-        public bool check_ToalDanger()
+
+        public bool check_Danger()
         {
-            if (scenario1Danger && scenario2Danger && scenario3Danger && scenario4Danger)
+            if (scenario1(0))
             {
                 return true;
             }
-            else
-            {
-                return false;
-            }
-        }
-
-        public void check_Danger()
-        {
-            scenario1Danger = scenario1(0);
-            scenario2Danger = scenario2(1);
-            scenario3Danger = scenario3(2);
-            scenario4Danger = scenario4(3);
-            TotalDanger = check_ToalDanger();
+            return false;
         }
 
         /// <summary>
@@ -101,7 +90,7 @@ namespace Manager
             {
                 if (L_VR[index].Brake_Time < 2.1f)
                 {
-                    Manager.DB_sqlite_Manager.Instance.DB_Query("INSERT INTO Scenario1(1)");
+                    return scenario2(1);
                     Debug.Log("시나리오1 통과");
                     return true;
                 }
@@ -130,14 +119,13 @@ namespace Manager
             {
                 if (L_VR[index].Brake_Time < 2.0f)
                 {
-                    Manager.DB_sqlite_Manager.Instance.DB_Query("INSERT INTO Scenario2(1)");
+                    return scenario3(2);
                     Debug.Log("시나리오2 통과");
                     return true;
                 }
                     
                 else
                 {
-                    Manager.DB_sqlite_Manager.Instance.DB_Query("INSERT INTO Scenario2(0)");
                     Debug.Log("시나리오2 불통");
                     return false;
                 }
@@ -160,14 +148,13 @@ namespace Manager
             {
                 if (L_VR[index].Brake_Time < 1.9f)
                 {
-                    Manager.DB_sqlite_Manager.Instance.DB_Query("INSERT INTO Scenario3(1)");
+                    return scenario4(3);
                     Debug.Log("시나리오3 통과");
                     return true;
                 }
                     
                 else
                 {
-                    Manager.DB_sqlite_Manager.Instance.DB_Query("INSERT INTO Scenario3(0)");
                     Debug.Log("시나리오2 불통");
                     return false;
                 }
@@ -190,14 +177,13 @@ namespace Manager
             {
                 if (L_VR[index].Brake_Time < 1.6f)
                 {
-                    Manager.DB_sqlite_Manager.Instance.DB_Query("INSERT INTO Scenario4(1)");
+                    return true;
                     Debug.Log("시나리오4 통과");
                     return true;
                 }
 
                 else
                 {
-                    Manager.DB_sqlite_Manager.Instance.DB_Query("INSERT INTO Scenario4(0)");
                     Debug.Log("시나리오4 불통");
                     return false;
                 }

@@ -11,8 +11,8 @@ public class LogitechSteeringWheel : MonoBehaviour
     void Start()
     {
         //Debug.Log("SteeringInit:" + LogitechGSDK.LogiSteeringInitialize(false));
-        LogitechGSDK.LogiPlaySpringForce(0, 0, 0, -100);
-        LogitechGSDK.LogiPlaySpringForce(1, 0, 0, -100);
+        LogitechGSDK.LogiPlaySpringForce(0, 0, 20, -40);
+        LogitechGSDK.LogiPlaySpringForce(1, 0, 20, 40);
         //LogitechGSDK.LogiPlayConstantForce(0, -100);
         //LogitechGSDK.LogiPlayConstantForce(1, -100);
     }
@@ -29,8 +29,9 @@ public class LogitechSteeringWheel : MonoBehaviour
         {
             LogitechGSDK.DIJOYSTATE2ENGINES recs = LogitechGSDK.LogiGetStateUnity(1);
 
-            LogitechGSDK.LogiPlaySpringForce(0, 0, 0, -100);
-            LogitechGSDK.LogiPlaySpringForce(1, 0, 0, -100);
+            // 첫번째는 기기 , 두번째는 스프링 중심값, 세번째는 스프링 강도, 네번째는 편향
+            LogitechGSDK.LogiPlaySpringForce(0, 0, 20, -40);
+            LogitechGSDK.LogiPlaySpringForce(1, 0, 20, 40);
 
             //Debug.Log("핸들 :" + recs.lX);
             //Debug.Log("액셀 :" + recs.lY);
