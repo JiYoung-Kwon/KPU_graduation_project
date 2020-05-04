@@ -72,6 +72,14 @@ public class Scene_Manager : MonoBehaviour
             }
         }
         //Times = 0f;
+        if (Physics.Raycast(r, out hit, Mathf.Infinity, 1 << 15))
+        {
+            Times += Time.deltaTime;
+            if (Times > 1)
+            {
+                Application.Quit();
+            }
+        }
     }
 
     public void NextScenario() //다음 시나리오 (OK)

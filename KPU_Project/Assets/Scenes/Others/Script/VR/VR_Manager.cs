@@ -37,6 +37,7 @@ namespace Manager
         /// <param name="_stage_name"> 스테이지 이름 </param>
         /// <param name="_eyes_time"> 시각 관련 초</param>
         /// <param name="_brake_time"> 브레이크 관련 초 </param>
+        /// <param name="_is_danger"></param>
         public void Add_VR_Data(string _stage_name, float _eyes_time, float _brake_time) //데이터 스크립트에 저장
         {
             L_VR.Add(new VR(_stage_name, _eyes_time, _brake_time));
@@ -44,7 +45,7 @@ namespace Manager
 
         public void Is_Danger() //위험군 여부 확인
         {
-            if (check_ToalDanger())
+            if (check_Danger())
             {
                 Manager.DB_sqlite_Manager.Instance.DB_Query("INSERT INTO Is_Danger(1)");
                 Debug.Log("안전해");
@@ -96,7 +97,7 @@ namespace Manager
                 }
                 else
                 {
-                    Manager.DB_sqlite_Manager.Instance.DB_Query("INSERT INTO Scenario1(0)");
+                    //Manager.DB_sqlite_Manager.Instance.DB_Query("INSERT INTO Scenario1(0)");
                     Debug.Log("시나리오1 불통");
                     return false;
                 }
@@ -119,9 +120,8 @@ namespace Manager
             {
                 if (L_VR[index].Brake_Time < 2.0f)
                 {
-                    return scenario3(2);
                     Debug.Log("시나리오2 통과");
-                    return true;
+                    return scenario3(2);
                 }
                     
                 else
@@ -148,9 +148,8 @@ namespace Manager
             {
                 if (L_VR[index].Brake_Time < 1.9f)
                 {
-                    return scenario4(3);
                     Debug.Log("시나리오3 통과");
-                    return true;
+                    return scenario4(3);
                 }
                     
                 else
@@ -177,7 +176,6 @@ namespace Manager
             {
                 if (L_VR[index].Brake_Time < 1.6f)
                 {
-                    return true;
                     Debug.Log("시나리오4 통과");
                     return true;
                 }

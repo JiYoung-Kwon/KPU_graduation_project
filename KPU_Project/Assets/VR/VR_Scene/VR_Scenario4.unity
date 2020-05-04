@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028377, g: 0.22571409, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -69504,7 +69504,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &4179827115073825892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69672,7 +69672,7 @@ GameObject:
   - component: {fileID: 4179827115391361375}
   - component: {fileID: 4179827115391361369}
   - component: {fileID: 4179827115391361374}
-  m_Layer: 14
+  m_Layer: 15
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69710,7 +69710,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uCE21\uC815 \uC911\uB2E8"
+  m_Text: "\uC885\uB8CC"
 --- !u!224 &4179827115391361375
 RectTransform:
   m_ObjectHideFlags: 0
@@ -69958,7 +69958,7 @@ GameObject:
   - component: {fileID: 4179827116127531304}
   - component: {fileID: 4179827116127531305}
   - component: {fileID: 4179827116127531310}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: Next
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70114,7 +70114,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uD655\uC778"
+  m_Text: "\uACB0\uACFC \uD655\uC778"
 --- !u!224 &4179827116664769126
 RectTransform:
   m_ObjectHideFlags: 0
@@ -70145,7 +70145,7 @@ GameObject:
   - component: {fileID: 4179827116664769126}
   - component: {fileID: 4179827116664769120}
   - component: {fileID: 4179827116664769121}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70457,7 +70457,7 @@ GameObject:
   - component: {fileID: 4179827116931161382}
   - component: {fileID: 4179827116931161383}
   - component: {fileID: 4179827116931161380}
-  m_Layer: 14
+  m_Layer: 15
   m_Name: Exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
