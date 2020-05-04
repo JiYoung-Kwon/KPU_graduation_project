@@ -8,11 +8,11 @@ namespace Manager
     {
         [SerializeField] private List<VR> L_VR = new List<VR>();
 
-        //bool scenario1Danger = false;   // true : 통과, false : 위험군
-        //bool scenario2Danger = false;   // true : 통과, false : 위험군
-        //bool scenario3Danger = false;   // true : 통과, false : 위험군
-        //bool scenario4Danger = false;   // true : 통과, false : 위험군
-        //bool TotalDanger = false;
+        bool scenario1Danger;   // true : 통과, false : 위험군
+        bool scenario2Danger;   // true : 통과, false : 위험군
+        bool scenario3Danger;   // true : 통과, false : 위험군
+        bool scenario4Danger;   // true : 통과, false : 위험군
+        bool TotalDanger;
 
         #region singleton
         private static VR_Manager instance = null;
@@ -45,15 +45,22 @@ namespace Manager
 
         public void Is_Danger() //위험군 여부 확인
         {
-            if (check_Danger())
+            scenario1(0);
+            scenario2(1);
+            scenario3(2);
+            scenario4(3);
+
+            if (scenario1Danger && scenario2Danger && scenario3Danger && scenario4Danger)
             {
-                Manager.DB_sqlite_Manager.Instance.DB_Query("INSERT INTO Is_Danger(1)");
+                TotalDanger = true;
+                Manager.DB_sqlite_Manager.Instance.DB_Query("UPDATE Account SET Is_Danger = 1 Where ID = " + save_user_data.Instance.Save_ID);
                 Debug.Log("안전해");
                 // 위험하지 않음... 처리할꺼 넣어주면 됨.
             }
             else
             {
-                Manager.DB_sqlite_Manager.Instance.DB_Query("INSERT INTO Is_Danger(0)");
+                TotalDanger = false;
+                Manager.DB_sqlite_Manager.Instance.DB_Query("UPDATE Account SET Is_Danger = 0 Where ID = " + save_user_data.Instance.Save_ID);
                 Debug.Log("위험해");
                 // 위험군...
             }
@@ -68,14 +75,20 @@ namespace Manager
         /// false : 위험군
         /// </returns>
 
-        public bool check_Danger()
-        {
-            if (scenario1(0))
-            {
-                return true;
-            }
-            return false;
-        }
+        //public bool check_Danger()
+        //{
+        //    scenario1(0);
+        //    scenario2(1);
+        //    scenario3(2);
+        //    scenario4(3);
+        //    if(scenario1Danger && scenario2Danger && scenario3Danger && scenario4Danger)
+        //    {
+        //        TotalDanger = true;
+        //        return true;
+        //    }
+        //    return false;
+        //}
+
 
         /// <summary>
         /// 시나리오 1 신호등 체크
@@ -91,17 +104,21 @@ namespace Manager
             {
                 if (L_VR[index].Brake_Time < 2.1f)
                 {
-                    return scenario2(1);
+                    scenario1Danger = true;
                     Debug.Log("시나리오1 통과");
+                    Manager.DB_sqlite_Manager.Instance.DB_Query("UPDATE Account SET Scenario1 = 1 Where ID = " + save_user_data.Instance.Save_ID);
                     return true;
                 }
                 else
                 {
-                    //Manager.DB_sqlite_Manager.Instance.DB_Query("INSERT INTO Scenario1(0)");
+                    scenario1Danger = false;
+                    Manager.DB_sqlite_Manager.Instance.DB_Query("UPDATE Account SET Scenario1 = 0 Where ID = " + save_user_data.Instance.Save_ID);
                     Debug.Log("시나리오1 불통");
                     return false;
                 }
             }
+            else
+                scenario1Danger = false;
             return false;
         }
         /// <summary>
@@ -120,17 +137,23 @@ namespace Manager
             {
                 if (L_VR[index].Brake_Time < 2.0f)
                 {
+                    scenario2Danger = true;
+                    Manager.DB_sqlite_Manager.Instance.DB_Query("UPDATE Account SET Scenario2 = 1 Where ID = " + save_user_data.Instance.Save_ID);
                     Debug.Log("시나리오2 통과");
-                    return scenario3(2);
+                    return true;
                 }
                     
                 else
                 {
+                    scenario2Danger = false;
+                    Manager.DB_sqlite_Manager.Instance.DB_Query("UPDATE Account SET Scenario2 = 0 Where ID = " + save_user_data.Instance.Save_ID);
                     Debug.Log("시나리오2 불통");
                     return false;
                 }
                     
             }
+            else
+                scenario2Danger = false;
             return false;
         }
         /// <summary>
@@ -148,17 +171,23 @@ namespace Manager
             {
                 if (L_VR[index].Brake_Time < 1.9f)
                 {
+                    scenario3Danger = true;
+                    Manager.DB_sqlite_Manager.Instance.DB_Query("UPDATE Account SET Scenario3 = 1 Where ID = " + save_user_data.Instance.Save_ID);
                     Debug.Log("시나리오3 통과");
-                    return scenario4(3);
+                    return true;
                 }
                     
                 else
                 {
+                    scenario3Danger = false;
+                    Manager.DB_sqlite_Manager.Instance.DB_Query("UPDATE Account SET Scenario3 = 0 Where ID = " + save_user_data.Instance.Save_ID);
                     Debug.Log("시나리오2 불통");
                     return false;
                 }
                     
             }
+            else
+                scenario3Danger = false;
             return false;
         }
         /// <summary>
@@ -176,16 +205,22 @@ namespace Manager
             {
                 if (L_VR[index].Brake_Time < 1.6f)
                 {
+                    scenario4Danger = true;
+                    Manager.DB_sqlite_Manager.Instance.DB_Query("UPDATE Account SET Scenario4 = 1 Where ID = " + save_user_data.Instance.Save_ID);
                     Debug.Log("시나리오4 통과");
                     return true;
                 }
 
                 else
                 {
+                    scenario4Danger = false;
+                    Manager.DB_sqlite_Manager.Instance.DB_Query("UPDATE Account SET Scenario4 = 0 Where ID = " + save_user_data.Instance.Save_ID);
                     Debug.Log("시나리오4 불통");
                     return false;
                 }
             }
+            else
+                scenario4Danger = false;
             return false;
         }
         #endregion

@@ -9414,6 +9414,7 @@ GameObject:
   m_Component:
   - component: {fileID: 295768896}
   - component: {fileID: 295768897}
+  - component: {fileID: 295768898}
   m_Layer: 0
   m_Name: =LeftBuilding=
   m_TagString: Untagged
@@ -9451,11 +9452,23 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 295768895}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 344.97418, y: 4.1396294, z: 26.465538}
   m_Center: {x: 154.66437, y: 1.0718822, z: 29.521744}
+--- !u!114 &295768898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 295768895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252164aade88ac047a0d191b40ef3ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &299292305
 GameObject:
   m_ObjectHideFlags: 0
@@ -13878,6 +13891,7 @@ GameObject:
   m_Component:
   - component: {fileID: 504975753}
   - component: {fileID: 504975754}
+  - component: {fileID: 504975755}
   m_Layer: 0
   m_Name: =RightBuilding=
   m_TagString: Untagged
@@ -13915,11 +13929,23 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 504975752}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 344.97418, y: 4.1396294, z: 28.529129}
   m_Center: {x: 154.66437, y: 1.0718822, z: -31.088459}
+--- !u!114 &504975755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 504975752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252164aade88ac047a0d191b40ef3ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &507858116
 GameObject:
   m_ObjectHideFlags: 0
@@ -57055,7 +57081,7 @@ GameObject:
   - component: {fileID: 1749516909273827826}
   m_Layer: 0
   m_Name: TrafficLightBox
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72539,7 +72565,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8801865643306628601}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 20fa55eb64c5cea4aa3c71ae19c434bf, type: 3}
   m_Name: 

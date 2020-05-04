@@ -80,12 +80,13 @@ public class FOVE : MonoBehaviour
                 IsSee = false;
             }
 
-            if (BrakeTime == 0 && Input.GetKeyDown("space") && IsSee == false)
+            if (BrakeTime == 0 && IsSee == false && UnityStandardAssets.Vehicles.Car.CarUserControl.Instance.break_Input > 0 ) //|| Input.GetKeyDown("space"))
             {
                 BrakeTime = Times;
                 Debug.Log(BrakeTime);
                 Manager.VR_Manager.Instance.Add_VR_Data("VR_Scenario1", EyesTime, BrakeTime);
                 UI_Manager.Instance.ViewResult();
+                
             }
         }
     }
@@ -104,7 +105,7 @@ public class FOVE : MonoBehaviour
                 IsSee = false;
             }
 
-            if (BrakeTime == 0 && Input.GetKeyDown("space") && IsSee == false)
+            if (BrakeTime == 0 && UnityStandardAssets.Vehicles.Car.CarUserControl.Instance.break_Input > 0 && IsSee == false)
             {
                 BrakeTime = Times;
                 Debug.Log(BrakeTime);
@@ -128,7 +129,7 @@ public class FOVE : MonoBehaviour
                 IsSee = false;
             }
 
-            if (Input.GetKeyDown("space"))
+            if (BrakeTime == 0 && IsSee == false && UnityStandardAssets.Vehicles.Car.CarUserControl.Instance.break_Input > 0)
             {
                 BrakeTime = Times;
                 Debug.Log(BrakeTime);
@@ -152,18 +153,14 @@ public class FOVE : MonoBehaviour
                 IsSee = false;
             }
 
-            if (BrakeTime == 0 && Input.GetKeyDown("space") && IsSee == false)
+            if (BrakeTime == 0 && UnityStandardAssets.Vehicles.Car.CarUserControl.Instance.break_Input > 0 && IsSee == false)
             {
                 BrakeTime = Times;
                 Debug.Log(BrakeTime);
                 Manager.VR_Manager.Instance.Add_VR_Data("VR_Scenario4", EyesTime, BrakeTime);
                 
                 UI_Manager.Instance.ViewResult();
-
-                Manager.VR_Manager.Instance.scenario1(0);
-                Manager.VR_Manager.Instance.scenario1(1);
-                Manager.VR_Manager.Instance.scenario1(2);
-                Manager.VR_Manager.Instance.scenario1(3);
+                Manager.VR_Manager.Instance.Is_Danger();
             }
         }
     }

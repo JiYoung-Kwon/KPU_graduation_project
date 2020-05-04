@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028377, g: 0.22571409, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1597,6 +1597,7 @@ GameObject:
   - component: {fileID: 49468449}
   - component: {fileID: 48469729}
   - component: {fileID: 1338050657}
+  - component: {fileID: 46204962}
   m_Layer: 0
   m_Name: Building_8_01_geo (5)
   m_TagString: Untagged
@@ -1604,6 +1605,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &46204962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46204961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252164aade88ac047a0d191b40ef3ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &46568449
 Transform:
   m_ObjectHideFlags: 0
@@ -2917,6 +2930,7 @@ GameObject:
   - component: {fileID: 105960203}
   - component: {fileID: 104960459}
   - component: {fileID: 107121070}
+  - component: {fileID: 107155212}
   m_Layer: 0
   m_Name: Building_7_02_geo
   m_TagString: Untagged
@@ -2924,6 +2938,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &107155212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107155211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252164aade88ac047a0d191b40ef3ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &107254571
 Transform:
   m_ObjectHideFlags: 0
@@ -4926,6 +4952,7 @@ GameObject:
   - component: {fileID: 172398277}
   - component: {fileID: 173528069}
   - component: {fileID: 807216052}
+  - component: {fileID: 175459014}
   m_Layer: 0
   m_Name: Building_7_02_geo (1)
   m_TagString: Untagged
@@ -4933,6 +4960,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &175459014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175459013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252164aade88ac047a0d191b40ef3ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &181387565
 GameObject:
   m_ObjectHideFlags: 0
@@ -11408,6 +11447,7 @@ GameObject:
   - component: {fileID: 377929925}
   - component: {fileID: 379027973}
   - component: {fileID: 855547322}
+  - component: {fileID: 380968134}
   m_Layer: 0
   m_Name: Building_6_01_geo
   m_TagString: Untagged
@@ -11415,6 +11455,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &380968134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380968133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252164aade88ac047a0d191b40ef3ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!33 &382700317
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -14387,6 +14439,7 @@ GameObject:
   - component: {fileID: 475590628}
   - component: {fileID: 474590500}
   - component: {fileID: 1980802834}
+  - component: {fileID: 476787685}
   m_Layer: 0
   m_Name: Building_2_02_geo (2)
   m_TagString: Untagged
@@ -14394,6 +14447,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &476787685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 476787684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252164aade88ac047a0d191b40ef3ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &476884932
 Transform:
   m_ObjectHideFlags: 0
@@ -15545,6 +15610,7 @@ GameObject:
   - component: {fileID: 522762777}
   - component: {fileID: 523892953}
   - component: {fileID: 818025073}
+  - component: {fileID: 521889306}
   m_Layer: 0
   m_Name: Building_8_01_geo
   m_TagString: Untagged
@@ -15552,6 +15618,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &521889306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521889305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252164aade88ac047a0d191b40ef3ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &521992761
 Transform:
   m_ObjectHideFlags: 0
@@ -17965,6 +18043,7 @@ GameObject:
   - component: {fileID: 600761837}
   - component: {fileID: 600761836}
   - component: {fileID: 600761835}
+  - component: {fileID: 600761838}
   m_Layer: 0
   m_Name: Building_7_02_geo (5)
   m_TagString: Untagged
@@ -18049,6 +18128,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 600761833}
   m_Mesh: {fileID: 4300000, guid: fc54211368fdafe4b84726f7380fc229, type: 3}
+--- !u!114 &600761838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600761833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252164aade88ac047a0d191b40ef3ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &604804130
 GameObject:
   m_ObjectHideFlags: 0
@@ -23111,6 +23202,7 @@ GameObject:
   - component: {fileID: 747243816}
   - component: {fileID: 748375016}
   - component: {fileID: 1930790068}
+  - component: {fileID: 750376233}
   m_Layer: 0
   m_Name: Building_8_01_geo (2)
   m_TagString: Untagged
@@ -23118,6 +23210,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &750376233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750376232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252164aade88ac047a0d191b40ef3ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &750668040
 Transform:
   m_ObjectHideFlags: 0
@@ -23623,6 +23727,7 @@ GameObject:
   - component: {fileID: 771456113}
   - component: {fileID: 770326193}
   - component: {fileID: 1715655939}
+  - component: {fileID: 768122994}
   m_Layer: 0
   m_Name: Building_8_01_geo (7)
   m_TagString: Untagged
@@ -23630,6 +23735,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &768122994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768122993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252164aade88ac047a0d191b40ef3ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &768556113
 Transform:
   m_ObjectHideFlags: 0
@@ -26305,6 +26422,7 @@ GameObject:
   - component: {fileID: 884791738}
   - component: {fileID: 883792762}
   - component: {fileID: 1042393181}
+  - component: {fileID: 881788347}
   m_Layer: 0
   m_Name: Building_8_01_geo (6)
   m_TagString: Untagged
@@ -26312,6 +26430,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &881788347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881788346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252164aade88ac047a0d191b40ef3ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &883792762
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -30340,6 +30470,7 @@ GameObject:
   - component: {fileID: 1004755246}
   - component: {fileID: 1005722606}
   - component: {fileID: 397357193}
+  - component: {fileID: 1003521327}
   m_Layer: 0
   m_Name: Building_1_01_geo (1)
   m_TagString: Untagged
@@ -30347,6 +30478,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1003521327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003521326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252164aade88ac047a0d191b40ef3ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1003952398
 Transform:
   m_ObjectHideFlags: 0
@@ -30767,6 +30910,7 @@ GameObject:
   - component: {fileID: 1021727727}
   - component: {fileID: 1022824751}
   - component: {fileID: 621289346}
+  - component: {fileID: 1020628976}
   m_Layer: 0
   m_Name: Building_7_02_geo (6)
   m_TagString: Untagged
@@ -30774,6 +30918,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1020628976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1020628975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252164aade88ac047a0d191b40ef3ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!33 &1021727727
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -31053,6 +31209,7 @@ GameObject:
   - component: {fileID: 1031656260}
   - component: {fileID: 1030525316}
   - component: {fileID: 245182156}
+  - component: {fileID: 1028525893}
   m_Layer: 0
   m_Name: Building_2_02_geo (1)
   m_TagString: Untagged
@@ -31060,6 +31217,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1028525893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028525892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252164aade88ac047a0d191b40ef3ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1028957717
 GameObject:
   m_ObjectHideFlags: 0
@@ -31511,6 +31680,7 @@ GameObject:
   - component: {fileID: 1032044469}
   - component: {fileID: 1033043317}
   - component: {fileID: 869944260}
+  - component: {fileID: 1034970038}
   m_Layer: 0
   m_Name: Building_7_02_geo (4)
   m_TagString: Untagged
@@ -31518,6 +31688,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1034970038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034970037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252164aade88ac047a0d191b40ef3ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1035468693
 Transform:
   m_ObjectHideFlags: 0
@@ -31638,6 +31820,7 @@ GameObject:
   - component: {fileID: 1045978103}
   - component: {fileID: 1044977975}
   - component: {fileID: 419017065}
+  - component: {fileID: 1047234552}
   m_Layer: 0
   m_Name: Building_7_02_geo (3)
   m_TagString: Untagged
@@ -31645,6 +31828,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1047234552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047234551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252164aade88ac047a0d191b40ef3ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1047272407
 Transform:
   m_ObjectHideFlags: 0
@@ -31964,6 +32159,7 @@ GameObject:
   - component: {fileID: 1067145978}
   - component: {fileID: 1067145977}
   - component: {fileID: 1067145976}
+  - component: {fileID: 1067145979}
   m_Layer: 0
   m_Name: Building_8_01_geo (11)
   m_TagString: Untagged
@@ -32047,6 +32243,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1067145974}
   m_Mesh: {fileID: 4300000, guid: 0a8d20e41a523fb4a933464514fd3f01, type: 3}
+--- !u!114 &1067145979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1067145974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252164aade88ac047a0d191b40ef3ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1068131977
 GameObject:
   m_ObjectHideFlags: 0
@@ -34473,6 +34681,7 @@ GameObject:
   - component: {fileID: 1159177320}
   - component: {fileID: 1158080168}
   - component: {fileID: 1152046770}
+  - component: {fileID: 1160018025}
   m_Layer: 0
   m_Name: Building_7_02_geo (7)
   m_TagString: Untagged
@@ -34480,6 +34689,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1160018025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160018024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252164aade88ac047a0d191b40ef3ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1160993422
 GameObject:
   m_ObjectHideFlags: 0
@@ -38037,6 +38258,7 @@ GameObject:
   - component: {fileID: 1274919784}
   - component: {fileID: 1273821608}
   - component: {fileID: 811764416}
+  - component: {fileID: 1271818089}
   m_Layer: 0
   m_Name: Building_8_01_geo (10)
   m_TagString: Untagged
@@ -38044,6 +38266,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1271818089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271818088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252164aade88ac047a0d191b40ef3ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1272842890
 GameObject:
   m_ObjectHideFlags: 0
@@ -44170,6 +44404,7 @@ GameObject:
   - component: {fileID: 1512365223}
   - component: {fileID: 1513463399}
   - component: {fileID: 1086165762}
+  - component: {fileID: 1511456936}
   m_Layer: 0
   m_Name: Building_8_01_geo (3)
   m_TagString: Untagged
@@ -44177,6 +44412,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1511456936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511456935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252164aade88ac047a0d191b40ef3ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!33 &1512365223
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -44779,6 +45026,7 @@ GameObject:
   - component: {fileID: 1535009857}
   - component: {fileID: 1534011009}
   - component: {fileID: 2121014766}
+  - component: {fileID: 1531820098}
   m_Layer: 0
   m_Name: Building_8_01_geo (8)
   m_TagString: Untagged
@@ -44786,6 +45034,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1531820098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531820097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252164aade88ac047a0d191b40ef3ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &1534011009
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -45134,6 +45394,7 @@ GameObject:
   - component: {fileID: 1545961034}
   - component: {fileID: 1546927242}
   - component: {fileID: 1005457298}
+  - component: {fileID: 1544987211}
   m_Layer: 0
   m_Name: Building_1_01_geo
   m_TagString: Untagged
@@ -45141,6 +45402,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1544987211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544987210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252164aade88ac047a0d191b40ef3ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!33 &1545961034
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -49658,6 +49931,7 @@ GameObject:
   - component: {fileID: 1693204705}
   - component: {fileID: 1694302753}
   - component: {fileID: 1627855986}
+  - component: {fileID: 1692376290}
   m_Layer: 0
   m_Name: Building_8_01_geo (4)
   m_TagString: Untagged
@@ -49665,6 +49939,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1692376290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692376289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252164aade88ac047a0d191b40ef3ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!33 &1693204705
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -55921,6 +56207,7 @@ GameObject:
   - component: {fileID: 1877323153}
   - component: {fileID: 1878323025}
   - component: {fileID: 634214460}
+  - component: {fileID: 1876324754}
   m_Layer: 0
   m_Name: Building_2_02_geo (3)
   m_TagString: Untagged
@@ -55928,6 +56215,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1876324754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1876324753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252164aade88ac047a0d191b40ef3ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1877201100
 GameObject:
   m_ObjectHideFlags: 0
@@ -57222,6 +57521,7 @@ GameObject:
   - component: {fileID: 1924211321}
   - component: {fileID: 1923113145}
   - component: {fileID: 829895042}
+  - component: {fileID: 1921187450}
   m_Layer: 0
   m_Name: Building_7_02_geo
   m_TagString: Untagged
@@ -57229,6 +57529,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1921187450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1921187449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252164aade88ac047a0d191b40ef3ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1921344089
 Transform:
   m_ObjectHideFlags: 0
@@ -57509,6 +57821,7 @@ GameObject:
   - component: {fileID: 1927515464}
   - component: {fileID: 1928515464}
   - component: {fileID: 453982054}
+  - component: {fileID: 1926254921}
   m_Layer: 0
   m_Name: Building_7_02_geo (2)
   m_TagString: Untagged
@@ -57516,6 +57829,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1926254921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926254920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252164aade88ac047a0d191b40ef3ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1926745448
 Transform:
   m_ObjectHideFlags: 0
@@ -62117,6 +62442,7 @@ GameObject:
   - component: {fileID: 2061449561}
   - component: {fileID: 2060352409}
   - component: {fileID: 1656508629}
+  - component: {fileID: 2062345562}
   m_Layer: 0
   m_Name: Building_8_01_geo (1)
   m_TagString: Untagged
@@ -62124,6 +62450,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2062345562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062345561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252164aade88ac047a0d191b40ef3ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2063845930
 GameObject:
   m_ObjectHideFlags: 0
@@ -64624,6 +64962,7 @@ GameObject:
   - component: {fileID: 2146307432}
   - component: {fileID: 2147438504}
   - component: {fileID: 356818138}
+  - component: {fileID: 2145243497}
   m_Layer: 0
   m_Name: Building_7_02_geo (8)
   m_TagString: Untagged
@@ -64631,6 +64970,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2145243497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145243496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252164aade88ac047a0d191b40ef3ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!33 &2146307432
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -69504,7 +69855,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &4179827115073825892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70074,7 +70425,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uB2E4\uC74C \uC2DC\uB098\uB9AC\uC624\uB85C \uB118\uC5B4\uAC00\uC2DC\uACA0\uC2B5\uB2C8\uAE4C?"
+  m_Text: "\uBAA8\uB4E0 \uD14C\uC2A4\uD2B8\uAC00 \uC885\uB8CC\uB418\uC5C8\uC2B5\uB2C8\uB2E4."
 --- !u!222 &4179827116664769120
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -79654,7 +80005,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4179939773993564421}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 20fa55eb64c5cea4aa3c71ae19c434bf, type: 3}
   m_Name: 

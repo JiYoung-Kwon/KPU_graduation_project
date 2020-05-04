@@ -90,4 +90,22 @@ public class Scene_Manager : MonoBehaviour
         SceneManager.LoadScene(nextScene);
         Time.timeScale = 1f;
     }
+
+    public void LoadScene1()
+    {
+        SceneManager.LoadScene("VR_scenario1");
+    }
+    public void LoadScene2()
+    {
+        SceneManager.LoadScene("VR_Scenario2");
+    }
+    public void LoadScene3()
+    {
+        SceneManager.LoadScene("VR_Scenario3");
+    }
+    public void LoadScene4()
+    {
+        SceneManager.LoadScene("VR_Scenario4");
+    }
+
 }
