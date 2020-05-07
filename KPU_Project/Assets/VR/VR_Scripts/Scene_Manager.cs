@@ -85,6 +85,7 @@ public class Scene_Manager : MonoBehaviour
     public void NextScenario() //다음 시나리오 (OK)
     {
         FOVE.Fove.InitEvent();
+        VIVE.Instance.InitEvent();
         int curScene = SceneManager.GetActiveScene().buildIndex;
         int nextScene = curScene + 1;
         SceneManager.LoadScene(nextScene);
@@ -93,7 +94,7 @@ public class Scene_Manager : MonoBehaviour
 
     public void LoadScene1()
     {
-        SceneManager.LoadScene("VR_scenario1");
+        SceneManager.LoadScene("VR_Scenario1");
     }
     public void LoadScene2()
     {
