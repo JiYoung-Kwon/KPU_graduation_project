@@ -40,9 +40,6 @@ public class VIVE : MonoBehaviour
     {
         switch (SceneManager.GetActiveScene().name)
         {
-            //case "VR_VIVE_Test":
-            //    Check_VR_Test();
-            //    break;
             case "VR_Scenario1":
                 Check_Scenario1();
                 break;
@@ -58,44 +55,18 @@ public class VIVE : MonoBehaviour
         }
     }
 
-    void Check_VR_Test()
-    {
-        if (red_Signal.active)
-        {
-            Debug.Log("불 들어옴");
-            Times += Time.deltaTime;
-            if (EyesTime == 0 && IsSee)
-            {
-
-                EyesTime = Times;
-                IsEvent = true;
-            }
-
-            if (BrakeTime == 0 && IsEvent && Input.GetKeyDown("space"))//UnityStandardAssets.Vehicles.Car.CarUserControl.Instance.break_Input > 0) )
-            {
-                BrakeTime = Times;
-                Debug.Log(BrakeTime);
-                Manager.VR_Manager.Instance.Add_VR_Data("VR_Scenario1", EyesTime, BrakeTime);
-                UI_Manager.Instance.ViewResult();
-            }
-        }
-    }
-
-
     void Check_Scenario1()
     {
         if (red_Signal.active)
         {
-            Debug.Log("불 들어옴");
             Times += Time.deltaTime;
             if (EyesTime == 0 && IsSee )
             {
-                
                 EyesTime = Times;
                 IsEvent = true;
             }
 
-            if (BrakeTime == 0 && IsEvent && Input.GetKeyDown("space"))//UnityStandardAssets.Vehicles.Car.CarUserControl.Instance.break_Input > 0) )
+            if (BrakeTime == 0 && IsEvent && UnityStandardAssets.Vehicles.Car.CarUserControl.Instance.break_Input > 0)// Input.GetKeyDown("space"))
             {
                 BrakeTime = Times;
                 Debug.Log(BrakeTime);
@@ -116,7 +87,7 @@ public class VIVE : MonoBehaviour
                 IsEvent = true;
             }
 
-            if (BrakeTime == 0 && IsEvent && UnityStandardAssets.Vehicles.Car.CarUserControl.Instance.break_Input > 0 )
+            if (BrakeTime == 0 && IsEvent && UnityStandardAssets.Vehicles.Car.CarUserControl.Instance.break_Input > 0 ) //Input.GetKeyDown("space"))
             {
                 BrakeTime = Times;
                 Debug.Log(BrakeTime);
@@ -136,7 +107,7 @@ public class VIVE : MonoBehaviour
                 IsEvent = true;
             }
 
-            if (BrakeTime == 0 && IsEvent && UnityStandardAssets.Vehicles.Car.CarUserControl.Instance.break_Input > 0)
+            if (BrakeTime == 0 && IsEvent && UnityStandardAssets.Vehicles.Car.CarUserControl.Instance.break_Input > 0) //Input.GetKeyDown("space"))
             {
                 BrakeTime = Times;
                 Debug.Log(BrakeTime);
@@ -157,7 +128,7 @@ public class VIVE : MonoBehaviour
                 IsEvent = true;
             }
 
-            if (BrakeTime == 0 && IsEvent && UnityStandardAssets.Vehicles.Car.CarUserControl.Instance.break_Input > 0 )
+            if (BrakeTime == 0 && IsEvent && UnityStandardAssets.Vehicles.Car.CarUserControl.Instance.break_Input > 0 ) //Input.GetKeyDown("space"))
             {
                 BrakeTime = Times;
                 Debug.Log(BrakeTime);
@@ -172,29 +143,25 @@ public class VIVE : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.name.Equals(red_Signal.name))
-        {
             IsSee = true;
-            Debug.Log(other.name);
-        }
-            
         else if (other.name.Equals(StopCar_Red.name))
             IsSee = true;
         else if (other.name.Equals(Interrupt_Car.name))
             IsSee = true;
-        //else if (other.name.Equals(red_Signal.name))
-        //    IsSee = true;
+        else if (other.name.Equals(PassCar.name))
+            IsSee = true;
+
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.name.Equals(red_Signal.name))
             IsSee = false;
-            
         else if (other.name.Equals(StopCar_Red.name))
             IsSee = false;
         else if (other.name.Equals(Interrupt_Car.name))
             IsSee = false;
-        else if (other.name.Equals(Interrupt_Car.name))
+        else if (other.name.Equals(PassCar.name))
             IsSee = false;
     }
 
