@@ -24,11 +24,11 @@ public class Scene_Manager : MonoBehaviour
         }
     }
 
-    public enum EYE_enum
-    {
-        Left_EYE, Right_EYE
-    }
-    public EYE_enum instanceEye;
+    //public enum EYE_enum
+    //{
+    //    Left_EYE, Right_EYE
+    //}
+    //public EYE_enum instanceEye;
     private static FoveInterface foveInterfaces;
 
     public static FoveInterface FoveInterface
@@ -51,40 +51,56 @@ public class Scene_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var rays = FoveInterface.GetGazeRays();
-        Ray r = instanceEye == EYE_enum.Left_EYE ? rays.left : rays.right;
-        RaycastHit hit;
-        if (Physics.Raycast(r, out hit, Mathf.Infinity, 1 << 13))
-        {
-            Times += Time.deltaTime;
-            if (Times > 1)
-            {
-                NextScenario();
-            }
+        //var rays = FoveInterface.GetGazeRays();
+        //Ray r = instanceEye == EYE_enum.Left_EYE ? rays.left : rays.right;
+        //RaycastHit hit;
+        //if (Physics.Raycast(r, out hit, Mathf.Infinity, 1 << 13))
+        //{
+        //    Times += Time.deltaTime;
+        //    if (Times > 1)
+        //        NextScenario();
             
-        }
-        if (Physics.Raycast(r, out hit, Mathf.Infinity, 1 << 14))
+        //}
+        //if (Physics.Raycast(r, out hit, Mathf.Infinity, 1 << 14))
+        //{
+        //    Times += Time.deltaTime;
+        //    if (Times > 1)
+        //        SceneManager.LoadScene("Main_Scene");
+        //}
+        ////Times = 0f;
+        //if (Physics.Raycast(r, out hit, Mathf.Infinity, 1 << 15))
+        //{
+        //    Times += Time.deltaTime;
+        //    if (Times > 1)
+        //        Application.Quit();
+        //}
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.name.Equals("Next"))
         {
             Times += Time.deltaTime;
-            if (Times > 1)
-            {
+            if (Times > 0.5)
+                NextScenario();
+        }
+        if (other.name.Equals("Main"))
+        {
+            Times += Time.deltaTime;
+            if (Times > 0.5)
                 SceneManager.LoadScene("Main_Scene");
-            }
         }
-        //Times = 0f;
-        if (Physics.Raycast(r, out hit, Mathf.Infinity, 1 << 15))
+        if (other.name.Equals("GameExit"))
         {
             Times += Time.deltaTime;
-            if (Times > 1)
-            {
+            if (Times > 0.5)
                 Application.Quit();
-            }
         }
     }
 
     public void NextScenario() //다음 시나리오 (OK)
     {
-        FOVE.Fove.InitEvent();
+        //FOVE.Fove.InitEvent();
         VIVE.Instance.InitEvent();
         int curScene = SceneManager.GetActiveScene().buildIndex;
         int nextScene = curScene + 1;
