@@ -147,6 +147,17 @@ namespace Tobii
                 Manager.TOBII_Manager.Instance.Add_TOBII_Data("Tobii_Scenario4", EyesTime, BrakeTime);
                 UIManager.Instance.ViewResult();
                 Manager.TOBII_Manager.Instance.Is_Danger();
+
+                Manager.TOBII_Manager.Instance.check_Danger(); //시나리오 1,2,3,4 통과 여부, 전체 위험군 여부
+
+                Manager.DB_sqlite_Manager.Instance.DB_Query("Update Account Set Scenario1 = " + Manager.TOBII_Manager.Instance.scenario1Danger
+                    + ", Scenario2 = " + Manager.TOBII_Manager.Instance.scenario2Danger
+                    + ", Scenario3 = " + Manager.TOBII_Manager.Instance.scenario3Danger
+                    + ", Scenario4 = " + Manager.TOBII_Manager.Instance.scenario4Danger
+                    + ", Is_Danger = " + Manager.TOBII_Manager.Instance.TotalDanger
+                    + " Where ID = " + save_user_data.Instance.Save_ID);
+
+
             }
         }
 

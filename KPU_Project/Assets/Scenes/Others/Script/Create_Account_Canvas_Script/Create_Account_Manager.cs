@@ -26,14 +26,14 @@ namespace Manager
 
         public void Btn_Create_Account()
         {
-           ID_PW_Canvas.SetActive(false);
-           Create_Account_Canvas.SetActive(true);
+            ID_PW_Canvas.SetActive(false);
+            Create_Account_Canvas.SetActive(true);
 
-           Input_ID.GetComponent<InputField>().text = string.Empty;
-           Input_PW.GetComponent<InputField>().text = string.Empty;
-           Input_Name.GetComponent<InputField>().text = string.Empty;
+            Input_ID.GetComponent<InputField>().text = string.Empty;
+            Input_PW.GetComponent<InputField>().text = string.Empty;
+            Input_Name.GetComponent<InputField>().text = string.Empty;
 
-           Input_ID.GetComponent<InputField>().placeholder.GetComponent<Text>().text = "ID 입력 ( 12글자 이내 )";
+            Input_ID.GetComponent<InputField>().placeholder.GetComponent<Text>().text = "ID 입력 ( 12글자 이내 )";
             Input_PW.GetComponent<InputField>().placeholder.GetComponent<Text>().text = "비밀번호 입력 ( 12글자 이내 )";
             Input_Name.GetComponent<InputField>().placeholder.GetComponent<Text>().text = "영어 이름 입력";
 
@@ -47,7 +47,7 @@ namespace Manager
             Create_Account_Canvas.SetActive(false);
         }
         public void Btn_Add_Account()
-       {
+        {
             try
             {
                 account.ID = Input_ID.GetComponent<InputField>().text;
@@ -63,8 +63,8 @@ namespace Manager
                     return;
                 }
 
-                string query = "Insert Into Account(ID, Password, Name)";
-                query += string.Format("VALUES (\"{0}\", \"{1}\", \"{2}\")", account.ID, account.PW, account.Name);
+                string query = "Insert Into Account(ID, Password, Name, Scenario1, Scenario2, Scenario3, Scenario4, Is_Danger)";
+                query += string.Format("VALUES (\"{0}\", \"{1}\", \"{2}\", \"{3}\", \"{4}\", \"{5}\", \"{6}\", \"{7}\")", account.ID, account.PW, account.Name, 0, 0, 0, 0, 0);
                 Debug.Log(query);
 
                 Manager.DB_sqlite_Manager.Instance.DB_Query(query);
@@ -83,7 +83,7 @@ namespace Manager
                 {
                     inform_Text.GetComponent<Text>().text = "비밀번호를 입력해 주세요.";
                 }
-                else if(account.Name.Length == 0)
+                else if (account.Name.Length == 0)
                 {
                     inform_Text.GetComponent<Text>().text = "이름을 입력해 주세요.";
                 }

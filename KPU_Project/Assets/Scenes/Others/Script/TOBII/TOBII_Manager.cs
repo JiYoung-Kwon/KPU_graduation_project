@@ -8,6 +8,12 @@ namespace Manager
     {
         [SerializeField] private List<TOBII> L_TOBII = new List<TOBII>();
 
+        //0 : false ,1 : true
+        public int scenario1Danger = 0;   // true : 통과, false : 위험군
+        public int scenario2Danger = 0;   // true : 통과, false : 위험군
+        public int scenario3Danger = 0;   // true : 통과, false : 위험군
+        public int scenario4Danger = 0;   // true : 통과, false : 위험군
+        public int TotalDanger = 0;
         #region singleton
         private static TOBII_Manager instance = null;
         public static TOBII_Manager Instance
@@ -16,7 +22,7 @@ namespace Manager
         }
         private void Awake()
         {
-            if(instance == null)
+            if (instance == null)
             {
                 DontDestroyOnLoad(this.gameObject);
                 instance = this;
@@ -44,7 +50,7 @@ namespace Manager
 
         public void Is_Danger()
         {
-            if (check_Danger())
+            if (check_TotalDanger() == 1)
             {
                 Debug.Log("안전해");
                 // 위험하지 않음... 처리할꺼 넣어주면 됨.
@@ -55,6 +61,7 @@ namespace Manager
                 // 위험군...
             }
         }
+
         #region 위험군 판별
         /// <summary>
         /// 위험군 판별
@@ -63,13 +70,25 @@ namespace Manager
         /// true : 통과
         /// false : 위험군
         /// </returns>
-        public bool check_Danger()
+        public int check_TotalDanger()
         {
-            if (scenario1(0))
+            if ((scenario1Danger == 1) && (scenario2Danger == 1) && (scenario3Danger == 1) && (scenario4Danger == 1))
             {
-                return true;
+                return 1;
             }
-            return false;
+            else
+            {
+                return 0;
+            }
+        }
+
+        public void check_Danger()
+        {
+            scenario1Danger = scenario1(0);
+            scenario2Danger = scenario2(1);
+            scenario3Danger = scenario3(2);
+            scenario4Danger = scenario4(3);
+            TotalDanger = check_TotalDanger();
         }
 
         /// <summary>
@@ -80,17 +99,18 @@ namespace Manager
         /// True -> 통과
         /// false -> 위험군
         /// </returns>
-        private bool scenario1(int index)
+        private int scenario1(int index)
         {
             if (L_TOBII[index].Eyes_Time < 2.1f)
             {
                 if (L_TOBII[index].Brake_Time < 2.1f)
-                    return scenario2(1);
+                    return 1;
                 else
-                    return false;
+                    return 0;
             }
-            return false;
+            return 0;
         }
+
         /// <summary>
         /// 시나리오2
         /// 앞 차량 급정지
@@ -101,17 +121,18 @@ namespace Manager
         /// True -> 통과
         /// false -> 위험군
         /// </returns>
-        private bool scenario2(int index)
+        private int scenario2(int index)
         {
             if (L_TOBII[index].Eyes_Time < 2.0f)
             {
                 if (L_TOBII[index].Brake_Time < 2.0f)
-                    return scenario3(2);
+                    return 1;
                 else
-                    return false;
+                    return 0;
             }
-            return false;
+            return 0;
         }
+
         /// <summary>
         /// 시나리오3
         /// 다른차량 끼어들기
@@ -121,17 +142,18 @@ namespace Manager
         /// True -> 통과
         /// false -> 위험군
         /// </returns>
-        private bool scenario3(int index)
+        private int scenario3(int index)
         {
             if (L_TOBII[index].Eyes_Time < 1.9f)
             {
                 if (L_TOBII[index].Brake_Time < 1.9f)
-                    return scenario4(3);
+                    return 1;
                 else
-                    return false;
+                    return 0;
             }
-            return false;
+            return 0;
         }
+
         /// <summary>
         /// 시나리오4
         /// 교차로 내 반응속도
@@ -141,16 +163,16 @@ namespace Manager
         /// True -> 통과
         /// false -> 위험군
         /// </returns>
-        private bool scenario4(int index)
+        private int scenario4(int index)
         {
             if (L_TOBII[index].Eyes_Time < 1.6f)
             {
                 if (L_TOBII[index].Brake_Time < 1.6f)
-                    return true;
+                    return 1;
                 else
-                    return false;
+                    return 0;
             }
-            return false;
+            return 0;
         }
         #endregion
 
