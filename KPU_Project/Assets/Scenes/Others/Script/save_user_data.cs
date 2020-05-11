@@ -11,7 +11,11 @@ public class save_user_data : MonoBehaviour
         set { user_id = value; }
         get { return user_id; }
     }
-
+    
+    public bool Record_to_Main
+    {
+        get;set;
+    }
     private static save_user_data instance;
     public static save_user_data Instance
     {
@@ -20,6 +24,9 @@ public class save_user_data : MonoBehaviour
     private void Awake()
     {
         if (instance == null)
+        {
             instance = this;
+            Record_to_Main = false;
+        }
     }
 }

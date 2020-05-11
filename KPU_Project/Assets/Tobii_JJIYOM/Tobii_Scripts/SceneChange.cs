@@ -30,7 +30,7 @@ namespace Tobii
 
         public void ReturnMenu() //메뉴로 돌아가기 (현재 로그인 화면으로 돌아감)
         {
-            SceneManager.LoadScene("Main_Scene");
+            SceneManager.LoadScene("Record_Scene");
         }
     }
 }

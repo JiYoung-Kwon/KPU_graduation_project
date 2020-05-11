@@ -16,13 +16,14 @@ namespace Loading
         {
             rectComponent = GetComponent<RectTransform>();
             imageComp = rectComponent.GetComponent<Image>();
+            StartCoroutine(loading());
         }
-
-        // Update is called once per frame
-        void Update()
+        IEnumerator loading()
         {
-            if (Manager.MainScene_Manager.mainscene_manager.Is_loading)
-                rectComponent.Rotate(0f, 0f, -(rotateSpeed * Time.deltaTime));
+            while (true) { 
+            yield return new WaitUntil(() => Manager.MainScene_Manager.mainscene_manager.Is_loading);
+            rectComponent.Rotate(0f, 0f, -(rotateSpeed * Time.deltaTime));
+            }
         }
     }
 }

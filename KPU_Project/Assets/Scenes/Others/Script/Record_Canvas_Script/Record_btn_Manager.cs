@@ -1,24 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 namespace Manager
 {
     public class Record_btn_Manager : MonoBehaviour
     {
-        [Header("Canvas :")]
-        [Tooltip("0 : 메뉴 \n 1 : 레코드 \n 2 : 로딩")]
-        [SerializeField] GameObject[] Canvas;
-
         [Header("Scenario")]
         [SerializeField] Image[] Scenario_sprite = null;
         [SerializeField] Image Is_Danger_sprite = null;
         [Header("Sprite")]
         [SerializeField] private Sprite non_pass_sprite = null;
         [SerializeField] private Sprite pass_sprite = null;
-
-
         private static Record_btn_Manager instance;
         public static Record_btn_Manager Instance
         {
@@ -27,22 +21,24 @@ namespace Manager
         private void Awake()
         {
             if (instance == null)
+            {
                 instance = this;
+                
+            }
+        }
+        private void Start()
+        {
+            Show_result();
+            save_user_data.Instance.Record_to_Main = false;
         }
         public void Press_backbtn()
         {
-            Canvas[0].SetActive(true);
-
-            Hide_Record();
-        }
-        private void Hide_Record()
-        {
-            Canvas[1].SetActive(false);
-            Canvas[2].SetActive(true);
+            save_user_data.Instance.Record_to_Main = true;
+            SceneManager.LoadScene("Main_Scene");
         }
         // 보이게 하는 건, MainScene_Manager 스크립트 187줄 확인. public void Show_Record()
 
-        public void Show_result()
+        private void Show_result()
         {
             Manager.DB_sqlite_Manager.Instance.DB_Read("Select * From Account");
 
