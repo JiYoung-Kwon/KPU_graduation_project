@@ -32,6 +32,9 @@ namespace Tobii
         public GameObject myCar;
         public GameObject NextCar;
 
+        public bool IsFail = false;
+        public int FailCheck = 0;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -92,6 +95,13 @@ namespace Tobii
             {
                 times += Time.deltaTime;
                 GazeEvent.Instance.IsEvent = true;
+
+                if (times > 3f && FailCheck == 0)
+                {
+                    IsFail = true;
+                    FailCheck++;
+                }
+
                 if (IsArrive) //끼어들고나서 감속
                 {
                     NextCar.gameObject.GetComponent<NavMeshAgent>().SetDestination(WayPoint3.position); //끝으로 쭉쭉 직진

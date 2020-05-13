@@ -23,6 +23,9 @@ namespace Tobii
         public int Nextidx = 0;
         private NavMeshAgent agent;
         public float times;
+        public bool IsFail = false;
+        public int FailCheck = 0;
+        
 
         // Start is called before the first frame update
         void Start()
@@ -61,6 +64,14 @@ namespace Tobii
                 Tobii_SuddenStopCar.SUDDENSTOPCAR.FrontCar.gameObject.GetComponent<NavMeshAgent>().velocity = Vector3.zero;
                 times += Time.deltaTime;
                 GazeEvent.Instance.IsEvent = true;
+                
+                if (times > 3f && FailCheck == 0)
+                {
+                    IsFail = true;
+                    FailCheck++;
+                }
+
+                
             }
 
             if (agent.velocity.sqrMagnitude >= 0.2f * 0.2f && agent.remainingDistance <= 0.5f)

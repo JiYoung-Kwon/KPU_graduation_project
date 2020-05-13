@@ -25,6 +25,7 @@ namespace Tobii
         public GameObject Light1;
         public GameObject Light2;
         public GameObject Light3;
+        public GameObject RealCollider;
         public bool CarStop = false;
 
         private void OnTriggerEnter(Collider other)
@@ -32,6 +33,7 @@ namespace Tobii
             if (other.gameObject.CompareTag("Player"))
             {
                 CarStop = true;
+                RealCollider.SetActive(true);
                 Light.gameObject.SetActive(true);
                 Light1.gameObject.SetActive(true);
                 Light2.gameObject.SetActive(true);

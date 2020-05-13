@@ -30,7 +30,7 @@ namespace Tobii
             }
             else
             {
-                return; 
+                return;
             }
         }
         #endregion
@@ -77,7 +77,7 @@ namespace Tobii
                 Debug.Log("공맞음 " + EyesTime);
             }
             //시나리오 2
-            if (other.name == "FColliders" && EyesTime == 0 && IsEvent)
+            if (other.name == "RealCollider" && EyesTime == 0 && IsEvent)
             {
                 EyesTime = Tobii_Navation.NAVATION.times; //see_time자리에 Tobii_Manager Param
                 IsSee = true;
@@ -102,47 +102,79 @@ namespace Tobii
         public void Check_Scenario1()
         {
             //스페이스 키 누르면 //이벤트 발생이후 //눈으로 본 후 //한번만 발생하게
-            if (breakInput > 0.02 && BrakeTime == 0 && IsEvent && IsSee)
+            if ((breakInput > 0.02 && BrakeTime == 0 && IsEvent && IsSee) || Tobii_TrafficLight.TT.IsFail)
+            {
+                if (Tobii_TrafficLight.TT.IsFail)
                 {
-                BrakeTime = Tobii_TrafficLight.TT.times;
-                Debug.Log("브레이크 반응 시간 : " + Tobii_TrafficLight.TT.times);
-
+                    Tobii_TrafficLight.TT.IsFail = false;
+                    EyesTime = 3f;
+                    BrakeTime = 3f;           
+                }
+                else
+                {
+                    BrakeTime = Tobii_TrafficLight.TT.times;
+                    Debug.Log("브레이크 반응 시간 : " + Tobii_TrafficLight.TT.times);                   
+                }          
                 Manager.TOBII_Manager.Instance.Add_TOBII_Data("Tobii_Scenario1", EyesTime, BrakeTime);
-                       
-                UIManager.Instance.ViewResult();               
+                UIManager.Instance.ViewResult();
             }
         }
 
         public void Check_Scenario2()
         {
-             if (breakInput > 0.02 && BrakeTime == 0 && IsEvent && IsSee)
+            if ((breakInput > 0.02 && BrakeTime == 0 && IsEvent && IsSee) || Tobii_Navation.NAVATION.IsFail)
+            {
+                if (Tobii_Navation.NAVATION.IsFail)
                 {
-                BrakeTime = Tobii_Navation.NAVATION.times;
-                Debug.Log("브레이크 반응 시간 : " + Tobii_Navation.NAVATION.times);
-
+                    Tobii_Navation.NAVATION.IsFail = false;
+                    EyesTime = 3f;
+                    BrakeTime = 3f;
+                }
+                else
+                {
+                    BrakeTime = Tobii_Navation.NAVATION.times;
+                    Debug.Log("브레이크 반응 시간 : " + Tobii_Navation.NAVATION.times);
+                }
                 Manager.TOBII_Manager.Instance.Add_TOBII_Data("Tobii_Scenario2", EyesTime, BrakeTime);
-                UIManager.Instance.ViewResult();                
+                UIManager.Instance.ViewResult();
             }
         }
 
         public void Check_Scenario3()
         {
-            if (breakInput > 0.02 && BrakeTime == 0 && IsEvent && IsSee)
+            if (breakInput > 0.02 && BrakeTime == 0 && IsEvent && IsSee || Tobii_Navigation.NAVI.IsFail)
             {
-                BrakeTime = Tobii_Navigation.NAVI.times;
-                Debug.Log("브레이크 반응 시간 : " + Tobii_Navigation.NAVI.times);
-
+                if (Tobii_Navigation.NAVI.IsFail)
+                {
+                    Tobii_Navigation.NAVI.IsFail = false;
+                    EyesTime = 3f;
+                    BrakeTime = 3f;
+                }
+                else
+                {
+                    BrakeTime = Tobii_Navigation.NAVI.times;
+                    Debug.Log("브레이크 반응 시간 : " + Tobii_Navigation.NAVI.times);
+                }
                 Manager.TOBII_Manager.Instance.Add_TOBII_Data("Tobii_Scenario3", EyesTime, BrakeTime);
-                UIManager.Instance.ViewResult();               
+                UIManager.Instance.ViewResult();
             }
         }
 
         public void Check_Scenario4()
         {
-            if (breakInput > 0.02 && BrakeTime == 0 && IsEvent && IsSee)
+            if( (breakInput > 0.02 && BrakeTime == 0 && IsEvent && IsSee )|| Tobii_SuddenCar.Instance.IsFail)
             {
-                BrakeTime = Tobii_Navigation.NAVI.times;
-                Debug.Log("브레이크 반응 시간 : " + Tobii_Navigation.NAVI.times);
+                if (Tobii_SuddenCar.Instance.IsFail)
+                {
+                    Tobii_SuddenCar.Instance.IsFail = false;
+                    EyesTime = 3f;
+                    BrakeTime = 3f;
+                }
+                else
+                {
+                    BrakeTime = Tobii_SuddenCar.Instance.times;
+                    Debug.Log("브레이크 반응 시간 : " + Tobii_SuddenCar.Instance.times);
+                }
 
                 Manager.TOBII_Manager.Instance.Add_TOBII_Data("Tobii_Scenario4", EyesTime, BrakeTime);
                 UIManager.Instance.ViewResult();

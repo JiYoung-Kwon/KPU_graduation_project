@@ -16,6 +16,9 @@ namespace Tobii
 
         public float times;
 
+        public bool IsFail= false;
+        public int FailCheck = 0;
+
         private static Tobii_TrafficLight tt;
         public static Tobii_TrafficLight TT
         {
@@ -58,6 +61,12 @@ namespace Tobii
             if (Red.activeSelf)
             {
                 times += Time.deltaTime;
+
+                if (times > 3f && FailCheck ==0)
+                {
+                    IsFail = true;
+                    FailCheck++;
+                }
                 //if (times > Red_t)
                 //{
                 //    GazeEvent.Instance.IsEvent = false;

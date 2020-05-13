@@ -18,6 +18,7 @@ namespace Button
         public void OnPointerClick(PointerEventData eventData)
         {
             Manager.MainScene_Manager.mainscene_manager.GO_Scene(gameObject.name);
+            Time.timeScale = 1f;
         }
     }
 }

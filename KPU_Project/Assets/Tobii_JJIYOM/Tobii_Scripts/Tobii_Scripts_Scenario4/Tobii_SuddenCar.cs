@@ -10,6 +10,9 @@ namespace Tobii
         public bool CarGo = false;
         public float times;
 
+        public bool IsFail = false;
+        public int FailCheck = 0;
+
         #region Singleton
         private static Tobii_SuddenCar instance = null;
         public static Tobii_SuddenCar Instance
@@ -29,6 +32,12 @@ namespace Tobii
             {
                 times += Time.deltaTime;
                 GazeEvent.Instance.IsEvent = true;
+
+                if (times > 3f && FailCheck == 0)
+                {
+                    IsFail = true;
+                    FailCheck++;
+                }
             }
         }
 
