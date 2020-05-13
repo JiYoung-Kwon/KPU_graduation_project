@@ -20,6 +20,7 @@ public class SuddenStopCar : MonoBehaviour
     public GameObject Car_Light1;
     public GameObject Car_Light2;
     public GameObject Car_Light3;
+    public GameObject RealCollider;
     public bool CarStop = false;
     private void OnTriggerEnter(Collider other)
     {
@@ -31,6 +32,7 @@ public class SuddenStopCar : MonoBehaviour
     public void Light_On()
     {
         CarStop = true;
+        RealCollider.SetActive(true);
         Car_Light.gameObject.SetActive(true);
         Car_Light1.gameObject.SetActive(true);
         Car_Light2.gameObject.SetActive(true);

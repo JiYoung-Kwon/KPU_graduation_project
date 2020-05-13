@@ -118,7 +118,12 @@ namespace Manager
                 }
             }
             else
+            {
                 scenario1Danger = false;
+                Manager.DB_sqlite_Manager.Instance.DB_Query("UPDATE Account SET Scenario1 = 0 Where ID = " + save_user_data.Instance.Save_ID);
+                Debug.Log("시나리오1 불통");
+            }
+                
             return false;
         }
         /// <summary>
@@ -153,7 +158,12 @@ namespace Manager
                     
             }
             else
+            {
                 scenario2Danger = false;
+                Manager.DB_sqlite_Manager.Instance.DB_Query("UPDATE Account SET Scenario2 = 0 Where ID = " + save_user_data.Instance.Save_ID);
+                Debug.Log("시나리오2 불통");
+            }
+               
             return false;
         }
         /// <summary>
@@ -181,13 +191,17 @@ namespace Manager
                 {
                     scenario3Danger = false;
                     Manager.DB_sqlite_Manager.Instance.DB_Query("UPDATE Account SET Scenario3 = 0 Where ID = " + save_user_data.Instance.Save_ID);
-                    Debug.Log("시나리오2 불통");
+                    Debug.Log("시나리오3 불통");
                     return false;
                 }
                     
             }
             else
+            {
                 scenario3Danger = false;
+                Manager.DB_sqlite_Manager.Instance.DB_Query("UPDATE Account SET Scenario3 = 0 Where ID = " + save_user_data.Instance.Save_ID);
+                Debug.Log("시나리오3 불통");
+            }
             return false;
         }
         /// <summary>
@@ -220,7 +234,11 @@ namespace Manager
                 }
             }
             else
+            {
                 scenario4Danger = false;
+                Manager.DB_sqlite_Manager.Instance.DB_Query("UPDATE Account SET Scenario4 = 0 Where ID = " + save_user_data.Instance.Save_ID);
+                Debug.Log("시나리오4 불통");
+            }
             return false;
         }
         #endregion

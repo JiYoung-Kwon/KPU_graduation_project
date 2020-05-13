@@ -96,6 +96,14 @@ public class Scene_Manager : MonoBehaviour
             if (Times > 1)
                 Application.Quit();
         }
+        if (other.name.Equals("Result"))
+        {
+            Times += Time.deltaTime;
+            if (Times > 1)
+            {
+                SceneManager.LoadScene("Record_Scene");
+            }
+        }
     }
 
     //private void OnTriggerEnter(Collider other)

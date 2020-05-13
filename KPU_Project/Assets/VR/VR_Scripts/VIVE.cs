@@ -30,6 +30,7 @@ public class VIVE : MonoBehaviour
     [SerializeField] public GameObject PassCar;
     [SerializeField] public bool IsEvent = false;
     [SerializeField] public bool IsSee = false;
+    [SerializeField] public bool OverTime = true;
 
     [SerializeField] public float Times = 0f;
     [SerializeField] public float EyesTime = 0f;
@@ -40,7 +41,7 @@ public class VIVE : MonoBehaviour
     {
         switch (SceneManager.GetActiveScene().name)
         {
-            case "VR_Scenario1":
+            case "VR_scenario1":
                 Check_Scenario1();
                 break;
             case "VR_Scenario2":
@@ -69,15 +70,19 @@ public class VIVE : MonoBehaviour
 
             if (BrakeTime == 0 && IsEvent && Input.GetKeyDown("space"))//UnityStandardAssets.Vehicles.Car.CarUserControl.Instance.break_Input > 0)// )
             {
+                OverTime = false;
                 BrakeTime = Times;
                 Debug.Log(BrakeTime);
                 Manager.VR_Manager.Instance.Add_VR_Data("VR_Scenario1", EyesTime, BrakeTime);
                 UI_Manager.Instance.ViewResult();
             }
         }
-        if (Times > 3)
+        if (Times > 3 && OverTime)
         {
-            Manager.VR_Manager.Instance.Add_VR_Data("VR_Scenario1", 3, 3);
+            EyesTime = Times;
+            BrakeTime = Times;
+            OverTime = false;
+            Manager.VR_Manager.Instance.Add_VR_Data("VR_Scenario1", EyesTime, BrakeTime);
             UI_Manager.Instance.ViewResult();
         }
     }
@@ -95,15 +100,20 @@ public class VIVE : MonoBehaviour
 
             if (BrakeTime == 0 && IsEvent && Input.GetKeyDown("space")) //UnityStandardAssets.Vehicles.Car.CarUserControl.Instance.break_Input > 0 ) //Input.GetKeyDown("space"))
             {
+                OverTime = false;
                 BrakeTime = Times;
                 Debug.Log(BrakeTime);
                 Manager.VR_Manager.Instance.Add_VR_Data("VR_Scenario2", EyesTime, BrakeTime);
                 UI_Manager.Instance.ViewResult();
             }
         }
-        if(Times > 3)
+        if (Times > 3 && OverTime)
         {
-            Manager.VR_Manager.Instance.Add_VR_Data("VR_Scenario2", 3, 3);
+            OverTime = false;
+            EyesTime = Times;
+            BrakeTime = Times;
+            OverTime = true;
+            Manager.VR_Manager.Instance.Add_VR_Data("VR_Scenario2", EyesTime, EyesTime);
             UI_Manager.Instance.ViewResult();
         }
     }
@@ -120,15 +130,19 @@ public class VIVE : MonoBehaviour
 
             if (BrakeTime == 0 && IsEvent && Input.GetKeyDown("space")) //UnityStandardAssets.Vehicles.Car.CarUserControl.Instance.break_Input > 0) //Input.GetKeyDown("space"))
             {
+                OverTime = false;
                 BrakeTime = Times;
                 Debug.Log(BrakeTime);
-                Manager.VR_Manager.Instance.Add_VR_Data("VR_Scenario3", EyesTime, BrakeTime);
+                Manager.VR_Manager.Instance.Add_VR_Data("VR_Scenario3", EyesTime, EyesTime);
                 UI_Manager.Instance.ViewResult();
             }
         }
-        if (Times > 3)
+        if (Times > 3 && OverTime)
         {
-            Manager.VR_Manager.Instance.Add_VR_Data("VR_Scenario3", 3, 3);
+            EyesTime = Times;
+            BrakeTime = Times;
+            OverTime = false;
+            Manager.VR_Manager.Instance.Add_VR_Data("VR_Scenario3", EyesTime, EyesTime);
             UI_Manager.Instance.ViewResult();
         }
 
@@ -146,18 +160,23 @@ public class VIVE : MonoBehaviour
 
             if (BrakeTime == 0 && IsEvent && Input.GetKeyDown("space")) //UnityStandardAssets.Vehicles.Car.CarUserControl.Instance.break_Input > 0 ) //Input.GetKeyDown("space"))
             {
+                OverTime = false;
                 BrakeTime = Times;
                 Debug.Log(BrakeTime);
-                Manager.VR_Manager.Instance.Add_VR_Data("VR_Scenario4", EyesTime, BrakeTime);
+                Manager.VR_Manager.Instance.Add_VR_Data("VR_Scenario4", EyesTime, EyesTime);
 
                 UI_Manager.Instance.ViewResult();
                 Manager.VR_Manager.Instance.Is_Danger();
             }
         }
-        if (Times > 3)
+        if (Times > 3 && OverTime)
         {
-            Manager.VR_Manager.Instance.Add_VR_Data("VR_Scenario4", 3, 3);
+            EyesTime = Times;
+            BrakeTime = Times;
+            OverTime = false;
+            Manager.VR_Manager.Instance.Add_VR_Data("VR_Scenario4", EyesTime, EyesTime);
             UI_Manager.Instance.ViewResult();
+            Manager.VR_Manager.Instance.Is_Danger();
         }
     }
 
@@ -165,7 +184,7 @@ public class VIVE : MonoBehaviour
     {
         Debug.Log(other.name);
 
-        if (SceneManager.GetActiveScene().name.Equals("VR_Scenario1"))
+        if (SceneManager.GetActiveScene().name.Equals("VR_scenario1"))
         {
             if (other.name.Equals(red_Signal.name))
             {
