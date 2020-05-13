@@ -57,22 +57,28 @@ public class VIVE : MonoBehaviour
 
     void Check_Scenario1()
     {
+
         if (red_Signal.active)
         {
             Times += Time.deltaTime;
-            if (EyesTime == 0 && IsSee )
+            if (EyesTime == 0 && IsSee)
             {
                 EyesTime = Times;
                 IsEvent = true;
             }
 
-            if (BrakeTime == 0 && IsEvent && UnityStandardAssets.Vehicles.Car.CarUserControl.Instance.break_Input > 0)// Input.GetKeyDown("space"))
+            if (BrakeTime == 0 && IsEvent && Input.GetKeyDown("space"))//UnityStandardAssets.Vehicles.Car.CarUserControl.Instance.break_Input > 0)// )
             {
                 BrakeTime = Times;
                 Debug.Log(BrakeTime);
                 Manager.VR_Manager.Instance.Add_VR_Data("VR_Scenario1", EyesTime, BrakeTime);
                 UI_Manager.Instance.ViewResult();
             }
+        }
+        if (Times > 3)
+        {
+            Manager.VR_Manager.Instance.Add_VR_Data("VR_Scenario1", 3, 3);
+            UI_Manager.Instance.ViewResult();
         }
     }
 
@@ -81,19 +87,24 @@ public class VIVE : MonoBehaviour
         if (StopCar_Red.active)
         {
             Times += Time.deltaTime;
-            if (EyesTime == 0 && IsSee )
+            if (EyesTime == 0 && IsSee)
             {
                 EyesTime = Times;
                 IsEvent = true;
             }
 
-            if (BrakeTime == 0 && IsEvent && UnityStandardAssets.Vehicles.Car.CarUserControl.Instance.break_Input > 0 ) //Input.GetKeyDown("space"))
+            if (BrakeTime == 0 && IsEvent && Input.GetKeyDown("space")) //UnityStandardAssets.Vehicles.Car.CarUserControl.Instance.break_Input > 0 ) //Input.GetKeyDown("space"))
             {
                 BrakeTime = Times;
                 Debug.Log(BrakeTime);
                 Manager.VR_Manager.Instance.Add_VR_Data("VR_Scenario2", EyesTime, BrakeTime);
                 UI_Manager.Instance.ViewResult();
             }
+        }
+        if(Times > 3)
+        {
+            Manager.VR_Manager.Instance.Add_VR_Data("VR_Scenario2", 3, 3);
+            UI_Manager.Instance.ViewResult();
         }
     }
     void Check_Scenario3()
@@ -107,13 +118,18 @@ public class VIVE : MonoBehaviour
                 IsEvent = true;
             }
 
-            if (BrakeTime == 0 && IsEvent && UnityStandardAssets.Vehicles.Car.CarUserControl.Instance.break_Input > 0) //Input.GetKeyDown("space"))
+            if (BrakeTime == 0 && IsEvent && Input.GetKeyDown("space")) //UnityStandardAssets.Vehicles.Car.CarUserControl.Instance.break_Input > 0) //Input.GetKeyDown("space"))
             {
                 BrakeTime = Times;
                 Debug.Log(BrakeTime);
                 Manager.VR_Manager.Instance.Add_VR_Data("VR_Scenario3", EyesTime, BrakeTime);
                 UI_Manager.Instance.ViewResult();
             }
+        }
+        if (Times > 3)
+        {
+            Manager.VR_Manager.Instance.Add_VR_Data("VR_Scenario3", 3, 3);
+            UI_Manager.Instance.ViewResult();
         }
 
     }
@@ -128,7 +144,7 @@ public class VIVE : MonoBehaviour
                 IsEvent = true;
             }
 
-            if (BrakeTime == 0 && IsEvent && UnityStandardAssets.Vehicles.Car.CarUserControl.Instance.break_Input > 0 ) //Input.GetKeyDown("space"))
+            if (BrakeTime == 0 && IsEvent && Input.GetKeyDown("space")) //UnityStandardAssets.Vehicles.Car.CarUserControl.Instance.break_Input > 0 ) //Input.GetKeyDown("space"))
             {
                 BrakeTime = Times;
                 Debug.Log(BrakeTime);
@@ -138,32 +154,76 @@ public class VIVE : MonoBehaviour
                 Manager.VR_Manager.Instance.Is_Danger();
             }
         }
+        if (Times > 3)
+        {
+            Manager.VR_Manager.Instance.Add_VR_Data("VR_Scenario4", 3, 3);
+            UI_Manager.Instance.ViewResult();
+        }
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
-        if (other.name.Equals(red_Signal.name))
-            IsSee = true;
-        else if (other.name.Equals(StopCar_Red.name))
-            IsSee = true;
-        else if (other.name.Equals(Interrupt_Car.name))
-            IsSee = true;
-        else if (other.name.Equals(PassCar.name))
-            IsSee = true;
+        Debug.Log(other.name);
+
+        if (SceneManager.GetActiveScene().name.Equals("VR_Scenario1"))
+        {
+            if (other.name.Equals(red_Signal.name))
+            {
+                Debug.Log(other.name);
+                IsSee = true;
+            }
+        }
+        else if (SceneManager.GetActiveScene().name.Equals("VR_Scenario2"))
+        {
+            if (other.name.Equals(StopCar_Red.name))
+            {
+                Debug.Log(other.name);
+                IsSee = true;
+            }
+        }
+        else if (SceneManager.GetActiveScene().name.Equals("VR_Scenario3"))
+        {
+            if (other.name.Equals(Interrupt_Car.name))
+            {
+                Debug.Log(other.name);
+                IsSee = true;
+            }
+        }
+        else if (SceneManager.GetActiveScene().name.Equals("VR_Scenario4"))
+        {
+            if (other.name.Equals(PassCar.name))
+            {
+                Debug.Log(other.name);
+                IsSee = true;
+            }
+        }
+        //if (other.name.Equals(red_Signal.name))
+        //{
+        //    Debug.Log(other.name);
+        //    IsSee = true;
+        //}
+
+        //if (other.name.Equals(Interrupt_Car.name))
+        //    IsSee = true;
+
+        //if (other.name.Equals(PassCar.name))
+        //    IsSee = true;
 
     }
 
-    private void OnTriggerExit(Collider other)
+    public void OnTriggerExit(Collider other)
     {
-        if (other.name.Equals(red_Signal.name))
-            IsSee = false;
-        else if (other.name.Equals(StopCar_Red.name))
-            IsSee = false;
-        else if (other.name.Equals(Interrupt_Car.name))
-            IsSee = false;
-        else if (other.name.Equals(PassCar.name))
-            IsSee = false;
+
+        //if (other.name.Equals(red_Signal.name))
+        //    IsSee = false;
+        //if (other.name.Equals(StopCar_Red.name))
+        //    IsSee = false;
+        //if (other.name.Equals(Interrupt_Car.name))
+        //    IsSee = false;
+        //if (other.name.Equals(PassCar.name))
+        //    IsSee = false;
     }
+
 
     public void InitEvent()
     {

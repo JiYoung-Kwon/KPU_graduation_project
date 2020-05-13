@@ -29,19 +29,19 @@ public class Scene_Manager : MonoBehaviour
     //    Left_EYE, Right_EYE
     //}
     //public EYE_enum instanceEye;
-    private static FoveInterface foveInterfaces;
+    //private static FoveInterface foveInterfaces;
 
-    public static FoveInterface FoveInterface
-    {
-        get
-        {
-            if (foveInterfaces == null)
-            {
-                foveInterfaces = FindObjectOfType<FoveInterface>();
-            }
-            return foveInterfaces;
-        }
-    }
+    //public static FoveInterface FoveInterface
+    //{
+    //    get
+    //    {
+    //        if (foveInterfaces == null)
+    //        {
+    //            foveInterfaces = FindObjectOfType<FoveInterface>();
+    //        }
+    //        return foveInterfaces;
+    //    }
+    //}
 
     void Start()
     {
@@ -76,27 +76,49 @@ public class Scene_Manager : MonoBehaviour
         //}
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.name.Equals("Next"))
         {
             Times += Time.deltaTime;
-            if (Times > 0.5)
+            if (Times > 1)
                 NextScenario();
         }
         if (other.name.Equals("Main"))
         {
             Times += Time.deltaTime;
-            if (Times > 0.5)
+            if (Times > 1)
                 SceneManager.LoadScene("Main_Scene");
         }
         if (other.name.Equals("GameExit"))
         {
             Times += Time.deltaTime;
-            if (Times > 0.5)
+            if (Times > 1)
                 Application.Quit();
         }
     }
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.name.Equals("Next"))
+    //    {
+    //        Times += Time.deltaTime;
+    //        if (Times > 0.5)
+    //            NextScenario();
+    //    }
+    //    if (other.name.Equals("Main"))
+    //    {
+    //        Times += Time.deltaTime;
+    //        if (Times > 0.5)
+    //            SceneManager.LoadScene("Main_Scene");
+    //    }
+    //    if (other.name.Equals("GameExit"))
+    //    {
+    //        Times += Time.deltaTime;
+    //        if (Times > 0.5)
+    //            Application.Quit();
+    //    }
+    //}
 
     public void NextScenario() //다음 시나리오 (OK)
     {

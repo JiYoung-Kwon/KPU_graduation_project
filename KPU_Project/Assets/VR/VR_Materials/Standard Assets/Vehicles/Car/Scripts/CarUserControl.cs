@@ -66,23 +66,25 @@ namespace UnityStandardAssets.Vehicles.Car
             // pass the input to the car!
             //float h = CrossPlatformInputManager.GetAxis("Horizontal");
             //float v = CrossPlatformInputManager.GetAxis("Vertical");
-            GetInput(); //logitech 값 받아오기
+            /*GetInput(); //logitech 값 받아오기
             Steer(); //핸들 회전
             RPM(); //계기판, rpm
-            CarSpeed(); //속도계
-
-            float h = handle_Input;
-            float v = accel_Input;
+            CarSpeed(); //속도계*/
+            float h = CrossPlatformInputManager.GetAxis("Horizontal");
+            float v = CrossPlatformInputManager.GetAxis("Vertical");
+            //float h = handle_Input;
+            //float v = accel_Input;
             //float b = break_Input;
 #if !MOBILE_INPUT
             float handbrake = CrossPlatformInputManager.GetAxis("Jump");
 
-            if (drivingMode == -1)
+            m_Car.Move(h, v, v, handbrake);
+            /*if (drivingMode == -1)
                 m_Car.Move(h, v, v, handbrake);
             else if (drivingMode == 1)
                 m_Car.Move(h, -v, -v, handbrake);//Move(float steering, float accel, float footbrake, float handbrake)
             else
-            { }
+            { }*/
 #else
             m_Car.Move(h, v, v, 0f);
             
