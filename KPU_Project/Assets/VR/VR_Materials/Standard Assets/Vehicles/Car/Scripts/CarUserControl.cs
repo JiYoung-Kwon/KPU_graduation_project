@@ -18,8 +18,8 @@ namespace UnityStandardAssets.Vehicles.Car
         public float MaxSteerAngle;
         public float motorForce;
         public float breakForce;
-        //public List<float> motor_torque = new List<float>();
-        //public List<float> brake_torque = new List<float>();
+        public List<float> motor_torque = new List<float>();
+        public List<float> brake_torque = new List<float>();
         public Transform Handle;
         public Transform Rpm_Pointer;
         public Transform Speed_Pointer;
@@ -53,38 +53,39 @@ namespace UnityStandardAssets.Vehicles.Car
 
         public void Start()
         {
-            //for (int i = 0; i < 4; i++)
-            //{
-            //    //Debug.Log(CarController.Carcontroller.m_WheelColliders[i].motorTorque);
-            //    motor_torque.Add(CarController.Carcontroller.m_WheelColliders[i].motorTorque);
-            //    brake_torque.Add(CarController.Carcontroller.m_WheelColliders[i].brakeTorque);
+            for (int i = 0; i < 4; i++)
+            {
+                //Debug.Log(CarController.Carcontroller.m_WheelColliders[i].motorTorque);
+                motor_torque.Add(CarController.Carcontroller.m_WheelColliders[i].motorTorque);
+                brake_torque.Add(CarController.Carcontroller.m_WheelColliders[i].brakeTorque);
 
-            //}
+            }
         }
         private void FixedUpdate()
         {
             // pass the input to the car!
-            //float h = CrossPlatformInputManager.GetAxis("Horizontal");
-            //float v = CrossPlatformInputManager.GetAxis("Vertical");
-            /*GetInput(); //logitech 값 받아오기
+            //float h = crossplatforminputmanager.getaxis("horizontal");
+            //float v = crossplatforminputmanager.getaxis("vertical");
+            GetInput(); //logitech 값 받아오기
             Steer(); //핸들 회전
             RPM(); //계기판, rpm
-            CarSpeed(); //속도계*/
-            float h = CrossPlatformInputManager.GetAxis("Horizontal");
-            float v = CrossPlatformInputManager.GetAxis("Vertical");
-            //float h = handle_Input;
-            //float v = accel_Input;
-            //float b = break_Input;
+            CarSpeed(); //속도계
+
+            float h = handle_Input;
+            float v = accel_Input;
+            float b = break_Input;
+            //float h = CrossPlatformInputManager.GetAxis("Horizontal");
+            //float v = CrossPlatformInputManager.GetAxis("Vertical");
 #if !MOBILE_INPUT
             float handbrake = CrossPlatformInputManager.GetAxis("Jump");
 
-            m_Car.Move(h, v, v, handbrake);
-            /*if (drivingMode == -1)
+            //m_Car.Move(h, v, v, handbrake);
+            if (drivingMode == -1)
                 m_Car.Move(h, v, v, handbrake);
             else if (drivingMode == 1)
                 m_Car.Move(h, -v, -v, handbrake);//Move(float steering, float accel, float footbrake, float handbrake)
             else
-            { }*/
+            { }
 #else
             m_Car.Move(h, v, v, 0f);
             

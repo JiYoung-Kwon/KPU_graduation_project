@@ -68,7 +68,7 @@ public class VIVE : MonoBehaviour
                 IsEvent = true;
             }
 
-            if (BrakeTime == 0 && IsEvent && Input.GetKeyDown("space"))//UnityStandardAssets.Vehicles.Car.CarUserControl.Instance.break_Input > 0)// )
+            if (BrakeTime == 0 && IsEvent && UnityStandardAssets.Vehicles.Car.CarUserControl.Instance.break_Input > 0)// Input.GetKeyDown("space"))//)
             {
                 OverTime = false;
                 BrakeTime = Times;
@@ -98,7 +98,7 @@ public class VIVE : MonoBehaviour
                 IsEvent = true;
             }
 
-            if (BrakeTime == 0 && IsEvent && Input.GetKeyDown("space")) //UnityStandardAssets.Vehicles.Car.CarUserControl.Instance.break_Input > 0 ) //Input.GetKeyDown("space"))
+            if (BrakeTime == 0 && IsEvent && UnityStandardAssets.Vehicles.Car.CarUserControl.Instance.break_Input > 0 ) //Input.GetKeyDown("space"))
             {
                 OverTime = false;
                 BrakeTime = Times;
@@ -128,7 +128,7 @@ public class VIVE : MonoBehaviour
                 IsEvent = true;
             }
 
-            if (BrakeTime == 0 && IsEvent && Input.GetKeyDown("space")) //UnityStandardAssets.Vehicles.Car.CarUserControl.Instance.break_Input > 0) //Input.GetKeyDown("space"))
+            if (BrakeTime == 0 && IsEvent && UnityStandardAssets.Vehicles.Car.CarUserControl.Instance.break_Input > 0) //Input.GetKeyDown("space"))
             {
                 OverTime = false;
                 BrakeTime = Times;
@@ -158,7 +158,7 @@ public class VIVE : MonoBehaviour
                 IsEvent = true;
             }
 
-            if (BrakeTime == 0 && IsEvent && Input.GetKeyDown("space")) //UnityStandardAssets.Vehicles.Car.CarUserControl.Instance.break_Input > 0 ) //Input.GetKeyDown("space"))
+            if (BrakeTime == 0 && IsEvent && UnityStandardAssets.Vehicles.Car.CarUserControl.Instance.break_Input > 0 ) //Input.GetKeyDown("space"))
             {
                 OverTime = false;
                 BrakeTime = Times;
