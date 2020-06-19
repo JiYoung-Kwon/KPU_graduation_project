@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ScenarioTrigger : MonoBehaviour
 {
+    public GameObject BlueCar;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +24,8 @@ public class ScenarioTrigger : MonoBehaviour
             case "Scenario3Trigger":
                 if (other.name == "=====MyCar=====")
                 {
-                    Debug.Log("시나리오 3 진입");                 
+                    Debug.Log("시나리오 3 진입");
+                    BlueCar.gameObject.SetActive(true);
                 }
                 break;
 

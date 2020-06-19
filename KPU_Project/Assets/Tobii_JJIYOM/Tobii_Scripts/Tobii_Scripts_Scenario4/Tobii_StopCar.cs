@@ -22,24 +22,13 @@ namespace Tobii
         public GameObject FrontCar;
 
         public bool CarStop = false;
+
         private void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.CompareTag("Player"))
             {
                 CarStop = true;
             }
-        }
-
-        // Start is called before the first frame update
-        void Start()
-        {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
         }
     }
 }

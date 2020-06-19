@@ -32,6 +32,9 @@ namespace Tobii
         public GameObject myCar;
         public GameObject NextCar;
 
+        public GameObject FirstTrigger;
+        public GameObject SecondTrigger;
+
         public bool IsFail = false;
         public int FailCheck = 0;
 
@@ -40,16 +43,6 @@ namespace Tobii
         {
             agent = GetComponent<NavMeshAgent>();
 
-            //자동차 도착지점에서 브레이크 효과
-            //agent.autoBraking = true;
-
-            //var group = GameObject.Find("WayPointGroup");
-            //if (group !=null)
-            //{
-            //    group.GetComponentsInChildren<Transform>(WayPoint);
-
-            //}
-            //WayPoint.RemoveAt(0);
             MoveWayPoint();
         }
 
@@ -67,12 +60,17 @@ namespace Tobii
         {
             //Debug.Log(NextCar.gameObject.GetComponent<NavMeshAgent>().speed);
             //60km/h 기준으로
+            //현재 Nav Speed 값 : 20.8333 -> 75km/h 
+            //변경 천천히 달리게 35km/h 9.72222
             //70~75km/h, 약 6.6초로 달리기, 약 139m
+
+            //첫 트리거
+            AccelTrigger();
             // 트리거를 지났을 경우
             TriggerPass();
+
             //Debug.Log(NextCar.gameObject.GetComponent<NavMeshAgent>().remainingDistance);
-
-
+      
             if (agent.velocity.sqrMagnitude >= 0.2f * 0.2f && agent.remainingDistance <= 0.5f)
             {
                 if (Nextidx < 3)
@@ -89,10 +87,26 @@ namespace Tobii
 
         }
 
-        void TriggerPass()
+        void AccelTrigger() //앞에 있는 트리거 지났을 경우
         {
-            if (Tobii_StopCar.STOPCAR.CarStop)
+            //속도 증가 (추월 수준)
+            if (EventTrigger.ET.firstTrigger)
             {
+                Debug.Log("추월합시다.");
+                agent.speed = 20.8333f;
+
+                //secondTrigger 키고          
+                SecondTrigger.gameObject.SetActive(true);
+                //firstTrigger 끄고
+                FirstTrigger.gameObject.SetActive(false);
+            }
+        }
+
+        void TriggerPass() //계속 불리는 건 확인
+        {    
+            if (EventTrigger.ET.secondTrigger)
+            {
+                Debug.Log("부딪힘");
                 times += Time.deltaTime;
                 //GazeEvent.Instance.IsEvent = true;
 
@@ -115,7 +129,7 @@ namespace Tobii
                     NextCar.gameObject.GetComponent<NavMeshAgent>().SetDestination(inin);
                 }
 
-                if (NextCar.gameObject.GetComponent<NavMeshAgent>().velocity.sqrMagnitude >= 0.2f * 0.2f && NextCar.gameObject.GetComponent<NavMeshAgent>().remainingDistance < 3f) //5 거리 안에 들어오면 도착으로 침
+                if (/*NextCar.gameObject.GetComponent<NavMeshAgent>().velocity.sqrMagnitude >= 0.2f * 0.2f &&*/ NextCar.gameObject.GetComponent<NavMeshAgent>().remainingDistance < 3f) //5 거리 안에 들어오면 도착으로 침
                     IsArrive = true;
             }
         }
