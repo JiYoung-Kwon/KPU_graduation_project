@@ -106,7 +106,7 @@ namespace UnityStandardAssets.Vehicles.Car
 
         public void GetInput()
         {
-            LogitechGSDK.DIJOYSTATE2ENGINES recs = LogitechGSDK.LogiGetStateUnity(1);
+            LogitechGSDK.DIJOYSTATE2ENGINES recs = LogitechGSDK.LogiGetStateUnity(0);
 
             Debug.Log(recs);
 

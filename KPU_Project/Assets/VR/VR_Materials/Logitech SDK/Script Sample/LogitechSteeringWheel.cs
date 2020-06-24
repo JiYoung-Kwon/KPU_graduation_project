@@ -10,7 +10,7 @@ public class LogitechSteeringWheel : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        //Debug.Log("SteeringInit:" + LogitechGSDK.LogiSteeringInitialize(false));
+        Debug.Log("SteeringInit:" + LogitechGSDK.LogiSteeringInitialize(false));
         LogitechGSDK.LogiPlaySpringForce(0, 0, 20, -40);
         LogitechGSDK.LogiPlaySpringForce(1, 0, 20, 40);
         //LogitechGSDK.LogiPlayConstantForce(0, -100);
@@ -25,9 +25,9 @@ public class LogitechSteeringWheel : MonoBehaviour
         //Debug.Log(LogitechGSDK.LogiPlaySpringForce(0, 0, 0, -100) + "  " + LogitechGSDK.LogiPlaySpringForce(1,0,0,-100) + "   " + LogitechGSDK.LogiPlayConstantForce(0, -100)+"   "+ LogitechGSDK.LogiPlayConstantForce(1, -100));
        
         //All the test functions are called on the first device plugged in(index = 0)
-        if (LogitechGSDK.LogiUpdate() && LogitechGSDK.LogiIsConnected(1))
+        if (LogitechGSDK.LogiUpdate() && LogitechGSDK.LogiIsConnected(0))
         {
-            LogitechGSDK.DIJOYSTATE2ENGINES recs = LogitechGSDK.LogiGetStateUnity(1);
+            LogitechGSDK.DIJOYSTATE2ENGINES recs = LogitechGSDK.LogiGetStateUnity(0);
 
             // 첫번째는 기기 , 두번째는 스프링 중심값, 세번째는 스프링 강도, 네번째는 편향
             LogitechGSDK.LogiPlaySpringForce(0, 0, 20, -40);
