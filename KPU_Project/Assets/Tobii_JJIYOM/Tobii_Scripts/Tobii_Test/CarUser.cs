@@ -58,50 +58,50 @@ namespace UnityStandardAssets.Vehicles.Car
         private void FixedUpdate()
         {
             // pass the input to the car!
-            float h = CrossPlatformInputManager.GetAxis("Horizontal");
-            float v = CrossPlatformInputManager.GetAxis("Vertical");
-            //GetInput(); //logitech 값 받아오기
-            //Steer(); //핸들 회전
-            //RPM(); //계기판, rpm
-            //CarSpeed(); //속도계
+            //float h = CrossPlatformInputManager.GetAxis("Horizontal");
+            //float v = CrossPlatformInputManager.GetAxis("Vertical");
+            GetInput(); //logitech 값 받아오기
+            Steer(); //핸들 회전
+            RPM(); //계기판, rpm
+            CarSpeed(); //속도계
 
-            //float h = handle_Input;
-            //float v = accel_Input;
-            //float b = break_Input;
+            float h = handle_Input;
+            float v = accel_Input;
+            float b = break_Input;
 #if !MOBILE_INPUT
             float handbrake = CrossPlatformInputManager.GetAxis("Jump");
 
-            //if (drivingMode == -1)
+            if (drivingMode == -1)
                 m_Car.Move(h, v, v, handbrake);
-            //else if (drivingMode == 1)
-            //    m_Car.Move(h, -v, -v, handbrake);//Move(float steering, float accel, float footbrake, float handbrake)
-            //else
-            //{ }
+            else if (drivingMode == 1)
+                m_Car.Move(h, -v, -v, handbrake);//Move(float steering, float accel, float footbrake, float handbrake)
+            else
+            { }
 #else
             m_Car.Move(h, v, v, 0f);
             
 #endif
-            //if (break_Input > 0)
-            //{
+            if (break_Input > 0)
+            {
 
-            //    for (int i = 0; i < 4; i++)
-            //    {
-            //        CarController.Carcontroller.m_WheelColliders[i].motorTorque = 0f;
-            //        CarController.Carcontroller.m_WheelColliders[i].brakeTorque = break_Input * 100000f;
-            //        //m_Car.Move(h, v, v, handbrake);
-            //    }
-            //}
-            //else
-            //{
-            //    if (CarController.Carcontroller.CurrentSpeed <= 0.0001f)
-            //    {
-            //        for (int i = 0; i < 4; i++)
-            //        {
-            //            CarController.Carcontroller.m_WheelColliders[i].motorTorque = 1f;
-            //            CarController.Carcontroller.m_WheelColliders[i].brakeTorque = 0f;
-            //        }
-            //    }
-            //}
+                for (int i = 0; i < 4; i++)
+                {
+                    CarController.Carcontroller.m_WheelColliders[i].motorTorque = 0f;
+                    CarController.Carcontroller.m_WheelColliders[i].brakeTorque = break_Input * 100000f;
+                    //m_Car.Move(h, v, v, handbrake);
+                }
+            }
+            else
+            {
+                if (CarController.Carcontroller.CurrentSpeed <= 0.0001f)
+                {
+                    for (int i = 0; i < 4; i++)
+                    {
+                        CarController.Carcontroller.m_WheelColliders[i].motorTorque = 1f;
+                        CarController.Carcontroller.m_WheelColliders[i].brakeTorque = 0f;
+                    }
+                }
+            }
         }
 
         public void GetInput()
