@@ -21,11 +21,12 @@ namespace Tobii
 
         public bool firstTrigger = false;
         public bool secondTrigger = false;
-
+        public bool IsScenario3 = true;
         private void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.CompareTag("Player") && this.name == "FirstTrigger")
             {
+                IsScenario3 = true;
                 Debug.Log("첫 트리거");
                 firstTrigger = true;
             }

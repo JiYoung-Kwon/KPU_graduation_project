@@ -34,7 +34,7 @@ public class SuddenCar : MonoBehaviour
     {
         while (Car.transform.position != Target.transform.position)
         {
-            Car.transform.position = Vector3.MoveTowards(Car.transform.position, Target.transform.position, 1f);
+            Car.transform.position = Vector3.MoveTowards(Car.transform.position, Target.transform.position, 0.5f);
             yield return new WaitForSeconds(0.01f);
         }
     }

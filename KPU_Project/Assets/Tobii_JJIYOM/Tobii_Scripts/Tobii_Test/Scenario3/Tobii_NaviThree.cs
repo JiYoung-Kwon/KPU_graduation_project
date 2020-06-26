@@ -35,8 +35,7 @@ namespace Tobii
         public GameObject FirstTrigger;
         public GameObject SecondTrigger;
 
-        public bool IsFail = false;
-        public bool IsScenario3 = false;
+        public bool IsFail = false;    
         public int FailCheck = 0;
 
         // Start is called before the first frame update
@@ -103,7 +102,7 @@ namespace Tobii
             }
         }
 
-        void TriggerPass() //계속 불리는 건 확인
+        public void TriggerPass() //계속 불리는 건 확인
         {    
             if (EventTrigger.ET.secondTrigger)
             {
@@ -124,7 +123,6 @@ namespace Tobii
                 }
                 else //끼어드는거
                 {
-                    IsScenario3 = true;
                     Debug.Log("끼어드는중");
                     Vector3 inin = new Vector3(-58.3f, 0, myCar.transform.localPosition.z + 13f);
                     //NextCar.gameObject.GetComponent<NavMeshAgent>().speed = 19.5f;

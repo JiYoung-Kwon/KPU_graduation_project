@@ -2480,8 +2480,8 @@ MonoBehaviour:
   Loading_canvas: {fileID: 1951053390}
   ID_PW_canvas: {fileID: 592335468}
   Menu_canvas: {fileID: 1806687236}
-  VR_Scene_Name: VR_Scenario1
-  TOBII_Scene_Name: Tobii_Scenario1
+  VR_Scene_Name: VR_Integrated
+  TOBII_Scene_Name: Tobii_Integrated
   Record_Scene_Name: Record_Scene
   loading_object: {fileID: 961662990}
 --- !u!1 &919858575

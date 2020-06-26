@@ -4,7 +4,25 @@ using UnityEngine;
 
 public class ScenarioTrigger : MonoBehaviour
 {
+    private static ScenarioTrigger instance = null;
+    public static ScenarioTrigger Instance
+    {
+        get { return instance; }
+    }
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            return;
+        }
+    }
+
     public GameObject BlueCar;
+    
     // Start is called before the first frame update
     void Start()
     {

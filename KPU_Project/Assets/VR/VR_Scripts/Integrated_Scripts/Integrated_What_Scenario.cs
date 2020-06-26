@@ -20,7 +20,7 @@ public class Integrated_What_Scenario : MonoBehaviour
             return;
         }
     }
-
+    public bool IsScenario1 = false;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +38,7 @@ public class Integrated_What_Scenario : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("신호등반응 On");
+            IsScenario1 = true;
             Integrated_TrafficLight.Instance.Change_Traffic_Light_Start = true;
         }
     }

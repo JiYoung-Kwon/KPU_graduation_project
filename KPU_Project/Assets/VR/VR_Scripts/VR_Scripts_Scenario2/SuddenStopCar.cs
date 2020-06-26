@@ -32,6 +32,7 @@ public class SuddenStopCar : MonoBehaviour
     }
     public void Light_On()
     {
+        Integrated_VIVE.Instance.Times = 0;
         CarStop = true;
         IsScenario2 = true;
         RealCollider.SetActive(true);
