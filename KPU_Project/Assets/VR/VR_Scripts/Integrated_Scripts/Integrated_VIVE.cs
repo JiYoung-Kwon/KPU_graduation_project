@@ -175,13 +175,7 @@ public class Integrated_VIVE : MonoBehaviour
             Debug.Log("VR_Scenario3" + EyesTime + "," + BrakeTime);
             VR_NaviThree.NAVI.CarStop = false;
 
-        }
-        else
-        {
-            Debug.Log("준형 병신");
-        }
-
-        
+        }        
     }
     void Check_Scenario4()
     {
@@ -250,6 +244,7 @@ public class Integrated_VIVE : MonoBehaviour
     // 각 시나리오 전환이벤트 받을 때 마다 초기화 기켜주기
     public void InitEvent()
     {
+        OverTime = true;
         IsSee = false;
         IsEvent = false;
         EyesTime = 0f;
