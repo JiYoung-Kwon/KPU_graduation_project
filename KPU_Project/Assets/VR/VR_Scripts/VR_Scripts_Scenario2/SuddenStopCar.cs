@@ -22,6 +22,7 @@ public class SuddenStopCar : MonoBehaviour
     public GameObject Car_Light3;
     public GameObject RealCollider;
     public bool CarStop = false;
+    public bool IsScenario2 = false;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -32,12 +33,12 @@ public class SuddenStopCar : MonoBehaviour
     public void Light_On()
     {
         CarStop = true;
+        IsScenario2 = true;
         RealCollider.SetActive(true);
         Car_Light.gameObject.SetActive(true);
         Car_Light1.gameObject.SetActive(true);
         Car_Light2.gameObject.SetActive(true);
         Car_Light3.gameObject.SetActive(true);
-
         // 지정차량 부모자식 해제하여 차 멈추게 하기
         // Make_Rigidbody.MAKE_RIGIDBODY.Rigidbody();
         // FrontCar.transform.parent = FrontCar.transform.parent.parent;

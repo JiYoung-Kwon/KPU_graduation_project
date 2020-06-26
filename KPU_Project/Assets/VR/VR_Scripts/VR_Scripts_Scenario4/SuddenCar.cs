@@ -9,6 +9,7 @@ public class SuddenCar : MonoBehaviour
 
     //private Animator anim;
     public bool CarGo = false;
+    public bool IsScenario4 = false;
     private static SuddenCar suddencar;
     public static SuddenCar SUDDENCAR
     {
@@ -25,22 +26,16 @@ public class SuddenCar : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             CarGo = true;
+            IsScenario4 = true;
             StartCoroutine(Go());
         }
     }
     IEnumerator Go()
     {
-        //anim = start.GetComponent<Animator>();
-        //anim.SetBool("Run", true);
         while (Car.transform.position != Target.transform.position)
         {
-            //if (anim.GetBool("Dead"))
-            //{
-            //    break;
-            //}
             Car.transform.position = Vector3.MoveTowards(Car.transform.position, Target.transform.position, 1f);
             yield return new WaitForSeconds(0.01f);
         }
-        //anim.SetBool("Run", false);
     }
 }

@@ -26,6 +26,7 @@ public class Integrated_TrafficLight : MonoBehaviour
     public GameObject Green;
 
     public bool Change_Traffic_Light_Start = false;
+    public bool IsScenario1 = false;
 
     public int green_t;
     public int Red_t;
@@ -37,7 +38,7 @@ public class Integrated_TrafficLight : MonoBehaviour
     void Start()
     {
         // 색 시간 설정
-        green_t = 8;
+        green_t = 10;
         Red_t = 4;
 
         // 처음 시작 후 Red꺼짐
@@ -67,6 +68,7 @@ public class Integrated_TrafficLight : MonoBehaviour
             }
             if (Red.active)
             {
+                IsScenario1 = true;
                 times += Time.deltaTime;
                 if (times > Red_t)
                 {
