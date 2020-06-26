@@ -35,7 +35,9 @@ namespace Tobii
         public GameObject FirstTrigger;
         public GameObject SecondTrigger;
 
-        public bool IsFail = false;    
+        public bool IsFail = false;
+        public bool CarStop = false;
+
         public int FailCheck = 0;
 
         // Start is called before the first frame update
@@ -73,14 +75,14 @@ namespace Tobii
       
             if (agent.velocity.sqrMagnitude >= 0.2f * 0.2f && agent.remainingDistance <= 0.5f)
             {
-                if (Nextidx < 3)
+                if (Nextidx < 5)
                 {
                     Nextidx = ++Nextidx % WayPoint.Count;
                     MoveWayPoint();
                 }
                 else
                 {
-                    Nextidx = 4;
+                    Nextidx = 6;
 
                 }
             }
@@ -93,7 +95,7 @@ namespace Tobii
             if (EventTrigger.ET.firstTrigger)
             {
                 Debug.Log("추월합시다.");
-                agent.speed = 20.8333f;
+                agent.speed = 22.2222f; //80km/h
 
                 //secondTrigger 키고          
                 SecondTrigger.gameObject.SetActive(true);
@@ -123,6 +125,9 @@ namespace Tobii
                 }
                 else //끼어드는거
                 {
+                    CarStop = true;
+                    Integrated_Tobii.Instance.Times = 0;
+                    Integrated_Tobii.Instance.Scenario3Check = true;
                     Debug.Log("끼어드는중");
                     Vector3 inin = new Vector3(-58.3f, 0, myCar.transform.localPosition.z + 13f);
                     //NextCar.gameObject.GetComponent<NavMeshAgent>().speed = 19.5f;

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SuddenStopCar : MonoBehaviour
 {
@@ -31,8 +32,12 @@ public class SuddenStopCar : MonoBehaviour
         }
     }
     public void Light_On()
-    {
-        Integrated_VIVE.Instance.Times = 0;
+    {   
+        if (SceneManager.GetActiveScene().name == "Tobii_Integrated")
+            Tobii.Integrated_Tobii.Instance.Times = 0;
+        else if (SceneManager.GetActiveScene().name == "VR_Integrated")
+            Integrated_VIVE.Instance.Times = 0;
+
         CarStop = true;
         IsScenario2 = true;
         RealCollider.SetActive(true);

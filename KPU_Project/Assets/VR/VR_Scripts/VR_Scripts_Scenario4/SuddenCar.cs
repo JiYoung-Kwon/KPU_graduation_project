@@ -25,6 +25,7 @@ public class SuddenCar : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            Debug.Log("가자");
             CarGo = true;
             IsScenario4 = true;
             StartCoroutine(Go());
