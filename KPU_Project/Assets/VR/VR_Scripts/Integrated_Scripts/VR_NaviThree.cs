@@ -123,9 +123,7 @@ public class VR_NaviThree : MonoBehaviour
             }
             else //끼어드는거
             {               
-                CarStop = true;
-                Integrated_VIVE.Instance.Times = 0;
-                Integrated_VIVE.Instance.Scenario3Check = true;
+                
                 Debug.Log("끼어드는중");
                 Vector3 inin = new Vector3(-58.3f, 0, myCar.transform.localPosition.z + 13f);
                 //NextCar.gameObject.GetComponent<NavMeshAgent>().speed = 19.5f;

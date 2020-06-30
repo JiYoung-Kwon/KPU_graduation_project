@@ -55,7 +55,6 @@ public class Integrated_VIVE : MonoBehaviour
             Check_Scenario3();
         }
         
-        Debug.Log("t");
         Check_Scenario4();
 
         if (Integrated_What_Scenario.Instance.IsScenario1)
@@ -67,6 +66,7 @@ public class Integrated_VIVE : MonoBehaviour
         else if (Tobii.EventTrigger.ET.IsScenario3)
         {
             Tobii.EventTrigger.ET.IsScenario3 = false;
+            Times = 0;
             InitEvent();
         }
         else if (SuddenCar.SUDDENCAR.IsScenario4)
@@ -89,7 +89,7 @@ public class Integrated_VIVE : MonoBehaviour
                 IsEvent = true;
             }
 
-            if (BrakeTime == 0 && IsEvent && UnityStandardAssets.Vehicles.Car.CarUser.Instance.break_Input > 0)// Input.GetKeyDown("space"))//)
+            if (BrakeTime == 0 && IsEvent && UnityStandardAssets.Vehicles.Car.CarUser.Instance.break_Input > 0.1)// Input.GetKeyDown("space"))//)
             {
                 OverTime = false;
                 BrakeTime = Times;
@@ -101,8 +101,8 @@ public class Integrated_VIVE : MonoBehaviour
         }
         if (Integrated_TrafficLight.Instance.GreenOff && Times > 3 && OverTime)
         {
-            EyesTime = Times;
-            BrakeTime = Times;
+            EyesTime = 3;
+            BrakeTime = 3;
             OverTime = false;
             Manager.VR_Manager.Instance.Add_VR_Data("VR_Scenario1", EyesTime, BrakeTime);
             Debug.Log("VR_Scenario1" + EyesTime + "," + BrakeTime);
@@ -121,7 +121,7 @@ public class Integrated_VIVE : MonoBehaviour
                 IsEvent = true;
             }
 
-            if (BrakeTime == 0 && IsEvent && UnityStandardAssets.Vehicles.Car.CarUser.Instance.break_Input > 0) //Input.GetKeyDown("space"))
+            if (BrakeTime == 0 && IsEvent && UnityStandardAssets.Vehicles.Car.CarUser.Instance.break_Input > 0.1) //Input.GetKeyDown("space"))
             {
                 OverTime = false;
                 BrakeTime = Times;
@@ -134,9 +134,8 @@ public class Integrated_VIVE : MonoBehaviour
         else if (StopCar_Red.active && Times > 3 && OverTime)
         {
             OverTime = false;
-            EyesTime = Times;
-            BrakeTime = Times;
-            OverTime = true;
+            EyesTime = 3;
+            BrakeTime = 3;
             Manager.VR_Manager.Instance.Add_VR_Data("VR_Scenario2", EyesTime, EyesTime);
             Debug.Log("VR_Scenario2" + EyesTime + "," + BrakeTime);
             StopCar_Red.active = false;
@@ -146,7 +145,6 @@ public class Integrated_VIVE : MonoBehaviour
     {
         if (VR_NaviThree.NAVI.CarStop)
         {
-
             Times += Time.deltaTime;
             if (EyesTime == 0 && IsSee)
             {
@@ -154,7 +152,7 @@ public class Integrated_VIVE : MonoBehaviour
                 IsEvent = true;
             }
 
-            if (BrakeTime == 0 && IsEvent && UnityStandardAssets.Vehicles.Car.CarUser.Instance.break_Input > 0) //Input.GetKeyDown("space"))
+            if (BrakeTime == 0 && IsEvent && UnityStandardAssets.Vehicles.Car.CarUser.Instance.break_Input > 0.1) //Input.GetKeyDown("space"))
             {
 
                 OverTime = false;
@@ -168,8 +166,8 @@ public class Integrated_VIVE : MonoBehaviour
         else if (VR_NaviThree.NAVI.CarStop && Times > 3 && OverTime)
         {
 
-            EyesTime = Times;
-            BrakeTime = Times;
+            EyesTime = 3;
+            BrakeTime = 3;
             OverTime = false;
             Manager.VR_Manager.Instance.Add_VR_Data("VR_Scenario3", EyesTime, EyesTime);
             Debug.Log("VR_Scenario3" + EyesTime + "," + BrakeTime);
@@ -189,7 +187,7 @@ public class Integrated_VIVE : MonoBehaviour
                 IsEvent = true;
             }
 
-            if (BrakeTime == 0 && IsEvent && UnityStandardAssets.Vehicles.Car.CarUser.Instance.break_Input > 0) //Input.GetKeyDown("space"))
+            if (BrakeTime == 0 && IsEvent && UnityStandardAssets.Vehicles.Car.CarUser.Instance.break_Input > 0.1) //Input.GetKeyDown("space"))
             {
                 OverTime = false;
                 BrakeTime = Times;
@@ -203,8 +201,8 @@ public class Integrated_VIVE : MonoBehaviour
         }
         else if (SuddenCar.SUDDENCAR.CarGo && Times > 3 && OverTime)
         {
-            EyesTime = Times;
-            BrakeTime = Times;
+            EyesTime = 3;
+            BrakeTime = 3;
             OverTime = false;
             Manager.VR_Manager.Instance.Add_VR_Data("VR_Scenario4", EyesTime, EyesTime);
             Debug.Log("VR_Scenario4" + EyesTime + "," + BrakeTime);
