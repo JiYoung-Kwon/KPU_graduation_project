@@ -30,7 +30,7 @@ public class LogitechSteeringWheel : MonoBehaviour
             LogitechGSDK.DIJOYSTATE2ENGINES recs = LogitechGSDK.LogiGetStateUnity(0);
 
             // 첫번째는 기기 , 두번째는 스프링 중심값, 세번째는 스프링 강도, 네번째는 편향
-            LogitechGSDK.LogiPlaySpringForce(0, 0, 20, -40);
+            LogitechGSDK.LogiPlaySpringForce(0, 0, 20, 0);
             LogitechGSDK.LogiPlaySpringForce(1, 0, 20, 40);
 
             //Debug.Log("핸들 :" + recs.lX);

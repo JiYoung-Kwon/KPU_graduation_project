@@ -60,6 +60,7 @@ namespace Tobii
 
             if (Integrated_What_Scenario.Instance.IsScenario1)
             {
+                Integrated_What_Scenario.Instance.IsScenario1 = false;
                 Integrated_TrafficLight.Instance.IsScenario1 = false;
                 Times = 0;
                 InitEvent();
@@ -196,9 +197,18 @@ namespace Tobii
                     Debug.Log(BrakeTime);
                     Manager.TOBII_Manager.Instance.Add_TOBII_Data("TOBII_Scenario4", EyesTime, EyesTime);
                     Debug.Log("TOBII_Scenario4" + EyesTime + "," + BrakeTime);
-                    UI_Manager.Instance.ViewResult();
-                    Manager.TOBII_Manager.Instance.Is_Danger();
+                    UI_Manager.Instance.ViewResult();                 
                     SuddenCar.SUDDENCAR.CarGo = false;
+                    Manager.TOBII_Manager.Instance.check_Danger(); //시나리오 1,2,3,4 통과 여부, 전체 위험군 여부
+
+                    Manager.DB_sqlite_Manager.Instance.DB_Query("Update Account Set Scenario1 = " + Manager.TOBII_Manager.Instance.scenario1Danger
+                        + ", Scenario2 = " + Manager.TOBII_Manager.Instance.scenario2Danger
+                        + ", Scenario3 = " + Manager.TOBII_Manager.Instance.scenario3Danger
+                        + ", Scenario4 = " + Manager.TOBII_Manager.Instance.scenario4Danger
+                        + ", Is_Danger = " + Manager.TOBII_Manager.Instance.TotalDanger
+                        + " Where ID = " + save_user_data.Instance.Save_ID);
+
+                    Manager.TOBII_Manager.Instance.Is_Danger();
                 }
             }
             else if (SuddenCar.SUDDENCAR.CarGo && Times > 3 && OverTime)
@@ -210,13 +220,24 @@ namespace Tobii
                 Debug.Log("TOBII_Scenario4" + EyesTime + "," + BrakeTime);
                 SuddenCar.SUDDENCAR.CarGo = false;
                 UI_Manager.Instance.ViewResult();
+                Manager.TOBII_Manager.Instance.check_Danger(); //시나리오 1,2,3,4 통과 여부, 전체 위험군 여부
+
+                Manager.DB_sqlite_Manager.Instance.DB_Query("Update Account Set Scenario1 = " + Manager.TOBII_Manager.Instance.scenario1Danger
+                    + ", Scenario2 = " + Manager.TOBII_Manager.Instance.scenario2Danger
+                    + ", Scenario3 = " + Manager.TOBII_Manager.Instance.scenario3Danger
+                    + ", Scenario4 = " + Manager.TOBII_Manager.Instance.scenario4Danger
+                    + ", Is_Danger = " + Manager.TOBII_Manager.Instance.TotalDanger
+                    + " Where ID = " + save_user_data.Instance.Save_ID);
+
                 Manager.TOBII_Manager.Instance.Is_Danger();
             }
+
+            
         }
 
         public void OnTriggerEnter(Collider other)
         {
-            //Debug.Log(other.name);
+            Debug.Log("부딪힌 콜라이더는 " + other.name);
 
             if (other.name.Equals(red_Signal.name))
             {

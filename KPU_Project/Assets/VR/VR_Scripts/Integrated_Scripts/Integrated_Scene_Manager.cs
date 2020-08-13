@@ -54,4 +54,15 @@ public class Integrated_Scene_Manager : MonoBehaviour
             }
         }
     }
+
+    public void Result()
+    {
+        Debug.Log("눌림");
+        SceneManager.LoadScene("Record_Scene");
+    }
+
+    public void GameExit()
+    {
+        Application.Quit();
+    }
 }

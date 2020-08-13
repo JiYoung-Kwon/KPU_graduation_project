@@ -73,14 +73,14 @@ public class VR_NaviThree : MonoBehaviour
 
         if (agent.velocity.sqrMagnitude >= 0.2f * 0.2f && agent.remainingDistance <= 0.5f)
         {
-            if (Nextidx < 3)
+            if (Nextidx < 5)
             {
                 Nextidx = ++Nextidx % WayPoint.Count;
                 MoveWayPoint();
             }
             else
             {
-                Nextidx = 4;
+                Nextidx = 6;
 
             }
         }
@@ -93,7 +93,7 @@ public class VR_NaviThree : MonoBehaviour
         if (Tobii.EventTrigger.ET.firstTrigger)
         {
             Debug.Log("추월합시다.");
-            agent.speed = 20.8333f;
+            agent.speed = 22.2222f;
 
             //secondTrigger 키고          
             SecondTrigger.gameObject.SetActive(true);

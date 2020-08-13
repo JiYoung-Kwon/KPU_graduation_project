@@ -23,6 +23,8 @@ public class UI_Manager : MonoBehaviour
     }
 
     public GameObject ResultPanel;
+    public Camera ResultCamera;
+    public Camera mainCamera;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +40,10 @@ public class UI_Manager : MonoBehaviour
     public void ViewResult() //결과 보여주는 함수
     {
         ResultPanel.SetActive(true); //패널 ON
+        ResultCamera.gameObject.SetActive(true);
+        //카메라 전환
+        ResultCamera.enabled = true;
+        mainCamera.enabled = false;
         //Time.timeScale = 0.1f;
     }
 }

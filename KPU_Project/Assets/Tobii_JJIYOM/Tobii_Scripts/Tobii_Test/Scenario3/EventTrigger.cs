@@ -33,7 +33,7 @@ namespace Tobii
             else if (other.gameObject.CompareTag("Player") && this.name == "SecondTrigger")
             {
                 secondTrigger = true;
-                VR_NaviThree.NAVI.CarStop = true;
+                Tobii_NaviThree.NAVI.CarStop = true;
                 Integrated_VIVE.Instance.Scenario3Check = true;
             }
         }
