@@ -19,6 +19,7 @@ public class VR_CarStop : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            //Integrated_VIVE.Instance.Times = 0;
             CarStop = true;
         }
     }

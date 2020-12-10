@@ -115,7 +115,7 @@ namespace UnityStandardAssets.Vehicles.Car
 
         public void GetInput()
         {
-            LogitechGSDK.DIJOYSTATE2ENGINES recs = LogitechGSDK.LogiGetStateUnity(1);
+            LogitechGSDK.DIJOYSTATE2ENGINES recs = LogitechGSDK.LogiGetStateUnity(0);
 
             handle_Input = (recs.lX / 32768f);
             accel_Input = (1 - (recs.lY / 32767f)) / 2;

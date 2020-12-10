@@ -58,7 +58,7 @@ public class CarController : MonoBehaviour
     Vector3 vec_pre;
     void Update()
     {
-        LogitechGSDK.DIJOYSTATE2ENGINES recs = LogitechGSDK.LogiGetStateUnity(1);
+        LogitechGSDK.DIJOYSTATE2ENGINES recs = LogitechGSDK.LogiGetStateUnity(0);
         //if (FOVE2.Fove2.Times > FOVE2.Fove2.RandTime)
         //{
         //    times += Time.deltaTime;
@@ -71,7 +71,7 @@ public class CarController : MonoBehaviour
     }
     public void GetInput()
     {
-        LogitechGSDK.DIJOYSTATE2ENGINES recs = LogitechGSDK.LogiGetStateUnity(1);
+        LogitechGSDK.DIJOYSTATE2ENGINES recs = LogitechGSDK.LogiGetStateUnity(0);
 
         handle_Input = (recs.lX / 32768f);
         accel_Input = (1 - (recs.lY / 32767f)) / 2;
@@ -179,7 +179,7 @@ public class CarController : MonoBehaviour
     // Accel페달을  밟는 세기에 따른 RPM 수치 변화
     void Rpm()
     {
-        LogitechGSDK.DIJOYSTATE2ENGINES recs = LogitechGSDK.LogiGetStateUnity(1);
+        LogitechGSDK.DIJOYSTATE2ENGINES recs = LogitechGSDK.LogiGetStateUnity(0);
         if ((recs.lY / 32767f) == 1) Rpm_Power = 0;
         else if ((recs.lY / 32767f) > 0.75)
             Rpm_Power = 1;
@@ -206,7 +206,7 @@ public class CarController : MonoBehaviour
     // 브레이크 페달을 밟는 세기에 따른 브레이크 값 변화
     void Break_Sensor()
     {
-        LogitechGSDK.DIJOYSTATE2ENGINES recs = LogitechGSDK.LogiGetStateUnity(1);
+        LogitechGSDK.DIJOYSTATE2ENGINES recs = LogitechGSDK.LogiGetStateUnity(0);
         if ((recs.lRz / 32767f) == 1) Break_Power = 0;
         else if ((recs.lRz / 32767f) > 0.75)
             Break_Power = 0.3f;
@@ -244,7 +244,7 @@ public class CarController : MonoBehaviour
     {
         //if (GameStart)
             LogitechGSDK.LogiSteeringInitialize(true);
-            if (LogitechGSDK.LogiUpdate() && LogitechGSDK.LogiIsConnected(1))
+            if (LogitechGSDK.LogiUpdate() && LogitechGSDK.LogiIsConnected(0))
             {
                 //LogitechGSDK.LogiPlayDamperForce(1, 40);
                 LogitechGSDK.LogiPlaySpringForce(1,0,50,40);

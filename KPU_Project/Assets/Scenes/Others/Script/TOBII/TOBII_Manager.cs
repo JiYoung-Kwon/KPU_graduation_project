@@ -84,9 +84,9 @@ namespace Manager
 
         public void check_Danger()
         {
-            scenario1Danger = scenario1(0);
-            scenario2Danger = scenario2(1);
-            scenario3Danger = scenario3(2);
+            scenario1Danger = scenario1(2);
+            scenario2Danger = scenario2(0);
+            scenario3Danger = scenario3(1);
             scenario4Danger = scenario4(3);
             TotalDanger = check_TotalDanger();
         }
