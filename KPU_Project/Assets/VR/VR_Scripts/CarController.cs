@@ -246,8 +246,8 @@ public class CarController : MonoBehaviour
             LogitechGSDK.LogiSteeringInitialize(true);
             if (LogitechGSDK.LogiUpdate() && LogitechGSDK.LogiIsConnected(1))
             {
-                LogitechGSDK.LogiPlayDamperForce(1, 40);
-                //LogitechGSDK.LogiPlaySpringForce(1,0,50,40);
+                //LogitechGSDK.LogiPlayDamperForce(1, 40);
+                LogitechGSDK.LogiPlaySpringForce(1,0,50,40);
                 GetInput();
                 Steer();
                 Accel();
